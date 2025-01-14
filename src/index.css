@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+/* @import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities'; */
+
+/* ------------------------ */
+/* * BASE */
+/* ------------------------ */
+
+html{
+  scroll-behavior: smooth;
+  /* cursor: 'url("./assets/cursor.png"), auto', */
+}
+
+body{
+  @apply bg-zinc-900 text-zinc-50 h-[200vh];
+  ::selection{
+    @apply bg-yellow-400 text-green-900;
+  }
+}
+
+
