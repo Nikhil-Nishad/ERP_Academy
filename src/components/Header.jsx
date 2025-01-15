@@ -7,16 +7,17 @@ const Header = () => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
-    <header className="bg-green-900 text-white px-4 py-3 flex justify-between items-center">
+    <header className="bg-green-900 text-white px-4 py-3 flex justify-between items-center flex-wrap">
       {/* Logo Section */}
       <div className="flex items-center space-x-4">
-        <div className="w-32 max-h-20 h-auto object-contain">
+        <div className="w-24 md:w-32 max-h-16 md:max-h-20 h-auto object-contain">
+          <a href="#"></a>
           <img src={logo} alt="ERP_Academy" className="object-contain" />
         </div>
       </div>
 
       {/* Navigation Section */}
-      <div className="hidden md:flex space-x-6">
+      <div className="hidden md:flex space-x-6 flex-grow justify-center">
         <nav>
           <ul className="flex space-x-6">
             <li>
@@ -45,7 +46,7 @@ const Header = () => {
 
       {/* Book a Session Button */}
       <a href="#contact">
-        <button className="bg-yellow-400 text-green-900 px-4 py-2 rounded-lg hover:bg-yellow-500">
+        <button className="bg-yellow-400 text-green-900 px-4 py-2 rounded-lg hover:bg-yellow-500 hidden md:block">
           Book a Free Session
         </button>
       </a>

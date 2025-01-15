@@ -3,7 +3,7 @@ import success from "../assets/success.png";
 
 const RoadmapSap = () => {
   return (
-    <section id="roadmap" className="bg-white py-12 px-6 min-h-screen">
+    <section id="roadmap" className="bg-white py-12 px-6 ">
       <div className="grid grid-cols-1 lg:grid-cols-2 max-w-7xl mx-auto items-center gap-12">
         {/* Instructor Section */}
         <div className="w-full flex justify-center">
@@ -21,7 +21,9 @@ const RoadmapSap = () => {
           </h2>
           <div className="relative">
             {/* Vertical Line */}
-            <div className="absolute left-40 lg:left-3 top-0 h-full w-1 bg-green-900"></div>
+            <div className="absolute left-40 lg:left-3 top-0 h-full w-1 bg-green-900 hidden md:block"></div>
+
+            {/* Timeline */}
             <ul className="timeline timeline-vertical space-y-8 pl-8 lg:pl-12">
               {[
                 {

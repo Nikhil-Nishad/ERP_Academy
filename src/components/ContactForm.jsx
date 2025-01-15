@@ -54,6 +54,7 @@ function ContactForm() {
               type="email"
               name="email"
               placeholder="Enter your email"
+              required
               className="w-full p-3 border border-green-300 rounded focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent text-green-800 font-semibold"
             />
             <ValidationError
@@ -72,6 +73,7 @@ function ContactForm() {
               Phone Number
             </label>
             <input
+              required
               id="phone"
               type="tel"
               name="phone"
@@ -91,7 +93,7 @@ function ContactForm() {
             <textarea
               id="message"
               name="message"
-              rows="4"
+              rows="2"
               placeholder="Enter your message"
               className="w-full p-3 border border-green-300 rounded focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent text-green-800"
             ></textarea>

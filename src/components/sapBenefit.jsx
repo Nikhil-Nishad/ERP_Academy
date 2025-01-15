@@ -1,15 +1,16 @@
 import React from "react";
-import sap from "../assets/sap.png";
+import sap from "../assets/sap.jpg";
 
 const SapBenefit = () => {
   return (
-    <section id="about" className="bg-green-800 py-12 px-6 min-h-screen">
+    <section id="about" className="bg-green-800 py-12 px-6">
       <div className="flex flex-col lg:flex-row max-w-7xl mx-auto items-center justify-between h-full">
+        {/* Text Section */}
         <div className="text-center lg:text-left py-3 flex-1">
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+          <h2 className="text-3xl lg:text-5xl font-bold text-white mb-6">
             The Power of SAP in the Industry
           </h2>
-          <p className="text-lg lg:text-xl text-white leading-relaxed max-w-3xl mx-auto lg:mx-0">
+          <p className="text-base lg:text-xl text-white leading-relaxed max-w-3xl mx-auto lg:mx-0">
             SAP is the backbone of business operations across industries. From
             finance and supply chain to HR and customer relationship management,
             SAP drives efficiency and innovation.
@@ -85,11 +86,13 @@ const SapBenefit = () => {
             </li>
           </ul>
         </div>
+
+        {/* Image Section */}
         <div className="lg:w-1/2 mt-8 lg:mt-0 flex-1">
           <img
             src={sap}
             alt="SAP Benefits"
-            className="w-full h-auto max-h-[70vh] object-contain"
+            className="w-full h-auto max-h-[20vh] object-contain mx-auto lg:max-h-[70vh]"
           />
         </div>
       </div>

@@ -3,7 +3,7 @@ import profilePic from "../assets/heroPic.png";
 
 const HeroSection = () => {
   return (
-    <section className="bg-green-800 text-white px-6 py-12">
+    <section className="bg-green-800 text-white px-12 py-2">
       <div className="max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center">
         {/* Text Section */}
         <div className="text-center md:text-left md:w-1/2 space-y-6">
@@ -12,8 +12,7 @@ const HeroSection = () => {
               ERP Academy
             </h1>
           </div>
-          {/* <h2 className="text-4xl font-bold mb-4 md:text-5xl">ERP Academy</h2> */}
-          <p className="text-xl mb-4">Master SAP with Akshay</p>
+          <p className="text-xl mb-4 font-semibold text-yellow-400">Master SAP with Akshay</p>
           <p className="font-bold text-lg">
             Learn from an experienced professional and unlock endless career
             opportunities.
@@ -38,7 +37,9 @@ const HeroSection = () => {
         </div>
 
         {/* Image Section */}
-        <div className="md:w-1/2 mt-8 md:mt-0 flex justify-center">
+        <div
+          className="md:w-1/2 mt-8 md:mt-0 flex justify-center"
+        >
           <img
             src={profilePic}
             alt="Akshay Kumar"
