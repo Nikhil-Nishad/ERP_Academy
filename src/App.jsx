@@ -2,11 +2,13 @@
 import React from "react";
 import Header from "./components/Header";
 import HeroSection from "./components/HeroSection";
-// import TrustedCompanies from "./components/TrustedCompanies";
+import SapBenefit from "./components/sapBenefit";
 import AboutSection from "./components/AboutSection";
-// import ServicesBenefits from "./components/ServicesBenefits";
-// import ClientTestimonials from "./components/ClientTestimonials";
-// import CallToAction from "./components/CallToAction";
+import RoadmapSap from "./components/RoadmapSap";
+import CourseDetail from "./components/CourseDetail";
+import UpcomingCourse from "./components/UpcomingCourse";
+import ContactForm from "./components/ContactForm";
+import ScrollTopBtn from "./components/ScrollTopBtn";
 import Footer from "./components/Footer";
 
 const App = () => {
@@ -15,10 +17,12 @@ const App = () => {
       <Header />
       <HeroSection />
       <AboutSection />
-      {/* <TrustedCompanies /> */}
-      {/* <ServicesBenefits />
-      <ClientTestimonials />
-      <CallToAction /> */}
+      <SapBenefit />
+      <RoadmapSap />
+      <CourseDetail />
+      <UpcomingCourse />
+      <ContactForm />
+      <ScrollTopBtn />
       <Footer />
     </div>
   );
