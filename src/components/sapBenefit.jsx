@@ -1,5 +1,5 @@
 import React from "react";
-import sap from "../assets/sap.jpg";
+import sap from "../assets/sap.webp";
 
 const SapBenefit = () => {
   return (

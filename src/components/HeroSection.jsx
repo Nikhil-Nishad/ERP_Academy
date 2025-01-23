@@ -1,5 +1,5 @@
 import React from "react";
-import profilePic from "../assets/heroPic.png";
+import profilePic from "../assets/heroPic.webp";
 
 const HeroSection = () => {
   return (

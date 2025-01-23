@@ -1,5 +1,5 @@
 import React from "react";
-import profilePic from "../assets/heroPic.png";
+import profilePic from "../assets/heroPic.webp";
 import sansera_work_1 from "../assets/sansera_work_1.png";
 import liteon_work_2 from "../assets/liteon_work_2.png";
 import motherson_work_3 from "../assets/motherson_work_3.png";

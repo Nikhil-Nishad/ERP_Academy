@@ -1,5 +1,5 @@
 import React from "react";
-import success from "../assets/success.png";
+import success from "../assets/success.webp";
 
 const RoadmapSap = () => {
   return (
