@@ -12,9 +12,7 @@ const AboutSection = () => {
       {/* Profile Section */}
       <div className="grid grid-cols-1 md:grid-cols-2 max-w-6xl mx-auto items-center gap-10">
         {/* Profile Image */}
-        <div
-          className="relative flex justify-center md:justify-start"
-        >
+        <div className="relative flex justify-center md:justify-start">
           <img
             src={arrow}
             alt="Decorative arrow pointing to the instructor"
