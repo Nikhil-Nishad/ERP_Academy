@@ -1,0 +1,12 @@
+{
+  "/api/blog/generate/route": "/api/blog/generate",
+  "/api/cron/daily-blog/route": "/api/cron/daily-blog",
+  "/api/seo/optimize/route": "/api/seo/optimize",
+  "/_not-found/page": "/_not-found",
+  "/robots.txt/route": "/robots.txt",
+  "/sitemap.xml/route": "/sitemap.xml",
+  "/feed.xml/route": "/feed.xml",
+  "/page": "/",
+  "/blog/[slug]/page": "/blog/[slug]",
+  "/blog/page": "/blog"
+}
