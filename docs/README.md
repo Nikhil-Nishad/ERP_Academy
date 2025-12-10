@@ -1,42 +1,58 @@
-# Documentation Index
+# ERP Academy - Documentation
 
-This directory contains comprehensive documentation for the ERP Academy Next.js website.
+Welcome to the ERP Academy documentation. All project documentation is organized into the following categories:
 
-## 📚 Available Documentation
+## � Documentation Structure
 
-### Migration & Setup
+### [migration](./migration/)
 
-- [**FINAL_MIGRATION_REPORT.md**](FINAL_MIGRATION_REPORT.md) - Complete migration from React to Next.js report
-- [**MIGRATION_STATUS.md**](MIGRATION_STATUS.md) - Migration progress and status updates
-- [**FINAL_SUCCESS_SUMMARY.md**](FINAL_SUCCESS_SUMMARY.md) - Summary of successful project completion
+Documentation related to the Next.js 15 migration process
 
-### Features & Functionality
+- `MIGRATION_COMPLETE_SUMMARY.md` - Overview of completed migration
+- `NEXTJS_MIGRATION_CHECKLIST.md` - Migration checklist and tasks
+- `MIGRATION_STATUS.md` - Migration status and progress
+- `FINAL_MIGRATION_REPORT.md` - Final migration report and summary
+- `ADVANCED_FEATURES_COMPLETE.md` - Advanced features implementation details
 
-- [**ADVANCED_FEATURES_COMPLETE.md**](ADVANCED_FEATURES_COMPLETE.md) - Advanced features implementation details
-- [**BLOG_MANAGEMENT.md**](BLOG_MANAGEMENT.md) - Blog system and content management guide
+### [deployment](./deployment/)
 
-### Deployment
+Deployment guides and production documentation
 
-- [**DEPLOYMENT_GUIDE.md**](DEPLOYMENT_GUIDE.md) - Comprehensive deployment instructions
-- [**DEPLOYMENT_SUCCESS.md**](DEPLOYMENT_SUCCESS.md) - Deployment success report and optimizations
+- `DEPLOYMENT_GUIDE.md` - Step-by-step deployment guide
+- `DEPLOYMENT_SUCCESS.md` - Deployment success stories and logs
+- `FINAL_SUCCESS_SUMMARY.md` - Final production deployment summary
+
+### [development](./development/)
+
+Development guides, cleanup, and optimization documentation
+
+- `CLEANUP_GUIDE.md` - Project cleanup procedures
+- `QUICK_CLEANUP.md` - Quick reference for cleanup tasks
+- `PERFORMANCE_OPTIMIZATION.md` - Performance optimization strategies and results
+
+### [blog](./blog/)
+
+Blog management and content documentation
+
+- `BLOG_MANAGEMENT.md` - Blog content management guide
+
+### [archive](./archive/)
+
+Archived documentation and old reference files
+
+- `README-REVAMP.md` - Previous README iterations
 
 ## 🔗 Quick Links
 
-### For Developers
+- [Main Project README](../README.md)
+- [License](../LICENSE)
+- [Environment Variables](../.env.example)
 
-1. Start with [FINAL_MIGRATION_REPORT.md](FINAL_MIGRATION_REPORT.md) for project overview
-2. Check [DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md) for hosting setup
-3. Read [BLOG_MANAGEMENT.md](BLOG_MANAGEMENT.md) for content updates
+## � Getting Started
 
-### For Project Managers
+For first-time contributors or developers, we recommend reading the documentation in this order:
 
-- [FINAL_SUCCESS_SUMMARY.md](FINAL_SUCCESS_SUMMARY.md) - High-level project summary
-- [DEPLOYMENT_SUCCESS.md](DEPLOYMENT_SUCCESS.md) - Production deployment status
-
-## 📝 Notes
-
-All documentation is kept up-to-date with the latest project changes. For the main README, see [../README.md](../README.md).
-
----
-
-_Last Updated: December 2025_
+1. [Main README](../README.md) - Project overview and setup
+2. [Development Guide](./development/CLEANUP_GUIDE.md) - Development best practices
+3. [Deployment Guide](./deployment/DEPLOYMENT_GUIDE.md) - Deployment procedures
+4. [Migration Report](./migration/FINAL_MIGRATION_REPORT.md) - Technical architecture and history
