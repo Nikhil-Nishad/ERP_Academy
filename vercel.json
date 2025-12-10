@@ -5,14 +5,6 @@
       "schedule": "0 6 * * *"
     }
   ],
-  "functions": {
-    "src/app/api/blog/generate/route.ts": {
-      "maxDuration": 30
-    },
-    "src/app/api/seo/optimize/route.ts": {
-      "maxDuration": 20
-    }
-  },
   "headers": [
     {
       "source": "/(.*)",
