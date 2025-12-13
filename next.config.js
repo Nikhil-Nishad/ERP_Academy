@@ -39,6 +39,13 @@ const nextConfig = {
   env: {
     CUSTOM_KEY: "ERP_Academy_NextJS",
   },
+  // Modern browser targets to reduce legacy JavaScript
+  transpilePackages: [],
+  modularizeImports: {
+    "lucide-react": {
+      transform: "lucide-react/dist/esm/icons/{{kebabCase member}}",
+    },
+  },
   async headers() {
     return [
       {
