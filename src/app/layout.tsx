@@ -4,7 +4,6 @@ import { Toaster } from 'react-hot-toast'
 import { TooltipProvider } from '@/components/ui/tooltip'
 import { generateSEO, organizationSchema, personSchema } from '@/lib/seo'
 import GoogleAnalytics from '@/components/GoogleAnalytics'
-import FacebookPixel from '@/components/FacebookPixel'
 import './globals.css'
 
 const inter = Inter({
@@ -73,7 +72,6 @@ export default function RootLayout({
       </head>
       <body className={`${inter.className} min-h-screen font-sans antialiased`}>
         <GoogleAnalytics />
-        <FacebookPixel />
         <TooltipProvider>
           {children}
           <Toaster

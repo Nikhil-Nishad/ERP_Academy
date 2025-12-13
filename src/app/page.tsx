@@ -3,26 +3,44 @@
 /**
  * Main Home Page Component for Next.js
  * Migrated from React App.jsx with enhanced SEO and performance
+ * Uses dynamic imports to optimize bundle size
  */
 
 import React from "react";
+import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import EnhancedHeroSection from "@/components/EnhancedHeroSection";
 import EnhancedAboutSection from "@/components/EnhancedAboutSection";
-import BenefitsSection from "@/components/sapBenefit";
-import LearningRoadmap from "@/components/RoadmapSap";
-import ComprehensiveCourses from "@/components/CourseDetail";
-import UpcomingCourses from "@/components/UpcomingCourse";
-import TestimonialsSection from "@/components/TestimonialsSection";
-import FAQSection from "@/components/FAQSection";
-import ContactForm from "@/components/ContactForm";
-import ScrollTopBtn from "@/components/ScrollTopBtn";
-import Footer from "@/components/Footer";
-import { 
-  SocialProofNotification, 
-  FOMOBanner 
-} from "@/components/PsychologicalTriggers";
+
+// Dynamic imports for below-fold components - improves initial load time
+const BenefitsSection = dynamic(() => import("@/components/sapBenefit"), {
+  loading: () => <div className="min-h-[400px] animate-pulse bg-gray-100" />
+});
+const LearningRoadmap = dynamic(() => import("@/components/RoadmapSap"), {
+  loading: () => <div className="min-h-[400px] animate-pulse bg-gray-100" />
+});
+const ComprehensiveCourses = dynamic(() => import("@/components/CourseDetail"), {
+  loading: () => <div className="min-h-[400px] animate-pulse bg-gray-100" />
+});
+const UpcomingCourses = dynamic(() => import("@/components/UpcomingCourse"), {
+  loading: () => <div className="min-h-[400px] animate-pulse bg-gray-100" />
+});
+const TestimonialsSection = dynamic(() => import("@/components/TestimonialsSection"), {
+  loading: () => <div className="min-h-[400px] animate-pulse bg-gray-100" />
+});
+const FAQSection = dynamic(() => import("@/components/FAQSection"), {
+  loading: () => <div className="min-h-[300px] animate-pulse bg-gray-100" />
+});
+const ContactForm = dynamic(() => import("@/components/ContactForm"), {
+  loading: () => <div className="min-h-[500px] animate-pulse bg-gray-100" />
+});
+const ScrollTopBtn = dynamic(() => import("@/components/ScrollTopBtn"));
+const Footer = dynamic(() => import("@/components/Footer"), {
+  loading: () => <div className="min-h-[300px] animate-pulse bg-gray-900" />
+});
+const SocialProofNotification = dynamic(() => import("@/components/PsychologicalTriggers").then(mod => ({ default: mod.SocialProofNotification })));
+const FOMOBanner = dynamic(() => import("@/components/PsychologicalTriggers").then(mod => ({ default: mod.FOMOBanner })));
 
 export default function HomePage() {
   return (
