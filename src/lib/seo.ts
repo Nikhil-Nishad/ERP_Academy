@@ -13,9 +13,9 @@ export interface SEOProps {
 }
 
 export function generateSEO({
-  title = 'Master SAP with Expert Training | ERP Academy by Akshay - #1 SAP Institute',
-  description = '🚀 Transform your career with India\'s #1 SAP training institute! Expert-led SAP MM, HANA & FI courses by Akshay Kumar. 6+ years experience, 500+ students placed. Free consultation available!',
-  keywords = ['SAP training India', 'SAP MM course', 'SAP HANA training', 'SAP FI certification', 'ERP Academy', 'Akshay Kumar SAP trainer'],
+  title = 'Master SAP Training | ERP Academy by Akshay - #1',
+  description = 'Transform your career with India\'s #1 SAP training. Expert SAP MM, HANA & FI courses. 6+ years experience, 500+ placed. Free consultation!',
+  keywords = ['SAP training India', 'SAP MM course', 'SAP HANA training', 'SAP FI certification', 'ERP Academy', 'Akshay Kumar SAP trainer', 'SAP job placement', 'SAP certification'],
   canonicalUrl = 'https://erp-academy.vercel.app/',
   ogImage = 'https://erp-academy.vercel.app/assets/new_heroPic.webp',
   ogType = 'website',
@@ -65,7 +65,7 @@ export function generateSEO({
       images: [ogImage]
     },
     verification: {
-      google: 'your-google-verification-code',
+      google: process.env.NEXT_PUBLIC_GSC_VERIFICATION || 'pending-verification',
       yandex: 'your-yandex-verification-code',
       yahoo: 'your-yahoo-verification-code'
     },

@@ -20,12 +20,17 @@ const nextConfig = {
   poweredByHeader: false,
   reactStrictMode: true,
   swcMinify: true,
+  output: "standalone",
   experimental: {
     optimizePackageImports: [
       "framer-motion",
       "lucide-react",
       "@radix-ui/react-accordion",
       "@radix-ui/react-slot",
+      "@radix-ui/react-tabs",
+      "@radix-ui/react-tooltip",
+      "@radix-ui/react-dropdown-menu",
+      "react-markdown",
     ],
   },
   compiler: {

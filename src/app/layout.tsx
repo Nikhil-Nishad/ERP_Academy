@@ -3,12 +3,17 @@ import { Inter } from 'next/font/google'
 import { Toaster } from 'react-hot-toast'
 import { TooltipProvider } from '@/components/ui/tooltip'
 import { generateSEO, organizationSchema, personSchema } from '@/lib/seo'
+import GoogleAnalytics from '@/components/GoogleAnalytics'
+import FacebookPixel from '@/components/FacebookPixel'
 import './globals.css'
 
 const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-inter'
+  variable: '--font-inter',
+  preload: true,
+  adjustFontFallback: true,
+  fallback: ['system-ui', 'arial']
 })
 
 export const metadata: Metadata = generateSEO({})
@@ -29,7 +34,6 @@ export default function RootLayout({
         <link rel="manifest" href="/manifest.json" />
 
         {/* Preload critical resources */}
-        <link rel="preload" href="/assets/logo_fit.png" as="image" type="image/png" />
         <link rel="preload" href="/assets/new_heroPic.webp" as="image" type="image/webp" />
 
         {/* Alternate feeds */}
@@ -68,6 +72,8 @@ export default function RootLayout({
         <meta name="format-detection" content="telephone=no" />
       </head>
       <body className={`${inter.className} min-h-screen font-sans antialiased`}>
+        <GoogleAnalytics />
+        <FacebookPixel />
         <TooltipProvider>
           {children}
           <Toaster

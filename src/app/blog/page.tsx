@@ -4,8 +4,8 @@ import { getAllPosts } from '@/lib/mdx'
 import { generateSEO } from '@/lib/seo'
 
 export const metadata: Metadata = generateSEO({
-  title: 'SAP Blog | Daily SAP Insights, Tutorials, and Career Guides | ERP Academy',
-  description: 'Stay ahead with daily SAP insights, expert tutorials, and career guides. Curated content for SAP professionals and learners by industry expert Akshay Kumar.',
+  title: 'SAP Blog - Daily Insights & Tutorials | ERP Academy',
+  description: 'Expert SAP tutorials, career guides & daily insights by Akshay Kumar. Learn SAP MM, HANA, FI with industry-proven strategies.',
   keywords: ['SAP blog', 'SAP tutorials', 'SAP career guide', 'SAP MM blog', 'SAP HANA tutorials', 'SAP FI tips', 'SAP insights', 'enterprise resource planning blog'],
   canonicalUrl: 'https://erp-academy.vercel.app/blog',
   ogType: 'website',
