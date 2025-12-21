@@ -13,7 +13,7 @@ export interface SEOProps {
 }
 
 export function generateSEO({
-  title = 'Master SAP Training | ERP Academy by Akshay - #1',
+  title = 'Master SAP MM, HANA, FI Training India | ERP Academy #1',
   description = 'Transform your career with India\'s #1 SAP training. Expert SAP MM, HANA & FI courses. 6+ years experience, 500+ placed. Free consultation!',
   keywords = ['SAP training India', 'SAP MM course', 'SAP HANA training', 'SAP FI certification', 'ERP Academy', 'Akshay Kumar SAP trainer', 'SAP job placement', 'SAP certification'],
   canonicalUrl = 'https://erp-academy.vercel.app/',
@@ -96,7 +96,7 @@ export function generateSEO({
 
 export const organizationSchema = {
   "@context": "https://schema.org",
-  "@type": "EducationalOrganization",
+  "@type": ["EducationalOrganization", "LocalBusiness"],
   "name": "ERP Academy by Akshay",
   "alternateName": "ERP Academy",
   "url": "https://erp-academy.vercel.app/",
