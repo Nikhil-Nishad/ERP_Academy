@@ -80,6 +80,7 @@ export function generateSEO({
       'apple-mobile-web-app-title': 'ERP Academy',
       'application-name': 'ERP Academy',
       'msapplication-tooltip': 'Master SAP with Expert Training',
+      'og:site_name': 'ERP Academy by Akshay',
       'og:email': 'contact@erp-academy.com',
       'og:phone_number': '+91-XXXXXXXXXX',
       'og:latitude': '28.6139',
