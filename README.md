@@ -75,6 +75,16 @@
 - Content Security Policy ready
 - Secure headers configured
 
+### 🤖 Blog Automation
+
+The blog features **AI-powered automatic article generation**:
+
+- **n8n workflow** generates articles twice weekly
+- **GitHub Actions** verify deployment and create PRs
+- **Vercel** deploys previews for review before production
+
+See [docs/BLOG_AUTOMATION.md](docs/BLOG_AUTOMATION.md) for setup and usage.
+
 ---
 
 ## 📂 Project Structure

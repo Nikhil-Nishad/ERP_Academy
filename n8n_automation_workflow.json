@@ -1,0 +1,554 @@
+{
+    "nodes": [
+        {
+            "parameters": {
+                "resource": "file",
+                "operation": "get",
+                "owner": {
+                    "__rl": true,
+                    "value": "Nikhil-Nishad",
+                    "mode": "name"
+                },
+                "repository": {
+                    "__rl": true,
+                    "value": "ERP_Academy",
+                    "mode": "list",
+                    "cachedResultName": "ERP_Academy"
+                },
+                "filePath": "content/posts/index.json",
+                "additionalParameters": {
+                    "reference": "dev"
+                }
+            },
+            "type": "n8n-nodes-base.github",
+            "typeVersion": 1,
+            "position": [
+                1488,
+                1488
+            ],
+            "id": "510dbac0-e3ce-40f0-8882-476ab0c4c3d4",
+            "name": "GitHub: Get index.json",
+            "webhookId": "09fb9792-248f-4325-9930-a0afa70163a4",
+            "credentials": {
+                "githubApi": {
+                    "id": "6wLz58l3wPoA8QBj",
+                    "name": "GitHub account"
+                }
+            }
+        },
+        {
+            "parameters": {
+                "mode": "runOnceForEachItem",
+                "jsCode": "const existingIndex = $input.item.json.data;\n\nif (!Array.isArray(existingIndex)) {\n  throw new Error('index.json content is not an array');\n}\n\nconst editFields = $('Edit Fields1').item.json;\n\nif (!editFields.slug) {\n  throw new Error('Missing slug from Edit Fields node');\n}\n\nif (existingIndex.some(post => post.slug === editFields.slug)) {\n  throw new Error(`Slug already exists: ${editFields.slug}`);\n}\n\nconst dateStr = new Date().toISOString().split('T')[0];\n\nconst newEntry = {\n  id: editFields.slug,\n  slug: editFields.slug,\n  title: editFields.title,\n  date: dateStr,\n  excerpt: editFields.excerpt,\n  author: 'AI Contributor',\n  imageUrl: `/assets/blog_images/${editFields.slug}.webp`,\n  category: editFields.category,\n  tags: Array.isArray(editFields.tags) ? editFields.tags.filter(Boolean) : [],\n  readTime: 10,\n  views: 0,\n  likes: 0,\n  featured: false,\n  status: 'published'\n};\n\n// existingIndex.unshift(newEntry);\nexistingIndex.push(newEntry);\n\n\nreturn {\n  json: {\n    updatedIndex: JSON.stringify(existingIndex, null, 2),\n    sha: $input.item.json.sha\n  }\n};\n"
+            },
+            "id": "8ea28019-d2f1-41d9-a5c8-a590c3fe1d44",
+            "name": "Append to Index",
+            "type": "n8n-nodes-base.code",
+            "typeVersion": 1,
+            "position": [
+                1920,
+                1488
+            ],
+            "notes": "Appends new post metadata to index.json array"
+        },
+        {
+            "parameters": {
+                "resource": "file",
+                "operation": "edit",
+                "owner": {
+                    "__rl": true,
+                    "value": "Nikhil-Nishad",
+                    "mode": "name"
+                },
+                "repository": {
+                    "__rl": true,
+                    "value": "ERP_Academy",
+                    "mode": "list",
+                    "cachedResultName": "ERP_Academy"
+                },
+                "filePath": "content/posts/index.json",
+                "fileContent": "={{ $json.updatedIndex }}",
+                "commitMessage": "=feat(blog): publish {{ $('Edit Fields1').item.json.slug }}",
+                "additionalParameters": {
+                    "branch": {
+                        "branch": "dev"
+                    },
+                    "committer": {
+                        "name": "n8n-automation",
+                        "email": "nikhilnishad1801@gmail.com"
+                    },
+                    "author": {
+                        "name": "n8n-automation",
+                        "email": "nikhilnishad1801@gmail.com"
+                    }
+                }
+            },
+            "type": "n8n-nodes-base.github",
+            "typeVersion": 1,
+            "position": [
+                2144,
+                1488
+            ],
+            "id": "6ab994cf-7843-43a9-affb-f9949c9cf7da",
+            "name": "GitHub: Update index.json",
+            "webhookId": "1b7471e9-953f-4e94-bc36-e4082a1290e2",
+            "credentials": {
+                "githubApi": {
+                    "id": "6wLz58l3wPoA8QBj",
+                    "name": "GitHub account"
+                }
+            }
+        },
+        {
+            "parameters": {
+                "rule": {
+                    "interval": [
+                        {
+                            "field": "cronExpression",
+                            "expression": "0 9 * * 1,4"
+                        }
+                    ]
+                }
+            },
+            "type": "n8n-nodes-base.scheduleTrigger",
+            "typeVersion": 1.1,
+            "position": [
+                32,
+                1488
+            ],
+            "id": "de2d7d57-b2c7-4858-8283-8a6209c70a80",
+            "name": "Schedule Trigger (Mon, Thu)1"
+        },
+        {
+            "parameters": {
+                "promptType": "define",
+                "text": "Choose a good topic for the SAP Blog, make sure that the topic is Informative, popular, and engaging. \nGive me output in json format.",
+                "hasOutputParser": true,
+                "options": {
+                    "systemMessage": "=You are a content strategist for an enterprise SAP/ERP blog.\n\nGenerate ONE high-quality blog post idea based on current trends in:\n- SAP S/4HANA\n- AI in Enterprise\n- Cloud Integrations\n\nOutput strict JSON with the following fields:\n- title: SEO-optimized title\n- slug: URL-friendly-slug-format\n- excerpt: Engaging 2-sentence summary\n- category: 'SAP Tech', 'Enterprise AI', or 'Cloud Strategy'\n- tags: Array of 3-5 relevant tags\n- image_prompt: A detailed, artistic prompt for an AI image generator (like DALL-E 3) to create a cover image for this post. Description should be clean, professional, and abstract tech visualization.\n- image_filename: The slug with .webp extension (e.g., 'sap-ai-trends-2025.webp')\n"
+                }
+            },
+            "type": "@n8n/n8n-nodes-langchain.agent",
+            "typeVersion": 1.6,
+            "position": [
+                256,
+                1488
+            ],
+            "id": "f207645a-9d05-4229-85b6-bff197459cc0",
+            "name": "AI Strategist (Metadata)1",
+            "notes": "Generates Title, Slug, Excerpt, Tags, and Image Prompt."
+        },
+        {
+            "parameters": {
+                "promptType": "define",
+                "text": "Write the full blog post.",
+                "options": {
+                    "systemMessage": "=You are an expert technical writer. Write a comprehensive, engaging blog post effectively using Markdown (MDX).\n\nDetails:\nTitle: {{ $json.title }}\nSlug: {{ $json.slug }}\nExceptions: Do NOT include main frontmatter block, generate ONLY the article content starting from the Introduction header.\n\nStructure:\n1. Title is already handled, start with `# Introduction`.\n2. Use H2 (`##`) and H3 (`###`) for proper hierarchy.\n3. Include code blocks where relevant (e.g., ABAP, JSON, configuration).\n4. Tone: Professional, authoritative, yet accessible.\n5. Length: 1500-2000 words.\n\nContent:\n- Focus on actionable insights.\n- Include 'Key Takeaways' section.\n- Conclude with a 'Future Outlook' section.\n"
+                }
+            },
+            "type": "@n8n/n8n-nodes-langchain.agent",
+            "typeVersion": 1.6,
+            "position": [
+                912,
+                1488
+            ],
+            "id": "b3d01bd2-8cf5-4217-8f7d-d8593a642d84",
+            "name": "AI Writer (Content)1",
+            "notes": "Writes the full MDX content based on the strategist's metadata."
+        },
+        {
+            "parameters": {
+                "url": "={{ $json.data[0].url }}",
+                "options": {}
+            },
+            "type": "n8n-nodes-base.httpRequest",
+            "typeVersion": 4.1,
+            "position": [
+                1088,
+                1776
+            ],
+            "id": "31590fcd-b484-49c0-a013-77ea2b04eda3",
+            "name": "Download Image1",
+            "notes": "Downloads the image URL to binary data."
+        },
+        {
+            "parameters": {
+                "resource": "file",
+                "owner": {
+                    "__rl": true,
+                    "value": "Nikhil-Nishad",
+                    "mode": "name"
+                },
+                "repository": {
+                    "__rl": true,
+                    "value": "ERP_Academy",
+                    "mode": "list",
+                    "cachedResultName": "ERP_Academy"
+                },
+                "filePath": "=public/assets/blog_images/{{ $('Edit Fields1').item.json.slug }}.webp",
+                "binaryData": true,
+                "commitMessage": "=feat(blog): add image for {{ $('Edit Fields1').item.json.slug }}",
+                "additionalParameters": {
+                    "branch": {
+                        "branch": "dev"
+                    },
+                    "committer": {
+                        "name": "n8n-automation",
+                        "email": "nikhilnishad1801@gmail.com"
+                    },
+                    "author": {
+                        "name": "n8n-automation",
+                        "email": "nikhilnishad1801@gmail.com"
+                    }
+                }
+            },
+            "type": "n8n-nodes-base.github",
+            "typeVersion": 1,
+            "position": [
+                1600,
+                1776
+            ],
+            "id": "714b21ac-fcf7-49b2-bf78-9b234d4d0bed",
+            "name": "GitHub: Upload Image1",
+            "webhookId": "7d7b649c-ad07-4979-bf9a-befa0e135b86",
+            "credentials": {
+                "githubApi": {
+                    "id": "6wLz58l3wPoA8QBj",
+                    "name": "GitHub account"
+                }
+            }
+        },
+        {
+            "parameters": {
+                "resource": "file",
+                "owner": {
+                    "__rl": true,
+                    "value": "Nikhil-Nishad",
+                    "mode": "name"
+                },
+                "repository": {
+                    "__rl": true,
+                    "value": "ERP_Academy",
+                    "mode": "list",
+                    "cachedResultName": "ERP_Academy"
+                },
+                "filePath": "=content/posts/{{ $('Edit Fields1').item.json.slug }}.mdx",
+                "fileContent": "=---\nid: {{ $('Edit Fields1').item.json.slug }}\nslug: {{ $('Edit Fields1').item.json.slug }}\ntitle: \"{{ $('Edit Fields1').item.json.title }}\"\ndate: \"{{ $now.format('yyyy-MM-dd') }}\"\nexcerpt: \"{{ $('Edit Fields1').item.json.excerpt }}\"\nauthor: \"AI Contributor\"\nimageUrl: \"/assets/blog_images/{{ $('Edit Fields1').item.json.slug }}.webp\"\ncategory: \"{{ $('Edit Fields1').item.json.category }}\"\ntags: {{ $('Edit Fields1').item.json.tags }}\nreadTime: 10\nviews: 0\nlikes: 0\nfeatured: false\nstatus: \"published\"\n---\n\n{{ $json.output }}\n",
+                "commitMessage": "=feat(blog): add article {{ $('Edit Fields1').item.json.slug }}",
+                "additionalParameters": {
+                    "branch": {
+                        "branch": "dev"
+                    },
+                    "committer": {
+                        "name": "n8n-automation",
+                        "email": "nikhilnishad1801@gmail.com"
+                    },
+                    "author": {
+                        "name": "n8n-automation",
+                        "email": "nikhilnishad1801@gmail.com"
+                    }
+                }
+            },
+            "type": "n8n-nodes-base.github",
+            "typeVersion": 1,
+            "position": [
+                1264,
+                1488
+            ],
+            "id": "af5f97d9-bebe-4dcf-b316-3700025db0e6",
+            "name": "GitHub: Create Post1",
+            "webhookId": "09445123-6389-4c3c-b9b3-a8192fa20e39",
+            "credentials": {
+                "githubApi": {
+                    "id": "6wLz58l3wPoA8QBj",
+                    "name": "GitHub account"
+                }
+            }
+        },
+        {
+            "parameters": {
+                "model": "openai/gpt-oss-120b",
+                "options": {}
+            },
+            "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+            "typeVersion": 1,
+            "position": [
+                256,
+                1712
+            ],
+            "id": "21e60999-f1cb-4147-9c46-79d4f5482d6b",
+            "name": "Groq Chat Model3",
+            "credentials": {
+                "groqApi": {
+                    "id": "ImqtQXrsX2HJns1E",
+                    "name": "Groq account"
+                }
+            }
+        },
+        {
+            "parameters": {
+                "jsonSchemaExample": "{\n  \"title\": \"SAP S/4HANA Migration Guide 2025\",\n  \"slug\": \"sap-s4hana-migration-guide-2025\",\n  \"excerpt\": \"A comprehensive guide on migrating to S/4HANA...\",\n  \"category\": \"SAP Tech\",\n  \"tags\": [\"S/4HANA\", \"Migration\", \"ERP\"],\n  \"image_prompt\": \"Abstract digital landscape showing data migration streams...\",\n  \"image_filename\": \"sap-s4hana-migration-guide-2025.webp\"\n}"
+            },
+            "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+            "typeVersion": 1.2,
+            "position": [
+                400,
+                1712
+            ],
+            "id": "b8242a08-445a-4890-a8bb-b5b459e263f5",
+            "name": "Structured Output Parser3"
+        },
+        {
+            "parameters": {
+                "method": "POST",
+                "url": "https://api.infip.pro/v1/images/generations",
+                "sendHeaders": true,
+                "headerParameters": {
+                    "parameters": [
+                        {
+                            "name": "Authorization",
+                            "value": "Bearer infip-fae42d3e"
+                        }
+                    ]
+                },
+                "sendBody": true,
+                "bodyParameters": {
+                    "parameters": [
+                        {
+                            "name": "model",
+                            "value": "img4"
+                        },
+                        {
+                            "name": "prompt",
+                            "value": "={{ $json.image_prompt }}"
+                        },
+                        {
+                            "name": "n",
+                            "value": "1"
+                        },
+                        {
+                            "name": "size",
+                            "value": "1792x1024"
+                        },
+                        {
+                            "name": "response_format",
+                            "value": "url"
+                        }
+                    ]
+                },
+                "options": {}
+            },
+            "type": "n8n-nodes-base.httpRequest",
+            "typeVersion": 4.3,
+            "position": [
+                800,
+                1776
+            ],
+            "id": "eb4a589c-9601-4a1f-b2da-eab28abdcbc9",
+            "name": "HTTP Request2"
+        },
+        {
+            "parameters": {
+                "mode": "runOnceForEachItem",
+                "jsCode": "$input.item.binary.data.fileName = $('Edit Fields1').item.json.image_filename;\n\nreturn $input.item;\n"
+            },
+            "id": "7eb882cc-c5ea-441a-bc08-d846ddc9e9be",
+            "name": "Rename file1",
+            "type": "n8n-nodes-base.code",
+            "typeVersion": 1,
+            "position": [
+                1376,
+                1776
+            ]
+        },
+        {
+            "parameters": {
+                "mode": "raw",
+                "jsonOutput": "={\n  \"title\": \"{{ $json.output.title }}\",\n  \"slug\": \"{{ $json.output.slug }}\",\n  \"excerpt\": \"{{ $json.output.excerpt }}\",\n  \"category\": \"{{ $json.output.category }}\",\n  \"tags\": [\"{{ $json.output.tags[0] }}\", \"{{ $json.output.tags[1] }}\", \"{{ $json.output.tags[2] }}\", \"{{ $json.output.tags[3] }}\", \"{{ $json.output.tags[4] }}\"],\n  \"image_prompt\": \"{{ $json.output.image_prompt }}\",\n  \"image_filename\": \"{{ $json.output.image_filename }}\"\n}",
+                "options": {}
+            },
+            "type": "n8n-nodes-base.set",
+            "typeVersion": 3.4,
+            "position": [
+                688,
+                1488
+            ],
+            "id": "01cc9155-45f2-44f4-abc8-cc4e5aa43e4d",
+            "name": "Edit Fields1"
+        },
+        {
+            "parameters": {
+                "operation": "fromJson",
+                "options": {}
+            },
+            "type": "n8n-nodes-base.extractFromFile",
+            "typeVersion": 1.1,
+            "position": [
+                1696,
+                1488
+            ],
+            "id": "5315cccc-e80c-49fe-ac17-430b6026a3c3",
+            "name": "Extract from File"
+        }
+    ],
+    "connections": {
+        "GitHub: Get index.json": {
+            "main": [
+                [
+                    {
+                        "node": "Extract from File",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Append to Index": {
+            "main": [
+                [
+                    {
+                        "node": "GitHub: Update index.json",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Schedule Trigger (Mon, Thu)1": {
+            "main": [
+                [
+                    {
+                        "node": "AI Strategist (Metadata)1",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "AI Strategist (Metadata)1": {
+            "main": [
+                [
+                    {
+                        "node": "Edit Fields1",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "AI Writer (Content)1": {
+            "main": [
+                [
+                    {
+                        "node": "GitHub: Create Post1",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Download Image1": {
+            "main": [
+                [
+                    {
+                        "node": "Rename file1",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "GitHub: Create Post1": {
+            "main": [
+                [
+                    {
+                        "node": "GitHub: Get index.json",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Groq Chat Model3": {
+            "ai_languageModel": [
+                [
+                    {
+                        "node": "AI Writer (Content)1",
+                        "type": "ai_languageModel",
+                        "index": 0
+                    },
+                    {
+                        "node": "AI Strategist (Metadata)1",
+                        "type": "ai_languageModel",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Structured Output Parser3": {
+            "ai_outputParser": [
+                [
+                    {
+                        "node": "AI Strategist (Metadata)1",
+                        "type": "ai_outputParser",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "HTTP Request2": {
+            "main": [
+                [
+                    {
+                        "node": "Download Image1",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Rename file1": {
+            "main": [
+                [
+                    {
+                        "node": "GitHub: Upload Image1",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Edit Fields1": {
+            "main": [
+                [
+                    {
+                        "node": "AI Writer (Content)1",
+                        "type": "main",
+                        "index": 0
+                    },
+                    {
+                        "node": "HTTP Request2",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Extract from File": {
+            "main": [
+                [
+                    {
+                        "node": "Append to Index",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        }
+    },
+    "pinData": {},
+    "meta": {
+        "templateCredsSetupCompleted": true,
+        "instanceId": "f55048c8410d940d9e59abcd2bde97f044b64a2b671193ea485c3242f54c6c58"
+    }
+}
