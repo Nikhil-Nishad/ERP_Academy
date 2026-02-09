@@ -8,7 +8,14 @@
     "author": "Akshay Kumar",
     "imageUrl": "/assets/blog_images/img19.webp",
     "category": "SAP Trends",
-    "tags": ["S/4HANA", "Cloud ERP", "AI in SAP", "Career Growth", "Digital Transformation", "RISE with SAP"],
+    "tags": [
+      "S/4HANA",
+      "Cloud ERP",
+      "AI in SAP",
+      "Career Growth",
+      "Digital Transformation",
+      "RISE with SAP"
+    ],
     "readTime": 15,
     "views": 1250,
     "likes": 45,
@@ -24,7 +31,14 @@
     "author": "Akshay Kumar",
     "imageUrl": "/assets/blog_images/img1.webp",
     "category": "Business Intelligence",
-    "tags": ["Analytics", "Business Intelligence", "Machine Learning", "Data Visualization", "Planning", "Predictive Analytics"],
+    "tags": [
+      "Analytics",
+      "Business Intelligence",
+      "Machine Learning",
+      "Data Visualization",
+      "Planning",
+      "Predictive Analytics"
+    ],
     "readTime": 15,
     "views": 680,
     "likes": 38,
@@ -40,7 +54,14 @@
     "author": "Akshay Kumar",
     "imageUrl": "/assets/blog_images/img18.webp",
     "category": "ERP Modernization",
-    "tags": ["ERP Modernization", "S/4HANA Migration", "Digital Transformation", "Process Optimization", "Cloud Migration", "Business Process Reengineering"],
+    "tags": [
+      "ERP Modernization",
+      "S/4HANA Migration",
+      "Digital Transformation",
+      "Process Optimization",
+      "Cloud Migration",
+      "Business Process Reengineering"
+    ],
     "readTime": 17,
     "views": 520,
     "likes": 32,
@@ -56,7 +77,14 @@
     "author": "Akshay Kumar",
     "imageUrl": "/assets/blog_images/img17.webp",
     "category": "Platform Technology",
-    "tags": ["SAP BTP", "Low-Code Development", "Integration", "AI Services", "Cloud Platform", "Enterprise Innovation"],
+    "tags": [
+      "SAP BTP",
+      "Low-Code Development",
+      "Integration",
+      "AI Services",
+      "Cloud Platform",
+      "Enterprise Innovation"
+    ],
     "readTime": 16,
     "views": 490,
     "likes": 28,
@@ -72,7 +100,14 @@
     "author": "Lina Patel",
     "imageUrl": "/assets/blog_images/img16.webp",
     "category": "Compliance",
-    "tags": ["Data Privacy", "Governance", "Compliance", "Security", "GDPR", "Data Protection"],
+    "tags": [
+      "Data Privacy",
+      "Governance",
+      "Compliance",
+      "Security",
+      "GDPR",
+      "Data Protection"
+    ],
     "readTime": 10,
     "views": 345,
     "likes": 22,
@@ -88,7 +123,14 @@
     "author": "Akshay Kumar",
     "imageUrl": "/assets/blog_images/img15.webp",
     "category": "Security",
-    "tags": ["Data Security", "Cybersecurity", "SAP Security", "Compliance", "Cloud Security", "Enterprise Protection"],
+    "tags": [
+      "Data Security",
+      "Cybersecurity",
+      "SAP Security",
+      "Compliance",
+      "Cloud Security",
+      "Enterprise Protection"
+    ],
     "readTime": 12,
     "views": 890,
     "likes": 34,
@@ -104,7 +146,14 @@
     "author": "Akshay Kumar",
     "imageUrl": "/assets/blog_images/img14.webp",
     "category": "Cloud Security",
-    "tags": ["Cloud Security", "Zero Trust", "Identity Management", "Threat Detection", "Compliance", "Cybersecurity"],
+    "tags": [
+      "Cloud Security",
+      "Zero Trust",
+      "Identity Management",
+      "Threat Detection",
+      "Compliance",
+      "Cybersecurity"
+    ],
     "readTime": 13,
     "views": 725,
     "likes": 29,
@@ -120,7 +169,14 @@
     "author": "Maya Rao",
     "imageUrl": "/assets/blog_images/img13.webp",
     "category": "AI Ethics",
-    "tags": ["Responsible AI", "Governance", "Ethics", "Compliance", "AI Framework", "Enterprise AI"],
+    "tags": [
+      "Responsible AI",
+      "Governance",
+      "Ethics",
+      "Compliance",
+      "AI Framework",
+      "Enterprise AI"
+    ],
     "readTime": 10,
     "views": 365,
     "likes": 29,
@@ -136,7 +192,14 @@
     "author": "Akshay Kumar",
     "imageUrl": "/assets/blog_images/img12.webp",
     "category": "IoT Technology",
-    "tags": ["IoT", "Internet of Things", "Smart Operations", "Predictive Maintenance", "Edge Computing", "Digital Transformation"],
+    "tags": [
+      "IoT",
+      "Internet of Things",
+      "Smart Operations",
+      "Predictive Maintenance",
+      "Edge Computing",
+      "Digital Transformation"
+    ],
     "readTime": 14,
     "views": 615,
     "likes": 27,
@@ -152,7 +215,14 @@
     "author": "Akshay Kumar",
     "imageUrl": "/assets/blog_images/img11.webp",
     "category": "Automation",
-    "tags": ["Robotics", "Industrial Automation", "AI", "Manufacturing", "Enterprise Integration", "Cobots"],
+    "tags": [
+      "Robotics",
+      "Industrial Automation",
+      "AI",
+      "Manufacturing",
+      "Enterprise Integration",
+      "Cobots"
+    ],
     "readTime": 8,
     "views": 542,
     "likes": 22,
@@ -168,7 +238,14 @@
     "author": "Akshay Kumar",
     "imageUrl": "/assets/blog_images/img10.webp",
     "category": "Sustainability",
-    "tags": ["Sustainability", "ESG", "Carbon Management", "Circular Economy", "Green Technology", "Environmental Impact"],
+    "tags": [
+      "Sustainability",
+      "ESG",
+      "Carbon Management",
+      "Circular Economy",
+      "Green Technology",
+      "Environmental Impact"
+    ],
     "readTime": 9,
     "views": 728,
     "likes": 31,
@@ -184,7 +261,14 @@
     "author": "Rohit Sharma",
     "imageUrl": "/assets/blog_images/img9.webp",
     "category": "Supply Chain",
-    "tags": ["Business Network", "Collaboration", "Supplier Management", "Cloud", "Supply Chain", "ESG"],
+    "tags": [
+      "Business Network",
+      "Collaboration",
+      "Supplier Management",
+      "Cloud",
+      "Supply Chain",
+      "ESG"
+    ],
     "readTime": 10,
     "views": 325,
     "likes": 18,
@@ -200,7 +284,14 @@
     "author": "Akshay Kumar",
     "imageUrl": "/assets/blog_images/img8.webp",
     "category": "Innovation",
-    "tags": ["Extended Reality", "XR", "Virtual Reality", "Augmented Reality", "Enterprise Training", "Digital Transformation"],
+    "tags": [
+      "Extended Reality",
+      "XR",
+      "Virtual Reality",
+      "Augmented Reality",
+      "Enterprise Training",
+      "Digital Transformation"
+    ],
     "readTime": 10,
     "views": 675,
     "likes": 28,
@@ -216,7 +307,14 @@
     "author": "Akshay Kumar",
     "imageUrl": "/assets/blog_images/img7.webp",
     "category": "Customer Experience",
-    "tags": ["Customer Experience", "Personalization", "Omnichannel", "AI", "Customer Data", "Digital Commerce"],
+    "tags": [
+      "Customer Experience",
+      "Personalization",
+      "Omnichannel",
+      "AI",
+      "Customer Data",
+      "Digital Commerce"
+    ],
     "readTime": 10,
     "views": 834,
     "likes": 36,
@@ -232,7 +330,12 @@
     "author": "Anita Sharma",
     "imageUrl": "/assets/blog_images/img2.webp",
     "category": "SAP Strategy",
-    "tags": ["Digital Transformation", "AI", "Low‑Code", "Cloud"],
+    "tags": [
+      "Digital Transformation",
+      "AI",
+      "Low‑Code",
+      "Cloud"
+    ],
     "readTime": 12,
     "views": 562,
     "likes": 24,
@@ -248,7 +351,11 @@
     "author": "Ravi Patel",
     "imageUrl": "/assets/blog_images/img3.webp",
     "category": "SAP Innovation",
-    "tags": ["AI", "S/4HANA", "Machine Learning"],
+    "tags": [
+      "AI",
+      "S/4HANA",
+      "Machine Learning"
+    ],
     "readTime": 15,
     "views": 748,
     "likes": 33,
@@ -264,7 +371,12 @@
     "author": "Meera Joshi",
     "imageUrl": "/assets/blog_images/img4.webp",
     "category": "SAP Cloud",
-    "tags": ["Cloud", "Scalability", "Microservices", "Integration"],
+    "tags": [
+      "Cloud",
+      "Scalability",
+      "Microservices",
+      "Integration"
+    ],
     "readTime": 18,
     "views": 432,
     "likes": 19,
@@ -280,7 +392,12 @@
     "author": "Priya Desai",
     "imageUrl": "/assets/blog_images/img5.webp",
     "category": "HR & Talent",
-    "tags": ["SuccessFactors", "HR", "AI", "Employee Experience"],
+    "tags": [
+      "SuccessFactors",
+      "HR",
+      "AI",
+      "Employee Experience"
+    ],
     "readTime": 14,
     "views": 395,
     "likes": 21,
@@ -296,10 +413,37 @@
     "author": "Neha Verma",
     "imageUrl": "/assets/blog_images/img17.webp",
     "category": "Platform",
-    "tags": ["BTP", "Low-Code", "AI", "Integration"],
+    "tags": [
+      "BTP",
+      "Low-Code",
+      "AI",
+      "Integration"
+    ],
     "readTime": 16,
     "views": 285,
     "likes": 20,
+    "featured": false,
+    "status": "published"
+  },
+  {
+    "id": "generative-ai-s4hana-cloud-migration",
+    "slug": "generative-ai-s4hana-cloud-migration",
+    "title": "Generative AI Meets S/4HANA: Accelerating Cloud Migration and Intelligent Operations",
+    "date": "2026-02-08",
+    "excerpt": "Discover how generative AI is reshaping S/4HANA cloud migrations, cutting timelines and boosting operational intelligence. Learn practical strategies and real‑world examples that enterprise leaders can apply today.",
+    "author": "AI Contributor",
+    "imageUrl": "/assets/blog_images/generative-ai-s4hana-cloud-migration.webp",
+    "category": "Enterprise AI",
+    "tags": [
+      "S/4HANA",
+      "Generative AI",
+      "Cloud Migration",
+      "Intelligent Enterprise",
+      "SAP Integration"
+    ],
+    "readTime": 10,
+    "views": 0,
+    "likes": 0,
     "featured": false,
     "status": "published"
   }
