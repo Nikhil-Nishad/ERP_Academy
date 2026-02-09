@@ -9,6 +9,12 @@ on:
 
   deployment_status:
 
+# Required permissions for PR creation, merging, and branch management
+permissions:
+  contents: write
+  pull-requests: write
+  deployments: read
+
 jobs:
   # Job 1: Create PR when blog content is pushed to dev
   create-pr:
