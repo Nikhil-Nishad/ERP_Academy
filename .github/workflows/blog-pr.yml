@@ -14,6 +14,7 @@ jobs:
   create-pr:
     if: github.event_name == 'push'
     runs-on: ubuntu-latest
+    continue-on-error: true  # Prevent auxiliary failures from blocking workflow
     outputs:
       pr_number: ${{ steps.create.outputs.pr_number }}
       slug: ${{ steps.extract.outputs.slug }}
@@ -26,14 +27,20 @@ jobs:
       - name: Extract blog slug from commit
         id: extract
         run: |
-          # Get changed files
-          CHANGED=$(git diff --name-only HEAD~1 HEAD)
+          # Get changed files (with fallback for first commit)
+          CHANGED=$(git diff --name-only HEAD~1 HEAD 2>/dev/null || git diff --name-only HEAD)
           echo "Changed files: $CHANGED"
           
-          # Extract slug from MDX filename
-          SLUG=$(echo "$CHANGED" | grep -oP 'content/posts/\K[^.]+' | head -1)
-          echo "slug=$SLUG" >> $GITHUB_OUTPUT
-          echo "Extracted slug: $SLUG"
+          # Extract slug from MDX filename (with safe fallback)
+          SLUG=$(echo "$CHANGED" | grep -oP 'content/posts/\K[^.]+' | head -1 || true)
+          
+          if [ -z "$SLUG" ]; then
+            echo "No blog slug detected, continuing anyway"
+            echo "slug=" >> $GITHUB_OUTPUT
+          else
+            echo "slug=$SLUG" >> $GITHUB_OUTPUT
+            echo "Extracted slug: $SLUG"
+          fi
 
       - name: Check for existing PR
         id: check-pr
@@ -239,7 +246,40 @@ jobs:
           
           **Preview:** $DEPLOY_URL
           
-          $([ "$ALL_PASS" = "true" ] && echo "🎉 **All checks passed! Ready for review and merge.**" || echo "⚠️ **Please verify failed checks manually before merging.**")"
+          $([ "$ALL_PASS" = "true" ] && echo "🎉 **All checks passed! Auto-merging...**" || echo "⚠️ **Please verify failed checks manually before merging.**")"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Auto-merge PR on success
+        if: |
+          steps.find-pr.outputs.pr_number != '' &&
+          steps.verify-article.outputs.article_success == 'true' &&
+          steps.verify-image.outputs.image_success == 'true'
+        run: |
+          PR_NUM="${{ steps.find-pr.outputs.pr_number }}"
+          echo "✅ All checks passed! Auto-merging PR #$PR_NUM with squash..."
+          
+          # Squash merge keeps main branch clean with single commits
+          gh pr merge "$PR_NUM" --squash --delete-branch
+          
+          echo "🎉 PR #$PR_NUM merged to main (squashed) and dev branch deleted!"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Recreate dev branch from main
+        if: |
+          steps.find-pr.outputs.pr_number != '' &&
+          steps.verify-article.outputs.article_success == 'true' &&
+          steps.verify-image.outputs.image_success == 'true'
+        run: |
+          # Wait for merge to complete
+          sleep 5
+          
+          # Recreate dev branch from main for next n8n run
+          git fetch origin main
+          git push origin origin/main:refs/heads/dev
+          
+          echo "✅ dev branch recreated from main (ready for next blog post)"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
