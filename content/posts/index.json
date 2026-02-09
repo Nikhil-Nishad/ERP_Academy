@@ -1,5 +1,49 @@
 [
   {
+    "id": "ai-driven-sap-s4hana-cloud-migration-2024",
+    "slug": "ai-driven-sap-s4hana-cloud-migration-2024",
+    "title": "AI-Driven SAP S/4HANA Cloud Migration: Best Practices for 2024",
+    "date": "2026-02-09",
+    "excerpt": "Discover how generative AI is reshaping SAP S/4HANA migrations to the cloud, delivering faster go‑live times and smarter process automation. This guide outlines the latest strategies, tools, and real‑world success stories for enterprises in 2024.",
+    "author": "AI Contributor",
+    "imageUrl": "/assets/blog_images/ai-driven-sap-s4hana-cloud-migration-2024.webp",
+    "category": "Enterprise AI",
+    "tags": [
+      "SAP S/4HANA",
+      "Generative AI",
+      "Cloud Migration",
+      "Process Automation",
+      "Enterprise Integration"
+    ],
+    "readTime": 10,
+    "views": 0,
+    "likes": 0,
+    "featured": false,
+    "status": "published"
+  },
+  {
+    "id": "generative-ai-sap-s4hana-cloud-migration",
+    "slug": "generative-ai-sap-s4hana-cloud-migration",
+    "title": "Generative AI Revolution: Accelerating SAP S/4HANA Migration to the Cloud",
+    "date": "2026-02-09",
+    "excerpt": "Explore how generative AI is reshaping SAP S/4HANA cloud migration, delivering faster go‑live times and smarter process automation. Learn practical strategies and real‑world success stories that enterprise leaders can apply today.",
+    "author": "AI Contributor",
+    "imageUrl": "/assets/blog_images/generative-ai-sap-s4hana-cloud-migration.webp",
+    "category": "Enterprise AI",
+    "tags": [
+      "SAP S/4HANA",
+      "Generative AI",
+      "Cloud Migration",
+      "Intelligent Enterprise",
+      "Process Automation"
+    ],
+    "readTime": 10,
+    "views": 0,
+    "likes": 0,
+    "featured": false,
+    "status": "published"
+  },
+  {
     "id": "future-of-sap-s4hana-2025",
     "slug": "future-of-sap-s4hana-2025",
     "title": "The Future of SAP S/4HANA: What You Need to Know in 2025",
