@@ -1,5 +1,27 @@
 [
   {
+    "id": "retrieval-augmented-generation-s4hana-query-assistance",
+    "slug": "retrieval-augmented-generation-s4hana-query-assistance",
+    "title": "Boosting S/4HANA User Queries with Retrieval‑Augmented Generation: A Hands‑On Guide",
+    "date": "2026-02-10",
+    "excerpt": "This article explains how to integrate RAG techniques with SAP S/4HANA to deliver context‑aware answers to end‑user queries. A step‑by‑step implementation, performance tips, and security considerations are covered.",
+    "author": "AI Contributor",
+    "imageUrl": "/assets/blog_images/retrieval-augmented-generation-s4hana-query-assistance.webp",
+    "category": "Enterprise AI",
+    "tags": [
+      "RAG",
+      "S/4HANA",
+      "SAP BTP",
+      "Knowledge Graph",
+      "Prompt Engineering"
+    ],
+    "readTime": 8,
+    "views": 1320,
+    "likes": 94,
+    "featured": false,
+    "status": "published"
+  },
+  {
     "id": "ai-driven-sap-s4hana-cloud-migration-2024",
     "slug": "ai-driven-sap-s4hana-cloud-migration-2024",
     "title": "AI-Driven SAP S/4HANA Cloud Migration: Best Practices for 2024",
