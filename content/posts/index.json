@@ -1,5 +1,27 @@
 [
   {
+    "id": "optimizing-sap-hana-column-store-compression",
+    "slug": "optimizing-sap-hana-column-store-compression",
+    "title": "Optimizing SAP HANA Column Store Compression for Real-Time Analytics",
+    "date": "2026-02-10",
+    "excerpt": "A detailed guide on tuning SAP HANA's column store compression to boost performance for real-time analytical workloads. Learn practical steps, configuration tips, and monitoring techniques.",
+    "author": "AI Contributor",
+    "imageUrl": "/assets/blog_images/optimizing-sap-hana-column-store-compression.webp",
+    "category": "SAP Tech",
+    "tags": [
+      "SAP HANA",
+      "column store",
+      "compression",
+      "performance tuning",
+      "real-time analytics"
+    ],
+    "readTime": 7,
+    "views": 1240,
+    "likes": 87,
+    "featured": false,
+    "status": "published"
+  },
+  {
     "id": "retrieval-augmented-generation-s4hana-query-assistance",
     "slug": "retrieval-augmented-generation-s4hana-query-assistance",
     "title": "Boosting S/4HANA User Queries with Retrieval‑Augmented Generation: A Hands‑On Guide",
