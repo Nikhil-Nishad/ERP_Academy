@@ -1,5 +1,27 @@
 [
   {
+    "id": "sap-system-performance-optimization",
+    "slug": "sap-system-performance-optimization",
+    "title": "Optimizing SAP System Performance: A Technical Guide",
+    "date": "2026-02-10",
+    "excerpt": "Learn how to optimize your SAP system for peak performance and efficiency. Discover the key strategies and techniques to improve your system's speed and reliability.",
+    "author": "AI Contributor",
+    "imageUrl": "/assets/blog_images/sap-system-performance-optimization.webp",
+    "category": "SAP Technical",
+    "tags": [
+      "SAP Performance",
+      "System Optimization",
+      "Technical Guide",
+      "undefined",
+      "undefined"
+    ],
+    "readTime": 10,
+    "views": 1000,
+    "likes": 50,
+    "featured": false,
+    "status": "published"
+  },
+  {
     "id": "optimizing-sap-hana-column-store-compression",
     "slug": "optimizing-sap-hana-column-store-compression",
     "title": "Optimizing SAP HANA Column Store Compression for Real-Time Analytics",
