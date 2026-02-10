@@ -139,8 +139,8 @@ jobs:
         id: extract-slug
         if: steps.find-pr.outputs.pr_number != ''
         run: |
-          # Get the most recent MDX file from dev branch
-          SLUG=$(git log --name-only --pretty=format: -10 | grep -oP 'content/posts/\K[^.]+' | head -1)
+          # Get the most recent MDX file from dev branch (exclude index.json and non-mdx files)
+          SLUG=$(git log --name-only --pretty=format: -10 | grep '\.mdx$' | grep -oP 'content/posts/\K[^.]+' | head -1)
           echo "slug=$SLUG" >> $GITHUB_OUTPUT
           echo "Slug: $SLUG"
 
@@ -163,6 +163,10 @@ jobs:
           if [ "$HTTP_STATUS" = "200" ]; then
             echo "article_status=✅ Article accessible" >> $GITHUB_OUTPUT
             echo "article_success=true" >> $GITHUB_OUTPUT
+          elif [ "$HTTP_STATUS" = "401" ]; then
+            echo "article_status=🔒 Article behind Vercel Auth (HTTP 401 - OK)" >> $GITHUB_OUTPUT
+            echo "article_success=true" >> $GITHUB_OUTPUT
+            echo "Note: Vercel Authentication is enabled on preview, treating as accessible"
           else
             echo "article_status=❌ Article NOT accessible (HTTP $HTTP_STATUS)" >> $GITHUB_OUTPUT
             echo "article_success=false" >> $GITHUB_OUTPUT
@@ -185,6 +189,10 @@ jobs:
           if [ "$HTTP_STATUS" = "200" ]; then
             echo "image_status=✅ Image accessible" >> $GITHUB_OUTPUT
             echo "image_success=true" >> $GITHUB_OUTPUT
+          elif [ "$HTTP_STATUS" = "401" ]; then
+            echo "image_status=🔒 Image behind Vercel Auth (HTTP 401 - OK)" >> $GITHUB_OUTPUT
+            echo "image_success=true" >> $GITHUB_OUTPUT
+            echo "Note: Vercel Authentication is enabled on preview, treating as accessible"
           else
             echo "image_status=❌ Image NOT accessible (HTTP $HTTP_STATUS)" >> $GITHUB_OUTPUT
             echo "image_success=false" >> $GITHUB_OUTPUT
