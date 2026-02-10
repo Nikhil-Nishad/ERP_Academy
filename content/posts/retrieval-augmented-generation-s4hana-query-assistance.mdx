@@ -1,0 +1,397 @@
+---
+id: retrieval-augmented-generation-s4hana-query-assistance
+slug: retrieval-augmented-generation-s4hana-query-assistance
+title: "Boosting S/4HANA User Queries with Retrieval‑Augmented Generation: A Hands‑On Guide"
+date: "2026-02-10"
+excerpt: "This article explains how to integrate RAG techniques with SAP S/4HANA to deliver context‑aware answers to end‑user queries. A step‑by‑step implementation, performance tips, and security considerations are covered."
+author: "AI Contributor"
+imageUrl: "/assets/blog_images/retrieval-augmented-generation-s4hana-query-assistance.webp"
+category: "Enterprise AI"
+tags: RAG,S/4HANA,SAP BTP,Knowledge Graph,Prompt Engineering
+readTime: 10
+views: 0
+likes: 0
+featured: false
+status: "published"
+---
+
+# Introduction  
+
+Enterprises running SAP S/4HANA are accustomed to delivering **real‑time, transaction‑ready data** to their users. Yet, when a business user asks a “natural‑language” question—*“Which customers have not paid their invoices for more than 30 days?”*—the system still forces them into a series of menu clicks, report selections, or custom ABAP queries.  
+
+Retrieval‑Augmented Generation (RAG) bridges that gap. By coupling a **large language model (LLM)** with a **domain‑specific knowledge base**, RAG can surface precise answers while grounding the response in the most recent SAP data. This blog post walks you through a **hands‑on, end‑to‑end implementation** that empowers S/4HANA users to ask conversational questions and receive accurate, actionable results directly within Fiori.
+
+> **Who should read this?**  
+> * SAP Basis & Cloud Platform engineers who can provision AI services.  
+> * ABAP developers who will build the front‑end integration.  
+> * Business analysts interested in the technical feasibility of AI‑driven query assistance.
+
+---
+
+## 1. Why RAG Makes Sense for S/4HANA  
+
+| Traditional Approach | RAG‑Enabled Approach |
+|----------------------|----------------------|
+| Pre‑defined reports, dashboards, and custom ABAP queries. | Users type natural‑language questions; the system retrieves relevant documents, runs a live query, and generates a concise answer. |
+| Static data extracts or batch‑loaded knowledge graphs. | Real‑time vector embeddings from SAP HANA, guaranteeing up‑to‑the‑minute accuracy. |
+| High learning curve for non‑technical users. | Conversational UI reduces training overhead and accelerates decision making. |
+
+Key benefits:
+
+1. **Contextual relevance** – The LLM is “augmented” with actual SAP tables, CDS views, and configuration data, preventing hallucinations.  
+2. **Scalability** – Vector stores live in SAP HANA, leveraging the same in‑memory engine that powers S/4HANA.  
+3. **Compliance** – All data stays within the customer’s SAP Cloud Platform (SCP) tenant; no external data exfiltration.  
+
+---
+
+## 2. High‑Level Architecture  
+
+```mermaid
+graph TD
+    A[User (Fiori)] --> B[ABAP OData Service]
+    B --> C[AI Core RAG Service]
+    C --> D[Vector Store (SAP HANA)]
+    D --> E[Live S/4HANA Queries (ABAP CDS Views)]
+    C --> F[LLM (e.g., SAP AI Foundation Model)]
+    style A fill:#E3F2FD,stroke:#90A4AE,stroke-width:2px
+    style B fill:#FFF3E0,stroke:#FFB74D,stroke-width:2px
+    style C fill:#E8F5E9,stroke:#66BB6A,stroke-width:2px
+    style D fill:#F3E5F5,stroke:#AB47BC,stroke-width:2px
+    style E fill:#E0F7FA,stroke:#26C6DA,stroke-width:2px
+    style F fill:#FFFDE7,stroke:#FDD835,stroke-width:2px
+```
+
+**Components**
+
+| Component | Role |
+|-----------|------|
+| **Fiori UI** | Front‑end where users type questions. |
+| **ABAP OData Service** | Thin wrapper that forwards the request to the RAG endpoint and returns the LLM‑generated answer. |
+| **SAP AI Core (RAG Service)** | Orchestrates retrieval from the vector store, runs the LLM, and merges results. |
+| **Vector Store (HANA)** | Stores embeddings of SAP documentation, CDS view metadata, and optionally historic transactional snapshots. |
+| **Live S/4HANA Queries** | Executed on‑the‑fly to fetch up‑to‑date data for the final answer. |
+| **Foundation Model** | Pre‑trained LLM (e.g., SAP’s “BTP‑LLM‑4”) fine‑tuned for SAP terminology. |
+
+---
+
+## 3. Prerequisites  
+
+| Item | Minimum Version / Service |
+|------|---------------------------|
+| SAP S/4HANA | 2022 SPS 04 or later (ABAP 7.55+) |
+| SAP Business Technology Platform (BTP) | Subaccount with **AI Core** and **AI Launchpad** enabled |
+| SAP HANA Cloud | Service instance with **Vector Engine** (available from HANA 2.0 SPS 05) |
+| ABAP Development Tools (ADT) | Eclipse 2022‑12 or VS Code with ABAP extension |
+| Fiori Elements | UI5 version ≥ 1.108 |
+| Optional: SAP AI Business Services | For content‑safety & moderation |
+
+*Tip:* Use the **BTP CLI** (`btp`) to provision services programmatically; the commands are listed in the “Provisioning” section below.
+
+---
+
+## 4. Step‑by‑Step Implementation  
+
+### 4.1. Provision AI Core and HANA Vector Store  
+
+```bash
+# Log in to BTP CLI
+btp login --url https://cpcli.cf.sap.hana.ondemand.com
+
+# Create a subaccount (skip if you already have one)
+btp create accounts/subaccount my-s4-rag --region eu10 --subdomain my-s4-rag
+
+# Enable AI Core service
+btp create service-instance ai-core standard my-ai-core -c '{ "plan":"standard" }'
+
+# Enable HANA Cloud with Vector Engine
+btp create service-instance hana-cloud hana-vector my-hana-vector -c '{
+    "plan":"vector",
+    "configuration": {
+        "memorySize": "32GB",
+        "region": "eu10"
+    }
+}'
+```
+
+After provisioning, note the **service keys** (`btp get-service-key`) for both AI Core and HANA. You will need the `url`, `clientid`, and `clientsecret` for authentication.
+
+### 4.2. Create a Vector Index for SAP Knowledge  
+
+1. **Collect source documents** – Technical documentation, SAP Help PDFs, CDS view definitions, and a curated set of business questions.  
+2. **Generate embeddings** – Use the AI Core **Embedding** endpoint (`/v2/embeddings`).  
+
+```python
+import requests, json, base64, pathlib
+
+# Load service credentials (example from service key)
+creds = json.load(open('ai-core-key.json'))
+token_url = f"{creds['url']}/oauth/token"
+auth = (creds['clientid'], creds['clientsecret'])
+token = requests.post(token_url, data={'grant_type':'client_credentials'}, auth=auth).json()['access_token']
+
+def embed(text):
+    payload = {
+        "model": "text-embedding-ada-002",   # SAP‑provided embedding model
+        "input": text
+    }
+    r = requests.post(f"{creds['url']}/v2/embeddings", headers={'Authorization': f"Bearer {token}"}, json=payload)
+    return r.json()['data'][0]['embedding']
+
+# Example: embed a CDS view description
+cds_path = pathlib.Path('src/zcustomer_invoice.cds')
+with cds_path.open() as f:
+    source = f.read()
+embedding = embed(source)
+
+# Insert into HANA Vector Store (SQL)
+sql = """
+INSERT INTO VECTOR_STORE (DOC_ID, EMBEDDING, METADATA)
+VALUES ('ZCUSTOMER_INVOICE', :embedding, :metadata);
+"""
+# Use pyhdb or sqlalchemy-hana to execute the SQL; omitted for brevity
+```
+
+**Best practice:** Batch‑process all documents nightly and keep the vector store **incrementally updated**. Use a timestamp column (`LAST_MODIFIED`) to identify new or changed assets.
+
+### 4.3. Build the RAG Service on AI Core  
+
+Create a **RAG pipeline** that wires together three components:
+
+| Step | Component | Action |
+|------|-----------|--------|
+| 1 | Retriever | `vector-retriever` – fetches top‑k similar documents from HANA. |
+| 2 | Augmenter | `sql-augmenter` – runs a live CDS view based on retrieved metadata. |
+| 3 | Generator | `foundation-model` – produces the final natural‑language answer. |
+
+**Pipeline definition (JSON)** – Save as `rag-pipeline.json`.
+
+```json
+{
+  "name": "s4hana-query-rag",
+  "description": "RAG pipeline for conversational S/4HANA queries",
+  "steps": [
+    {
+      "name": "retrieve_docs",
+      "type": "vector-retriever",
+      "configuration": {
+        "vectorStore": {
+          "type": "hana",
+          "serviceKey": "hana-vector-key.json"
+        },
+        "topK": 5,
+        "embeddingModel": "text-embedding-ada-002"
+      }
+    },
+    {
+      "name": "run_live_query",
+      "type": "sql-augmenter",
+      "configuration": {
+        "datasource": {
+          "type": "abap",
+          "serviceKey": "s4hana-abap-key.json"
+        },
+        "queryTemplate": "SELECT * FROM {entity} WHERE {filter}"
+      }
+    },
+    {
+      "name": "generate_answer",
+      "type": "foundation-model",
+      "configuration": {
+        "model": "sap-llm-4",
+        "maxTokens": 256,
+        "temperature": 0.2,
+        "systemPrompt": "You are an SAP expert. Answer the user's question using only the retrieved data and live query results. Cite sources."
+      }
+    }
+  ]
+}
+```
+
+Deploy the pipeline:
+
+```bash
+btp create service-instance ai-core-rag rag-pipeline -c rag-pipeline.json
+```
+
+The AI Core UI will now expose an **endpoint** like:
+
+```
+POST https://ai-core.<region>.hana.ondemand.com/v2/pipelines/s4hana-query-rag/invoke
+```
+
+### 4.4. Expose a Lightweight ABAP OData Service  
+
+Create a **service definition** (`Z_RAG_QUERY_SRV`) and a **service binding** (`Z_RAG_QUERY_SRV_OData`). The service will have a single entity set `Queries` with an `POST` operation.
+
+```abap
+@AbapCatalog.sqlViewName: 'ZV_RAG_QRY'
+@AbapCatalog.preserveKey: true
+@EndUserText.label: 'RAG Query Input'
+define view Z_RAG_QUERY_INPUT as select from dummy {
+    key 'Q' as ID,
+    @Semantics.text: true
+    $session.user as USER,
+    cast( $session.client as abap.int4 ) as CLIENT,
+    @UI.lineItem: [{ position: 10 }]
+    '' as QUESTION,   "filled at runtime
+    '' as ANSWER      "filled after AI call
+}
+```
+
+**ABAP class to call AI Core** (`ZCL_RAG_QUERY_HANDLER`):
+
+```abap
+CLASS zcl_rag_query_handler DEFINITION PUBLIC FINAL CREATE PUBLIC.
+  PUBLIC SECTION.
+    METHODS:
+      invoke
+        IMPORTING
+          iv_question TYPE string
+        RETURNING
+          VALUE(rv_answer) TYPE string
+        RAISING
+          cx_http_communication_failure,
+          cx_http_invalid_state.
+ENDCLASS.
+
+CLASS zcl_rag_query_handler IMPLEMENTATION.
+  METHOD invoke.
+    "--- 1. Get AI Core token -------------------------------------------------
+    DATA(lo_http) = cl_http_client=>create_by_destination( 'AI_CORE_DEST' ).
+    lo_http->request->set_method( if_http_request=>co_request_method_post ).
+    lo_http->request->set_content_type( 'application/x-www-form-urlencoded' ).
+    lo_http->request->set_cdata( |grant_type=client_credentials| ).
+    lo_http->send( ).
+    lo_http->receive( ).
+    DATA(lv_body) = lo_http->response->get_cdata( ).
+    DATA(ls_token) TYPE string.
+    cl_json=>deserialize(
+      EXPORTING json = lv_body
+      RECEIVING  data = ls_token ).
+
+    "--- 2. Build RAG payload -------------------------------------------------
+    DATA(ls_payload) TYPE string.
+    ls_payload = /ui2/cl_json=>serialize(
+      data = VALUE #( question = iv_question )
+      pretty_name = abap_false ).
+
+    "--- 3. Call RAG pipeline -------------------------------------------------
+    lo_http->reset( ).
+    lo_http->request->set_method( if_http_request=>co_request_method_post ).
+    lo_http->request->set_uri( '/v2/pipelines/s4hana-query-rag/invoke' ).
+    lo_http->request->set_header_field( |Authorization|, |Bearer | && ls_token ).
+    lo_http->request->set_content_type( 'application/json' ).
+    lo_http->request->set_cdata( ls_payload ).
+    lo_http->send( ).
+    lo_http->receive( ).
+
+    "--- 4. Extract answer ----------------------------------------------------
+    DATA(lv_resp) = lo_http->response->get_cdata( ).
+    DATA(ls_result) TYPE string.
+    cl_json=>deserialize(
+      EXPORTING json = lv_resp
+      RECEIVING data = ls_result ).
+
+    rv_answer = ls_result-answer. "Assumes JSON { "answer": "..." }
+  ENDMETHOD.
+ENDCLASS.
+```
+
+**Expose via OData** – Map the `POST /Queries` to call `ZCL_RAG_QUERY_HANDLER=>INVOKE`. The OData response contains:
+
+```json
+{
+  "question": "Which customers have overdue invoices?",
+  "answer": "As of 2026‑02‑09, 42 customers have invoices overdue >30 days. The top three are: 100012 (EUR 12,340), 100045 (EUR 9,210), 100078 (EUR 8,975)."
+}
+```
+
+### 4.5. Integrate with Fiori Elements  
+
+Create a **Fiori Elements List Report** (`RAGQueryList`) that shows a single input field and a result pane.
+
+```xml
+<!-- view/Query.view.xml -->
+<Page id="page" title="AI‑Powered Query">
+  <content>
+    <VBox>
+      <Input id="questionInput" placeholder="Ask a question…" liveChange="onLiveChange"/>
+      <Button text="Ask" press="onAsk" enabled="{/isReady}"/>
+      <ObjectStatus id="answerBox" text="{/answer}" state="Success"/>
+    </VBox>
+  </content>
+</Page>
+```
+
+Controller (ES6) – calls the OData service:
+
+```javascript
+onAsk() {
+  const question = this.byId("questionInput").getValue();
+  this.getView().setModel(new JSONModel({ isReady: false }));
+  this.getModel().create("/Queries", { QUESTION: question }, {
+    success: (data) => {
+      this.byId("answerBox").setText(data.ANSWER);
+      this.getView().getModel().setProperty("/isReady", true);
+    },
+    error: (err) => {
+      MessageBox.error("AI service failed: " + err.message);
+      this.getView().getModel().setProperty("/isReady", true);
+    }
+  });
+}
+```
+
+Deploy the UI component to the SAP Launchpad; end users now have a **single entry point** for any analytical or transactional question.
+
+---
+
+## 5. Actionable Insights & Best Practices  
+
+### 5.1. Keep the Vector Store Fresh  
+
+* **Incremental Updates** – Schedule a nightly job (e.g., using SAP Cloud Platform **Job Scheduler**) that diffs source files and updates embeddings only for changed artifacts.  
+* **Versioning** – Store a `VERSION` column alongside each embedding; when you roll out a new data model, deprecate old vectors but keep them for auditability.
+
+### 5.2. Guard Against Hallucinations  
+
+1. **System Prompt Discipline** – The system prompt in the pipeline (see `systemPrompt` above) explicitly instructs the model to *cite* sources.  
+2. **Post‑Processing** – In the ABAP handler, verify that the answer contains at least one reference to a known document ID (`DOC_ID`). If missing, return a fallback “I’m not sure; please refine the question.”  
+
+```abap
+IF rv_answer CS 'DOC_ID:'.
+  "OK
+ELSE.
+  rv_answer = |I could not locate a reliable source for that question.|
+ENDIF.
+```
+
+### 5.3. Performance Tuning  
+
+| Bottleneck | Mitigation |
+|------------|------------|
+| Vector retrieval latency | Ensure HANA vector index uses **IVF‑PQ** or **HNSW** for sub‑millisecond ANN search. |
+| LLM inference time | Choose a **smaller, instruction‑tuned** model for simple lookup questions; fall back to a larger model only when the query is ambiguous. |
+| ABAP‑to‑AI round‑trip | Enable **HTTP/2** on the destination and reuse the OAuth token for the life of the user session. |
+
+### 5.4. Security & Compliance  
+
+* **Scope‑limited OAuth** – Grant the AI Core destination only the `ai_core.rag.invoke` scope.  
+* **Data Masking** – If the query may expose PII (e.g., customer names), add a **masking step** in the `run_live_query` augmenter to replace sensitive fields before they reach the LLM.  
+
+```sql
+SELECT CUSTOMER_ID,
+       CASE WHEN :MASK_PII = 'X' THEN '*****' ELSE NAME END AS NAME,
+       AMOUNT
+FROM Z_INVOICE
+WHERE DUE_DATE < CURRENT_DATE - 30
+```
+
+---
+
+## 6. Key Takeaways  
+
+- **RAG adds factual grounding** to LLM‑driven assistants, eliminating the “hallucination” problem for SAP data.  
+- **SAP HANA’s vector engine** provides ultra‑low‑latency similarity search, keeping the retrieval step on‑par with S/4HANA’s performance expectations.  
+- A **lightweight ABAP OData façade** isolates the AI Core integration, allowing you to reuse existing security and transport mechanisms.  
+- **Fiori Elements** can surface the entire pipeline with minimal UI code, delivering a seamless conversational experience.
