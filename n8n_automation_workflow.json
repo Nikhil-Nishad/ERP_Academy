@@ -23,10 +23,10 @@
             "type": "n8n-nodes-base.github",
             "typeVersion": 1,
             "position": [
-                1488,
-                1488
+                3200,
+                3152
             ],
-            "id": "510dbac0-e3ce-40f0-8882-476ab0c4c3d4",
+            "id": "2265ce07-6272-46c9-8791-3028c969f758",
             "name": "GitHub: Get index.json",
             "webhookId": "09fb9792-248f-4325-9930-a0afa70163a4",
             "credentials": {
@@ -39,15 +39,15 @@
         {
             "parameters": {
                 "mode": "runOnceForEachItem",
-                "jsCode": "const existingIndex = $input.item.json.data;\n\nif (!Array.isArray(existingIndex)) {\n  throw new Error('index.json content is not an array');\n}\n\nconst editFields = $('Edit Fields1').item.json;\n\nif (!editFields.slug) {\n  throw new Error('Missing slug from Edit Fields node');\n}\n\nif (existingIndex.some(post => post.slug === editFields.slug)) {\n  throw new Error(`Slug already exists: ${editFields.slug}`);\n}\n\nconst dateStr = new Date().toISOString().split('T')[0];\n\nconst newEntry = {\n  id: editFields.slug,\n  slug: editFields.slug,\n  title: editFields.title,\n  date: dateStr,\n  excerpt: editFields.excerpt,\n  author: 'AI Contributor',\n  imageUrl: `/assets/blog_images/${editFields.slug}.webp`,\n  category: editFields.category,\n  tags: Array.isArray(editFields.tags) ? editFields.tags.filter(Boolean) : [],\n  readTime: 10,\n  views: 0,\n  likes: 0,\n  featured: false,\n  status: 'published'\n};\n\n// existingIndex.unshift(newEntry);\nexistingIndex.push(newEntry);\n\n\nreturn {\n  json: {\n    updatedIndex: JSON.stringify(existingIndex, null, 2),\n    sha: $input.item.json.sha\n  }\n};\n"
+                "jsCode": "const existingIndex = $input.item.json.data;\n\nif (!Array.isArray(existingIndex)) {\n  throw new Error('index.json content is not an array');\n}\n\nconst editFields = $('Edit Fields1').item.json;\n\nif (!editFields.slug) {\n  throw new Error('Missing slug from Edit Fields node');\n}\n\nif (existingIndex.some(post => post.slug === editFields.slug)) {\n  throw new Error(`Slug already exists: ${editFields.slug}`);\n}\n\nconst dateStr = new Date().toISOString().split('T')[0];\n\nconst newEntry = {\n  id: editFields.slug,\n  slug: editFields.slug,\n  title: editFields.title,\n  date: dateStr,\n  excerpt: editFields.excerpt,\n  author: 'AI Contributor',\n  imageUrl: `/assets/blog_images/${editFields.slug}.webp`,\n  category: editFields.category,\n  tags: Array.isArray(editFields.tags) ? editFields.tags.filter(Boolean) : [],\n  readTime: $('Edit Fields1').item.json.readTime,\n  views: $('Edit Fields1').item.json.views,\n  likes: $('Edit Fields1').item.json.likes,\n  featured: false,\n  status: 'published'\n};\n\nexistingIndex.unshift(newEntry);\n// existingIndex.push(newEntry);\n\n\nreturn {\n  json: {\n    updatedIndex: JSON.stringify(existingIndex, null, 2),\n    sha: $input.item.json.sha\n  }\n};\n"
             },
-            "id": "8ea28019-d2f1-41d9-a5c8-a590c3fe1d44",
+            "id": "fbbe9c49-4e30-48f5-bdab-aaf59f3b80d4",
             "name": "Append to Index",
             "type": "n8n-nodes-base.code",
             "typeVersion": 1,
             "position": [
-                1920,
-                1488
+                3648,
+                3152
             ],
             "notes": "Appends new post metadata to index.json array"
         },
@@ -86,12 +86,13 @@
             "type": "n8n-nodes-base.github",
             "typeVersion": 1,
             "position": [
-                2144,
-                1488
+                3872,
+                3152
             ],
-            "id": "6ab994cf-7843-43a9-affb-f9949c9cf7da",
+            "id": "85153859-2019-49e9-94cf-af1402e4f3f5",
             "name": "GitHub: Update index.json",
             "webhookId": "1b7471e9-953f-4e94-bc36-e4082a1290e2",
+            "executeOnce": true,
             "credentials": {
                 "githubApi": {
                     "id": "6wLz58l3wPoA8QBj",
@@ -113,10 +114,10 @@
             "type": "n8n-nodes-base.scheduleTrigger",
             "typeVersion": 1.1,
             "position": [
-                32,
-                1488
+                0,
+                3480
             ],
-            "id": "de2d7d57-b2c7-4858-8283-8a6209c70a80",
+            "id": "7278d43d-d84b-4290-aa92-988914837719",
             "name": "Schedule Trigger (Mon, Thu)1"
         },
         {
@@ -125,34 +126,34 @@
                 "text": "Choose a good topic for the SAP Blog, make sure that the topic is Informative, popular, and engaging. \nGive me output in json format.",
                 "hasOutputParser": true,
                 "options": {
-                    "systemMessage": "=You are a content strategist for an enterprise SAP/ERP blog.\n\nGenerate ONE high-quality blog post idea based on current trends in:\n- SAP S/4HANA\n- AI in Enterprise\n- Cloud Integrations\n\nOutput strict JSON with the following fields:\n- title: SEO-optimized title\n- slug: URL-friendly-slug-format\n- excerpt: Engaging 2-sentence summary\n- category: 'SAP Tech', 'Enterprise AI', or 'Cloud Strategy'\n- tags: Array of 3-5 relevant tags\n- image_prompt: A detailed, artistic prompt for an AI image generator (like DALL-E 3) to create a cover image for this post. Description should be clean, professional, and abstract tech visualization.\n- image_filename: The slug with .webp extension (e.g., 'sap-ai-trends-2025.webp')\n"
+                    "systemMessage": "=You are a senior content strategist for an enterprise SAP / ERP publication.\n\nYour task is to generate ONE blog post idea that is:\n- Original (must NOT repeat common SAP blog tropes)\n- Diverse (must vary topic, angle, and category across runs)\n- Specific (avoid generic “migration”, “AI-driven”, or “digital transformation” phrasing unless explicitly required)\n\n### Topic Diversity Rules (MANDATORY)\nOn each run, choose ONE distinct angle from a different category:\n- Technical deep dives (architecture, performance, security, extensibility)\n- Industry-specific SAP use cases (manufacturing, retail, finance, logistics, healthcare)\n- SAP + emerging tech (GenAI, RAG, agents, automation, data platforms)\n- Cloud-native SAP patterns (BTP, integrations, event-driven SAP)\n- SAP operations & governance (cost optimization, observability, compliance)\n- SAP developer experience (ABAP Cloud, CAP, APIs, testing, CI/CD)\n\nAvoid repeating the same theme across runs.\n\n### Title & Slug Rules\n- Title must be specific and concrete (no vague buzzwords)\n- Avoid repeating these phrases unless absolutely necessary:\n  “AI-driven”, “digital transformation”, “migration guide”, “cloud journey”\n- Slug must be unique, descriptive, and non-generic\n- Prefer long-tail, intent-driven slugs over short marketing slugs\n\n### Image Prompt Rules (VERY IMPORTANT)\n- Image must be abstract, modern, and enterprise-grade\n- Use minimal or no text on the image (NO headlines, NO paragraphs)\n- If text is included, it must be 1–2 subtle words only (e.g., “SAP”, “AI”, “Cloud”)\n- Focus on visual metaphors: data flow, systems, networks, architecture, intelligence\n- Style: clean, professional, high-contrast, futuristic, no people, no mascots\n\n### Output Requirements\nOutput STRICT JSON with the following fields:\n- title\n- slug\n- excerpt (2 concise sentences, not marketing fluff)\n- category (choose one: 'SAP Tech', 'Enterprise AI', 'Cloud Strategy')\n- tags (3–5 relevant, non-repetitive tags)\n- image_prompt (detailed but clean, following image rules above)\n- image_filename (must be slug + '.webp')\n- readTime (integer, realistic)\n- views (integer)\n- likes (integer)\n\nDo NOT include explanations, markdown, or extra text outside the JSON."
                 }
             },
             "type": "@n8n/n8n-nodes-langchain.agent",
             "typeVersion": 1.6,
             "position": [
-                256,
-                1488
+                224,
+                3480
             ],
-            "id": "f207645a-9d05-4229-85b6-bff197459cc0",
+            "id": "764ac1d5-8d0c-4c89-adbb-f4548d5fc588",
             "name": "AI Strategist (Metadata)1",
             "notes": "Generates Title, Slug, Excerpt, Tags, and Image Prompt."
         },
         {
             "parameters": {
                 "promptType": "define",
-                "text": "Write the full blog post.",
+                "text": "=Write the full blog post. Follow this content outline strictly in the markdown format:\n {{ $('AI Editor (SEO & Structure)').item.json.output }}",
                 "options": {
-                    "systemMessage": "=You are an expert technical writer. Write a comprehensive, engaging blog post effectively using Markdown (MDX).\n\nDetails:\nTitle: {{ $json.title }}\nSlug: {{ $json.slug }}\nExceptions: Do NOT include main frontmatter block, generate ONLY the article content starting from the Introduction header.\n\nStructure:\n1. Title is already handled, start with `# Introduction`.\n2. Use H2 (`##`) and H3 (`###`) for proper hierarchy.\n3. Include code blocks where relevant (e.g., ABAP, JSON, configuration).\n4. Tone: Professional, authoritative, yet accessible.\n5. Length: 1500-2000 words.\n\nContent:\n- Focus on actionable insights.\n- Include 'Key Takeaways' section.\n- Conclude with a 'Future Outlook' section.\n"
+                    "systemMessage": "=You are an expert technical writer. Write a comprehensive, engaging blog post effectively using Markdown (MDX).\n\nDetails:\nTitle: {{ $('AI Editor (SEO & Structure)').item.json.output.title }}\nSlug: {{ $('AI Editor (SEO & Structure)').item.json.output.slug }}\nExceptions: Do NOT include main frontmatter block, generate ONLY the article content starting from the Introduction header.\n\nStructure:\n1. Title is already handled, start with `# Introduction`.\n2. Use H2 (`##`) and H3 (`###`) for proper hierarchy.\n3. Include code blocks where relevant (e.g., ABAP, JSON, configuration).\n4. Tone: Professional, authoritative, yet accessible.\n5. Length: 1200-1500 words.\n\nContent:\n- Focus on actionable insights.\n- Include 'Key Takeaways' section.\n- Conclude with a 'Future Outlook' section.\n"
                 }
             },
             "type": "@n8n/n8n-nodes-langchain.agent",
             "typeVersion": 1.6,
             "position": [
-                912,
-                1488
+                1824,
+                3232
             ],
-            "id": "b3d01bd2-8cf5-4217-8f7d-d8593a642d84",
+            "id": "8e87681e-ff6a-40b4-bca7-70b1d484c606",
             "name": "AI Writer (Content)1",
             "notes": "Writes the full MDX content based on the strategist's metadata."
         },
@@ -164,10 +165,10 @@
             "type": "n8n-nodes-base.httpRequest",
             "typeVersion": 4.1,
             "position": [
-                1088,
-                1776
+                4320,
+                3152
             ],
-            "id": "31590fcd-b484-49c0-a013-77ea2b04eda3",
+            "id": "e361d7c5-7e00-4dcd-b754-1cd5332607f4",
             "name": "Download Image1",
             "notes": "Downloads the image URL to binary data."
         },
@@ -205,12 +206,13 @@
             "type": "n8n-nodes-base.github",
             "typeVersion": 1,
             "position": [
-                1600,
-                1776
+                4768,
+                3152
             ],
-            "id": "714b21ac-fcf7-49b2-bf78-9b234d4d0bed",
+            "id": "7a1cbcf2-a7c8-48e3-9a75-93dda8215b94",
             "name": "GitHub: Upload Image1",
             "webhookId": "7d7b649c-ad07-4979-bf9a-befa0e135b86",
+            "executeOnce": true,
             "credentials": {
                 "githubApi": {
                     "id": "6wLz58l3wPoA8QBj",
@@ -233,7 +235,7 @@
                     "cachedResultName": "ERP_Academy"
                 },
                 "filePath": "=content/posts/{{ $('Edit Fields1').item.json.slug }}.mdx",
-                "fileContent": "=---\nid: {{ $('Edit Fields1').item.json.slug }}\nslug: {{ $('Edit Fields1').item.json.slug }}\ntitle: \"{{ $('Edit Fields1').item.json.title }}\"\ndate: \"{{ $now.format('yyyy-MM-dd') }}\"\nexcerpt: \"{{ $('Edit Fields1').item.json.excerpt }}\"\nauthor: \"AI Contributor\"\nimageUrl: \"/assets/blog_images/{{ $('Edit Fields1').item.json.slug }}.webp\"\ncategory: \"{{ $('Edit Fields1').item.json.category }}\"\ntags: {{ $('Edit Fields1').item.json.tags }}\nreadTime: 10\nviews: 0\nlikes: 0\nfeatured: false\nstatus: \"published\"\n---\n\n{{ $json.output }}\n",
+                "fileContent": "=---\nid: {{ $('Edit Fields1').item.json.slug }}\nslug: {{ $('Edit Fields1').item.json.slug }}\ntitle: \"{{ $('Edit Fields1').item.json.title }}\"\ndate: \"{{ $now.format('yyyy-MM-dd') }}\"\nexcerpt: \"{{ $('Edit Fields1').item.json.excerpt }}\"\nauthor: \"AI Contributor\"\nimageUrl: \"/assets/blog_images/{{ $('Edit Fields1').item.json.slug }}.webp\"\ncategory: \"{{ $('Edit Fields1').item.json.category }}\"\ntags: {{ $('Edit Fields1').item.json.tags }}\nreadTime: 10\nviews: 0\nlikes: 0\nfeatured: false\nstatus: \"published\"\n---\n{{ $('AI Writer (Content)1').item.json.output }}\n\n",
                 "commitMessage": "=feat(blog): add article {{ $('Edit Fields1').item.json.slug }}",
                 "additionalParameters": {
                     "branch": {
@@ -252,12 +254,13 @@
             "type": "n8n-nodes-base.github",
             "typeVersion": 1,
             "position": [
-                1264,
-                1488
+                2976,
+                3152
             ],
-            "id": "af5f97d9-bebe-4dcf-b316-3700025db0e6",
+            "id": "d9592669-b7da-4661-9335-4ced4cf4df34",
             "name": "GitHub: Create Post1",
             "webhookId": "09445123-6389-4c3c-b9b3-a8192fa20e39",
+            "executeOnce": true,
             "credentials": {
                 "githubApi": {
                     "id": "6wLz58l3wPoA8QBj",
@@ -268,15 +271,18 @@
         {
             "parameters": {
                 "model": "openai/gpt-oss-120b",
-                "options": {}
+                "options": {
+                    "maxTokensToSample": 4096,
+                    "temperature": 0.8
+                }
             },
             "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
             "typeVersion": 1,
             "position": [
-                256,
-                1712
+                232,
+                3704
             ],
-            "id": "21e60999-f1cb-4147-9c46-79d4f5482d6b",
+            "id": "9def4b4d-3f10-4e84-aa72-10618e789cf4",
             "name": "Groq Chat Model3",
             "credentials": {
                 "groqApi": {
@@ -287,15 +293,15 @@
         },
         {
             "parameters": {
-                "jsonSchemaExample": "{\n  \"title\": \"SAP S/4HANA Migration Guide 2025\",\n  \"slug\": \"sap-s4hana-migration-guide-2025\",\n  \"excerpt\": \"A comprehensive guide on migrating to S/4HANA...\",\n  \"category\": \"SAP Tech\",\n  \"tags\": [\"S/4HANA\", \"Migration\", \"ERP\"],\n  \"image_prompt\": \"Abstract digital landscape showing data migration streams...\",\n  \"image_filename\": \"sap-s4hana-migration-guide-2025.webp\"\n}"
+                "jsonSchemaExample": "{\n  \"title\": \"SAP S/4HANA Migration Guide 2025\",\n  \"slug\": \"sap-s4hana-migration-guide-2025\",\n  \"excerpt\": \"A comprehensive guide on migrating to S/4HANA...\",\n  \"category\": \"SAP Tech\",\n  \"tags\": [\"S/4HANA\", \"Migration\", \"ERP\"],\n  \"image_prompt\": \"Abstract digital landscape showing data migration streams...\",\n  \"image_filename\": \"sap-s4hana-migration-guide-2025.webp\",\n  \"readTime\": 10,\n  \"views\": 0,\n  \"likes\": 0\n}"
             },
             "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
             "typeVersion": 1.2,
             "position": [
-                400,
-                1712
+                360,
+                3704
             ],
-            "id": "b8242a08-445a-4890-a8bb-b5b459e263f5",
+            "id": "bc748448-c6e8-4636-80bd-d8ff72f67f65",
             "name": "Structured Output Parser3"
         },
         {
@@ -320,7 +326,7 @@
                         },
                         {
                             "name": "prompt",
-                            "value": "={{ $json.image_prompt }}"
+                            "value": "={{ $('Edit Fields1').item.json.image_prompt }}"
                         },
                         {
                             "name": "n",
@@ -341,10 +347,10 @@
             "type": "n8n-nodes-base.httpRequest",
             "typeVersion": 4.3,
             "position": [
-                800,
-                1776
+                4096,
+                3152
             ],
-            "id": "eb4a589c-9601-4a1f-b2da-eab28abdcbc9",
+            "id": "7b9621b0-1f17-4b41-9019-a91ac6916718",
             "name": "HTTP Request2"
         },
         {
@@ -352,28 +358,28 @@
                 "mode": "runOnceForEachItem",
                 "jsCode": "$input.item.binary.data.fileName = $('Edit Fields1').item.json.image_filename;\n\nreturn $input.item;\n"
             },
-            "id": "7eb882cc-c5ea-441a-bc08-d846ddc9e9be",
+            "id": "e74ef123-1f42-401c-a6a9-7abf4ad32522",
             "name": "Rename file1",
             "type": "n8n-nodes-base.code",
             "typeVersion": 1,
             "position": [
-                1376,
-                1776
+                4544,
+                3152
             ]
         },
         {
             "parameters": {
                 "mode": "raw",
-                "jsonOutput": "={\n  \"title\": \"{{ $json.output.title }}\",\n  \"slug\": \"{{ $json.output.slug }}\",\n  \"excerpt\": \"{{ $json.output.excerpt }}\",\n  \"category\": \"{{ $json.output.category }}\",\n  \"tags\": [\"{{ $json.output.tags[0] }}\", \"{{ $json.output.tags[1] }}\", \"{{ $json.output.tags[2] }}\", \"{{ $json.output.tags[3] }}\", \"{{ $json.output.tags[4] }}\"],\n  \"image_prompt\": \"{{ $json.output.image_prompt }}\",\n  \"image_filename\": \"{{ $json.output.image_filename }}\"\n}",
+                "jsonOutput": "={\n  \"title\": \"{{ $json.output.title }}\",\n  \"slug\": \"{{ $json.output.slug }}\",\n  \"excerpt\": \"{{ $json.output.excerpt }}\",\n  \"category\": \"{{ $json.output.category }}\",\n  \"tags\": [\"{{ $json.output.tags[0] }}\", \"{{ $json.output.tags[1] }}\", \"{{ $json.output.tags[2] }}\", \"{{ $json.output.tags[3] }}\", \"{{ $json.output.tags[4] }}\"],\n  \"image_prompt\": \"{{ $json.output.image_prompt }}\",\n  \"image_filename\": \"{{ $json.output.image_filename }}\"\n  \"readTime\": {{ $json.output.readTime }},\n  \"views\": {{ $json.output.views }},\n  \"likes\": {{ $json.output.likes }},\n}",
                 "options": {}
             },
             "type": "n8n-nodes-base.set",
             "typeVersion": 3.4,
             "position": [
-                688,
-                1488
+                1600,
+                3232
             ],
-            "id": "01cc9155-45f2-44f4-abc8-cc4e5aa43e4d",
+            "id": "dd21e7fa-4e1a-4123-8bf3-703252df6277",
             "name": "Edit Fields1"
         },
         {
@@ -384,11 +390,266 @@
             "type": "n8n-nodes-base.extractFromFile",
             "typeVersion": 1.1,
             "position": [
-                1696,
-                1488
+                3424,
+                3152
             ],
-            "id": "5315cccc-e80c-49fe-ac17-430b6026a3c3",
+            "id": "7fcf68fd-24ee-40d5-87af-2fcf83592406",
             "name": "Extract from File"
+        },
+        {
+            "parameters": {
+                "resource": "file",
+                "operation": "get",
+                "owner": {
+                    "__rl": true,
+                    "value": "Nikhil-Nishad",
+                    "mode": "name"
+                },
+                "repository": {
+                    "__rl": true,
+                    "value": "ERP_Academy",
+                    "mode": "list",
+                    "cachedResultName": "ERP_Academy"
+                },
+                "filePath": "content/posts/index.json",
+                "additionalParameters": {
+                    "reference": "dev"
+                }
+            },
+            "type": "n8n-nodes-base.github",
+            "typeVersion": 1,
+            "position": [
+                576,
+                3232
+            ],
+            "id": "9fdb9e2a-9566-471a-98bc-a1f3fa697697",
+            "name": "GitHub: Get index.json1",
+            "webhookId": "09fb9792-248f-4325-9930-a0afa70163a4",
+            "credentials": {
+                "githubApi": {
+                    "id": "6wLz58l3wPoA8QBj",
+                    "name": "GitHub account"
+                }
+            }
+        },
+        {
+            "parameters": {
+                "conditions": {
+                    "options": {
+                        "caseSensitive": true,
+                        "leftValue": "",
+                        "typeValidation": "strict",
+                        "version": 3
+                    },
+                    "conditions": [
+                        {
+                            "id": "8fa027e5-54ae-4979-9f36-1a58d5715f58",
+                            "leftValue": "={{ $json.data[0].slug }}",
+                            "rightValue": "={{ $('AI Strategist (Metadata)1').item.json.output.slug }}",
+                            "operator": {
+                                "type": "string",
+                                "operation": "equals"
+                            }
+                        }
+                    ],
+                    "combinator": "or"
+                },
+                "options": {}
+            },
+            "type": "n8n-nodes-base.if",
+            "typeVersion": 2.3,
+            "position": [
+                1024,
+                3232
+            ],
+            "id": "8a153c8f-5bcc-4856-ba6e-206640c619f2",
+            "name": "If"
+        },
+        {
+            "parameters": {
+                "operation": "fromJson",
+                "options": {}
+            },
+            "type": "n8n-nodes-base.extractFromFile",
+            "typeVersion": 1.1,
+            "position": [
+                800,
+                3232
+            ],
+            "id": "590fed9e-5f2f-4574-91e6-dacc35e6cef3",
+            "name": "Extract from File1"
+        },
+        {
+            "parameters": {
+                "model": "llama-3.3-70b-versatile",
+                "options": {}
+            },
+            "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+            "typeVersion": 1,
+            "position": [
+                1896,
+                3456
+            ],
+            "id": "c46a2e83-3699-4182-8421-465a0f9368ee",
+            "name": "Groq Chat Model",
+            "credentials": {
+                "groqApi": {
+                    "id": "ImqtQXrsX2HJns1E",
+                    "name": "Groq account"
+                }
+            }
+        },
+        {
+            "parameters": {
+                "model": "llama-3.3-70b-versatile",
+                "options": {}
+            },
+            "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+            "typeVersion": 1,
+            "position": [
+                1256,
+                3456
+            ],
+            "id": "b460458f-65db-4e23-a24a-2e8937e07047",
+            "name": "Groq Chat Model4",
+            "credentials": {
+                "groqApi": {
+                    "id": "ImqtQXrsX2HJns1E",
+                    "name": "Groq account"
+                }
+            }
+        },
+        {
+            "parameters": {
+                "jsonSchemaExample": "{\n  \"title\": \"AI in Healthcare 2026: Transforming Diagnostics, Treatment, and Patient Outcomes with Enterprise Solutions\",\n  \"slug\": \"ai-healthcare-enterprise-solutions-2026-trends-innovations\",\n  \"excerpt\": \"Discover how AI is reshaping healthcare in 2026, from advanced diagnostics to hyper-personalized treatment plans. Learn about real-world enterprise applications, challenges, and the future of AI-driven medical innovation.\",\n  \"category\": \"Health Tech\",\n  \"tags\": [\n    \"AI in Healthcare\",\n    \"Medical Technology\",\n    \"Enterprise AI Solutions\",\n    \"Healthcare Innovation\",\n    \"Predictive Diagnostics\"\n  ],\n  \"image_prompt\": \"A futuristic hospital setting featuring a doctor analyzing AI-generated holographic patient data, including real-time diagnostics, predictive analytics, and personalized treatment recommendations. The scene should emphasize professionalism, cutting-edge technology, and seamless integration of AI tools into clinical workflows. Avoid textual content; focus on visual storytelling with a clean, modern aesthetic.\",\n  \"image_filename\": \"ai-healthcare-enterprise-solutions-2026.webp\",\n  \"readTime\": 10,\n  \"views\": 1245,\n  \"likes\": 87,\n  \"primary_keyword\": \"enterprise AI solutions for healthcare 2026\",\n  \"secondary_keywords\": [\n    \"AI-driven diagnostics in healthcare\",\n    \"personalized treatment plans with AI\",\n    \"predictive analytics for patient outcomes\",\n    \"AI integration in clinical workflows\",\n    \"challenges of AI adoption in healthcare\"\n  ],\n  \"content_outline\": [\n    \"Introduction: The Role of AI in Modern Healthcare\",\n    \"How AI is Revolutionizing Diagnostics: Speed, Accuracy, and Predictive Power\",\n    \"Personalized Treatment Plans: Leveraging AI for Precision Medicine\",\n    \"Enterprise AI Solutions: Case Studies from Leading Healthcare Providers\",\n    \"Overcoming Challenges: Data Privacy, Ethical AI, and Regulatory Compliance\",\n    \"The Future of AI in Healthcare: Trends to Watch Through 2030\",\n    \"Key Takeaways: Implementing AI in Your Healthcare Organization\"\n  ]\n}\n"
+            },
+            "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+            "typeVersion": 1.2,
+            "position": [
+                1384,
+                3456
+            ],
+            "id": "cd7d7b6f-02cd-480f-bd14-9078eff15156",
+            "name": "Structured Output Parser"
+        },
+        {
+            "parameters": {
+                "promptType": "define",
+                "text": "=You will receive SAP blog metadata in JSON format.\n\nYour task is to EDIT, IMPROVE, and OPTIMIZE the content while preserving the original topic and intent.\n\nGoals:\n- Improve clarity, specificity, and engagement\n- Optimize for SEO (without keyword stuffing)\n- Improve structure and performance (readability, flow, intent)\n- Make the content enterprise-grade and publication-ready\n\nRules:\n- Do NOT change the topic category\n- Do NOT introduce marketing fluff\n- Do NOT write the full blog post\n- Keep language precise, technical, and authoritative\n- Output MUST be valid JSON only\n\nInput JSON fields you will receive:\n- title\n- slug\n- excerpt\n- category\n- tags\n- image_prompt\n- image_filename\n- readTime\n- views\n- likes\n\n---\n\n### Editing Instructions\n\n1. **Title**\n   - Rewrite to be more specific and compelling\n   - Optimize for long-tail search intent\n   - Avoid buzzwords and vague phrasing\n\n2. **Excerpt**\n   - Rewrite into 2 concise, SEO-friendly sentences\n   - Clearly state what the reader will learn\n   - No hype or sales language\n\n3. **SEO Keywords**\n   - Generate:\n     - primary_keyword (1)\n     - secondary_keywords (3–5)\n   - Keywords must be realistic for SAP / enterprise search\n\n4. **Content Structure Guidance**\n   - Create a logical outline the writer should follow\n   - Use high-level section titles only (no paragraphs)\n\n5. **Image Prompt Guidance**\n   - Create a super high quality, detailed image generation prompt.\n   - Make sure that image does not have too much textual content.\n\n---\n\n### Output Requirements (STRICT)\n\nReturn JSON with the following fields ONLY:\n- title\n- slug\n- excerpt\n- category\n- tags\n- image_prompt\n- image_filename\n- readTime\n- views\n- likes\n- primary_keyword\n- secondary_keywords\n- content_outline\n\n\nThis is my Content: \"{{ $('AI Strategist (Metadata)1').item.json.output }}\"",
+                "hasOutputParser": true,
+                "options": {
+                    "systemMessage": "=You are a senior SAP content editor and SEO strategist for a high-authority enterprise publication.\n\nYou specialize in:\n- SAP technical accuracy\n- Search intent optimization\n- Editorial clarity and performance-driven content\n- Structuring long-form technical articles for maximum readability\n\nYou think like both a human editor and a search engine.\n"
+                }
+            },
+            "type": "@n8n/n8n-nodes-langchain.agent",
+            "typeVersion": 1.6,
+            "position": [
+                1248,
+                3232
+            ],
+            "id": "4e38d1fe-a164-4524-a529-35f63809abbb",
+            "name": "AI Editor (SEO & Structure)",
+            "notes": "Generates Title, Slug, Excerpt, Tags, and Image Prompt."
+        },
+        {
+            "parameters": {
+                "model": "llama-3.3-70b-versatile",
+                "options": {}
+            },
+            "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+            "typeVersion": 1,
+            "position": [
+                2184,
+                3456
+            ],
+            "id": "c35017e8-ab45-47ab-8da1-156c0f494d0e",
+            "name": "Groq Chat Model1",
+            "credentials": {
+                "groqApi": {
+                    "id": "ImqtQXrsX2HJns1E",
+                    "name": "Groq account"
+                }
+            }
+        },
+        {
+            "parameters": {
+                "promptType": "define",
+                "text": "=You will receive a full SAP blog article written in Markdown (MDX).\n\nYour task is to AUDIT the content — not rewrite it.\n\nEvaluate the article across SEO, readability, structure, and technical clarity.\n\nRules:\n- Do NOT rewrite the article\n- Do NOT change tone or add content\n- Be critical and specific\n- Output must be valid JSON only\n\n---\n\n### SEO Evaluation\nScore each from 1–100:\n- keyword_usage\n- search_intent_match\n- heading_structure\n- internal_link_opportunities\n- content_depth\n\n---\n\n### Readability Evaluation\nScore each from 1–100:\n- sentence_clarity\n- paragraph_length\n- jargon_balance\n- scannability\n- flow_and_transitions\n\n---\n\n### Technical Quality\nScore each from 1–100:\n- technical_accuracy\n- examples_and_code_quality\n- actionability\n\n---\n\n### Identify Issues\nList:\n- seo_issues (array of short bullet points)\n- readability_issues (array)\n- structural_issues (array)\n\n---\n\n### Output Requirements\nReturn STRICT JSON with:\n- seo_scores\n- readability_scores\n- technical_scores\n- overall_score\n- seo_issues\n- readability_issues\n- structural_issues\nThis is the Content- \"{{ $json.output }}\"",
+                "hasOutputParser": true,
+                "options": {
+                    "systemMessage": "=You are a senior SEO auditor and technical editor for SAP and enterprise software content.\n\nYou analyze content like a search engine, an editor, and a developer combined.\n"
+                }
+            },
+            "type": "@n8n/n8n-nodes-langchain.agent",
+            "typeVersion": 1.6,
+            "position": [
+                2176,
+                3232
+            ],
+            "id": "53842681-21f5-40fb-ad82-3920bf2ce824",
+            "name": "AI Auditor (SEO & Readability)",
+            "notes": "Writes the full MDX content based on the strategist's metadata."
+        },
+        {
+            "parameters": {
+                "mode": "raw",
+                "jsonOutput": "={\n  \"overall_score\": {{ $json.output.overall_score }} ,\n  \"seo_scores\": {{ $json.output.seo_scores }},\n  \"readability_scores\": {{ $json.output.readability_scores }},\n}",
+                "options": {}
+            },
+            "type": "n8n-nodes-base.set",
+            "typeVersion": 3.4,
+            "position": [
+                2528,
+                3232
+            ],
+            "id": "804215cd-1d3a-4221-9948-b56c5977b69a",
+            "name": "Edit Fields"
+        },
+        {
+            "parameters": {
+                "jsonSchemaExample": "{\n  \"seo_scores\": {\n    \"keyword_usage\": 0,\n    \"search_intent_match\": 0,\n    \"heading_structure\": 0,\n    \"internal_link_opportunities\": 0,\n    \"content_depth\": 0\n  },\n  \"readability_scores\": {\n    \"sentence_clarity\": 0,\n    \"paragraph_length\": 0,\n    \"jargon_balance\": 0,\n    \"scannability\": 0,\n    \"flow_and_transitions\": 0\n  },\n  \"technical_scores\": {\n    \"technical_accuracy\": 0,\n    \"examples_and_code_quality\": 0,\n    \"actionability\": 0\n  },\n  \"overall_score\": 0,\n  \"seo_issues\": [],\n  \"readability_issues\": [],\n  \"structural_issues\": []\n}\n"
+            },
+            "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+            "typeVersion": 1.3,
+            "position": [
+                2312,
+                3456
+            ],
+            "id": "f4a22c89-f18b-4c4d-90f3-6b1d965fd476",
+            "name": "Structured Output Parser1"
+        },
+        {
+            "parameters": {
+                "conditions": {
+                    "options": {
+                        "caseSensitive": true,
+                        "leftValue": "",
+                        "typeValidation": "strict",
+                        "version": 3
+                    },
+                    "conditions": [
+                        {
+                            "id": "50fb80c5-de68-4b69-90df-001d975be9cc",
+                            "leftValue": "={{ $json.overall_score }}",
+                            "rightValue": 70,
+                            "operator": {
+                                "type": "number",
+                                "operation": "gt"
+                            }
+                        }
+                    ],
+                    "combinator": "and"
+                },
+                "options": {}
+            },
+            "type": "n8n-nodes-base.if",
+            "typeVersion": 2.3,
+            "position": [
+                2752,
+                3356
+            ],
+            "id": "214eb624-be41-4d66-beb6-1db1398ce654",
+            "name": "If1"
         }
     ],
     "connections": {
@@ -414,6 +675,17 @@
                 ]
             ]
         },
+        "GitHub: Update index.json": {
+            "main": [
+                [
+                    {
+                        "node": "HTTP Request2",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
         "Schedule Trigger (Mon, Thu)1": {
             "main": [
                 [
@@ -429,7 +701,7 @@
             "main": [
                 [
                     {
-                        "node": "Edit Fields1",
+                        "node": "GitHub: Get index.json1",
                         "type": "main",
                         "index": 0
                     }
@@ -440,7 +712,7 @@
             "main": [
                 [
                     {
-                        "node": "GitHub: Create Post1",
+                        "node": "AI Auditor (SEO & Readability)",
                         "type": "main",
                         "index": 0
                     }
@@ -472,11 +744,6 @@
         "Groq Chat Model3": {
             "ai_languageModel": [
                 [
-                    {
-                        "node": "AI Writer (Content)1",
-                        "type": "ai_languageModel",
-                        "index": 0
-                    },
                     {
                         "node": "AI Strategist (Metadata)1",
                         "type": "ai_languageModel",
@@ -525,11 +792,6 @@
                         "node": "AI Writer (Content)1",
                         "type": "main",
                         "index": 0
-                    },
-                    {
-                        "node": "HTTP Request2",
-                        "type": "main",
-                        "index": 0
                     }
                 ]
             ]
@@ -539,6 +801,152 @@
                 [
                     {
                         "node": "Append to Index",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "GitHub: Get index.json1": {
+            "main": [
+                [
+                    {
+                        "node": "Extract from File1",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "If": {
+            "main": [
+                [
+                    {
+                        "node": "AI Strategist (Metadata)1",
+                        "type": "main",
+                        "index": 0
+                    }
+                ],
+                [
+                    {
+                        "node": "AI Editor (SEO & Structure)",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Extract from File1": {
+            "main": [
+                [
+                    {
+                        "node": "If",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Groq Chat Model": {
+            "ai_languageModel": [
+                [
+                    {
+                        "node": "AI Writer (Content)1",
+                        "type": "ai_languageModel",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Groq Chat Model4": {
+            "ai_languageModel": [
+                [
+                    {
+                        "node": "AI Editor (SEO & Structure)",
+                        "type": "ai_languageModel",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Structured Output Parser": {
+            "ai_outputParser": [
+                [
+                    {
+                        "node": "AI Editor (SEO & Structure)",
+                        "type": "ai_outputParser",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "AI Editor (SEO & Structure)": {
+            "main": [
+                [
+                    {
+                        "node": "Edit Fields1",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Groq Chat Model1": {
+            "ai_languageModel": [
+                [
+                    {
+                        "node": "AI Auditor (SEO & Readability)",
+                        "type": "ai_languageModel",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "AI Auditor (SEO & Readability)": {
+            "main": [
+                [
+                    {
+                        "node": "Edit Fields",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Edit Fields": {
+            "main": [
+                [
+                    {
+                        "node": "If1",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Structured Output Parser1": {
+            "ai_outputParser": [
+                [
+                    {
+                        "node": "AI Auditor (SEO & Readability)",
+                        "type": "ai_outputParser",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "If1": {
+            "main": [
+                [
+                    {
+                        "node": "GitHub: Create Post1",
+                        "type": "main",
+                        "index": 0
+                    }
+                ],
+                [
+                    {
+                        "node": "AI Strategist (Metadata)1",
                         "type": "main",
                         "index": 0
                     }
