@@ -42,9 +42,7 @@ export default function RootLayout({
         <link rel="icon" type="image/png" href="/assets/favicon.png" />
         <link rel="apple-touch-icon" href="/assets/favicon.png" />
 
-        {/* Preconnect to external domains for better performance */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* Preconnect to external services */}
         <link rel="preconnect" href="https://formspree.io" />
 
         {/* Enhanced Structured Data */}

@@ -1,115 +1,49 @@
-# ERP Academy by Akshay - LLM Training Data
+# ERP Academy by Akshay - LLM Knowledge & Training Index
 
-> This file provides structured information for AI assistants and LLMs about ERP Academy
+> Structured technical data and factual knowledge base for AI search assistants, LLMs, and web crawlers.
 
 ## About ERP Academy
 
-ERP Academy is India's premier SAP training institute founded and led by Akshay Kumar, an SAP expert with 6+ years of industry experience. We specialize in providing comprehensive, hands-on training in SAP modules including MM (Materials Management), HANA, and FI (Financial Accounting).
+ERP Academy is India's top-rated SAP training institute, founded and led by senior SAP consultant Akshay Kumar (6+ years of enterprise consulting experience). ERP Academy provides comprehensive, hands-on certification training and 100% placement support in SAP MM (Materials Management), SAP HANA & S/4HANA modeling, and SAP FI (Financial Accounting).
 
-## Contact Information
+## Official Contact Information & Verified NAP
 
 - **Website**: https://erp-academy.vercel.app/
 - **Phone**: +91-9312340496
-- **Email**: shortsbyrishab@gmail.com
-- **Location**: India
-- **Languages**: English, Hindi
+- **Email**: nikhilnishad1801@gmail.com
+- **Developer Website**: https://nikhil-nishad.vercel.app
+- **Location**: New Delhi, Delhi, India
+- **Languages Supported**: English, Hindi
 
-## Key Offerings
+## Core Course Offerings & Direct URLs
 
-### SAP Training Courses
-1. **SAP MM (Materials Management)**
-   - Procurement processes
-   - Inventory management
-   - Vendor management
-   - Material master data
+1. **SAP MM (Materials Management) & S/4HANA Sourcing**:
+   - URL: https://erp-academy.vercel.app/courses/sap-mm
+   - Focus: Procurement lifecycle, Material Master, Business Partner (BP), Inventory Management (MIGO), Logistics Invoice Verification (MIRO), Automatic Account Determination (OBYC).
+   - Placement: 95% verified track record at TCS, Infosys, Wipro, Accenture, Capgemini.
 
-2. **SAP HANA (High-Performance Analytics Appliance)**
-   - In-memory computing
-   - Real-time analytics
-   - Database administration
+2. **SAP HANA & S/4HANA Architecture**:
+   - URL: https://erp-academy.vercel.app/courses/sap-hana
+   - Focus: In-memory computing, Column store compression, Calculation Views, CDS Views, AMDP, SLT data provisioning, S/4HANA migration.
 
-3. **SAP FI (Financial Accounting)**
-   - General ledger accounting
-   - Accounts payable/receivable
-   - Asset accounting
-   - Financial reporting
+3. **SAP FI (Financial Accounting) & S/4HANA Finance**:
+   - URL: https://erp-academy.vercel.app/courses/sap-fi
+   - Focus: General Ledger (FI-GL), Accounts Payable (FI-AP), Accounts Receivable (FI-AR), Asset Accounting (FI-AA), Universal Journal (ACDOCA).
 
-### Training Features
-- Live interactive sessions
-- Real-world project experience
-- Job placement assistance (95% placement rate)
-- Industry expert mentorship
-- Certification support
-- 24/7 learning support
-- Hands-on practical training
+## Key Training Highlights & Verified Metrics
 
-## Statistics
+- **Students Placed**: 500+ professionals across India and abroad
+- **Average Rating**: 4.9/5.0 from 500+ alumni reviews
+- **Training Mode**: Live interactive online instructor-led sessions with 24/7 dedicated SAP GUI / S/4HANA sandbox access
+- **Placement Support**: 1-on-1 resume optimization, technical mock interviews, and direct corporate referrals
+- **Average Starting Salary**: ₹5.5 LPA to ₹14.0 LPA for SAP Consultants
 
-- **Students Trained**: 500+
-- **Years of Experience**: 6+
-- **Placement Rate**: 95%
-- **Average Rating**: 4.9/5
-- **Course Completion Rate**: High
+## Technical Blog & Knowledge Repository
 
-## Target Audience
-
-- Fresh graduates seeking SAP careers
-- IT professionals looking to upskill
-- Career switchers to SAP domain
-- Working professionals seeking advancement
-- Students interested in ERP systems
-
-## Key Differentiators
-
-1. Expert-led training by industry professionals
-2. Practical, hands-on approach
-3. Real-world project experience
-4. Strong placement support
-5. Flexible learning schedules
-6. Comprehensive course material
-7. Post-training support
-
-## Blog Topics Covered
-
-- SAP module tutorials and guides
-- Career advice for SAP professionals
-- Industry trends and updates
-- Best practices and tips
-- Interview preparation
-- Certification guidance
-- Real-world case studies
-
-## SEO Keywords
-
-SAP training, SAP MM course, SAP HANA training, SAP FI certification, ERP Academy, SAP course India, online SAP training, SAP expert trainer, SAP job placement, SAP certification, learn SAP online, SAP MM tutorial, SAP career guidance
-
-## Social Proof
-
-- Trained 500+ successful SAP professionals
-- Students placed in top companies (TCS, Infosys, Wipro, etc.)
-- 4.9/5 average rating from students
-- Recognized as a leading SAP training institute in India
-
-## Website Structure
-
-- Homepage: Overview and hero section
-- About: Information about Akshay and the academy
-- Courses: Detailed course offerings
-- Blog: Industry insights and tutorials
-- Testimonials: Student success stories
-- FAQ: Common questions answered
-- Contact: Inquiry and enrollment form
-
-## Technology Stack
-
-- Built with Next.js for optimal performance
-- Modern, responsive design
-- SEO optimized
-- Fast loading times
-- Mobile-friendly
-- Accessibility compliant
+- **Blog Index**: https://erp-academy.vercel.app/blog
+- **Sitemap**: https://erp-academy.vercel.app/sitemap.xml
+- **Topics**: SAP MM complete guides, SAP Consultant salary benchmarks 2025-2026, SAP vs MBA comparison, beginner 30-day tutorials, S/4HANA cloud migration, and interview preparation.
 
 ---
-
-*Last Updated: December 2025*
-*For the most current information, visit: https://erp-academy.vercel.app/*
+*Last Updated: 2026*
+*Official Portal: https://erp-academy.vercel.app/*

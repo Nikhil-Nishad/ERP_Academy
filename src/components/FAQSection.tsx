@@ -244,9 +244,9 @@ const FAQSection = () => {
                         className="w-full mt-3 bg-white text-green-700 hover:bg-green-50"
                         onClick={() => {
                           if (option.title === "Call Us") {
-                            window.open("tel:+919876543210", "_self");
+                            window.open("tel:+919312340496", "_self");
                           } else if (option.title === "Email Support") {
-                            window.open("mailto:info@erpacademy.com", "_self");
+                            window.open("mailto:nikhilnishad1801@gmail.com", "_self");
                           } else {
                             document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
                           }

@@ -1,19 +1,131 @@
 [
   {
+    "id": "sap-mm-training-india",
+    "slug": "sap-mm-training-india",
+    "title": "SAP MM Training in India 2025: Complete Guide to Fees, Duration & Placement",
+    "date": "2026-03-01",
+    "excerpt": "Looking for the best SAP MM training in India? Discover course fees, duration, syllabus breakdown, real-time S/4HANA projects, and how to secure high-paying SAP consultant jobs.",
+    "author": "Akshay Kumar",
+    "imageUrl": "/assets/blog_images/img18.webp",
+    "category": "SAP Career",
+    "tags": [
+      "SAP MM Training",
+      "SAP Course India",
+      "SAP MM Syllabus",
+      "SAP Jobs",
+      "SAP S4HANA",
+      "Career Guide"
+    ],
+    "readTime": 8,
+    "views": 1520,
+    "likes": 98,
+    "featured": true,
+    "status": "published"
+  },
+  {
+    "id": "sap-salary-india-2025",
+    "slug": "sap-salary-india-2025",
+    "title": "SAP Salary in India 2025: How Much Can You Earn After SAP Certification?",
+    "date": "2026-03-01",
+    "excerpt": "Explore detailed module-wise and city-wise SAP consultant salary insights across India in 2025. Learn how SAP certification accelerates your compensation growth.",
+    "author": "Akshay Kumar",
+    "imageUrl": "/assets/blog_images/img1.webp",
+    "category": "SAP Career",
+    "tags": [
+      "SAP Salary",
+      "SAP Consultant Pay",
+      "SAP MM Salary",
+      "SAP HANA Salary",
+      "SAP FI Salary",
+      "India IT Jobs"
+    ],
+    "readTime": 7,
+    "views": 1840,
+    "likes": 124,
+    "featured": true,
+    "status": "published"
+  },
+  {
+    "id": "sap-training-vs-mba-india",
+    "slug": "sap-training-vs-mba-india",
+    "title": "SAP Training vs MBA: Which is Better for Career Growth in India?",
+    "date": "2026-03-01",
+    "excerpt": "Debating between investing in an MBA vs an SAP Certification course? Compare time commitment, ROI, job prospects, and career trajectories in India.",
+    "author": "Akshay Kumar",
+    "imageUrl": "/assets/blog_images/img19.webp",
+    "category": "Career Comparison",
+    "tags": [
+      "SAP vs MBA",
+      "Career Advice",
+      "SAP Course ROI",
+      "Higher Education India",
+      "SAP Certification"
+    ],
+    "readTime": 6,
+    "views": 1390,
+    "likes": 89,
+    "featured": true,
+    "status": "published"
+  },
+  {
+    "id": "sap-mm-tutorial-beginners",
+    "slug": "sap-mm-tutorial-beginners",
+    "title": "SAP MM Tutorial for Beginners: What You'll Learn in First 30 Days",
+    "date": "2026-03-01",
+    "excerpt": "A structured, beginner-friendly roadmap to mastering SAP Materials Management in 30 days. Learn key transaction codes, master data, and procurement cycles.",
+    "author": "Akshay Kumar",
+    "imageUrl": "/assets/blog_images/img17.webp",
+    "category": "SAP Technical",
+    "tags": [
+      "SAP MM Tutorial",
+      "SAP for Beginners",
+      "SAP TCodes",
+      "Procurement Cycle",
+      "SAP S4HANA",
+      "Learn SAP"
+    ],
+    "readTime": 9,
+    "views": 1950,
+    "likes": 142,
+    "featured": true,
+    "status": "published"
+  },
+  {
+    "id": "sap-job-after-training-india",
+    "slug": "sap-job-after-training-india",
+    "title": "How to Get a Job After SAP Training in India: Step-by-Step Guide (2025)",
+    "date": "2026-03-01",
+    "excerpt": "Learn proven strategies to land your first SAP consultant job in India. Discover resume templates, interview preparation tips, and placement secrets.",
+    "author": "Akshay Kumar",
+    "imageUrl": "/assets/blog_images/img12.webp",
+    "category": "Career Strategy",
+    "tags": [
+      "SAP Jobs India",
+      "SAP Placement",
+      "SAP Resume",
+      "SAP Interview Questions",
+      "SAP Fresher Jobs",
+      "Career Guidance"
+    ],
+    "readTime": 8,
+    "views": 2100,
+    "likes": 168,
+    "featured": true,
+    "status": "published"
+  },
+  {
     "id": "sap-system-performance-optimization",
     "slug": "sap-system-performance-optimization",
     "title": "Optimizing SAP System Performance: A Technical Guide",
     "date": "2026-02-10",
     "excerpt": "Learn how to optimize your SAP system for peak performance and efficiency. Discover the key strategies and techniques to improve your system's speed and reliability.",
-    "author": "AI Contributor",
+    "author": "Akshay Kumar",
     "imageUrl": "/assets/blog_images/sap-system-performance-optimization.webp",
     "category": "SAP Technical",
     "tags": [
       "SAP Performance",
       "System Optimization",
-      "Technical Guide",
-      "undefined",
-      "undefined"
+      "Technical Guide"
     ],
     "readTime": 10,
     "views": 1000,
@@ -27,7 +139,7 @@
     "title": "Optimizing SAP HANA Column Store Compression for Real-Time Analytics",
     "date": "2026-02-10",
     "excerpt": "A detailed guide on tuning SAP HANA's column store compression to boost performance for real-time analytical workloads. Learn practical steps, configuration tips, and monitoring techniques.",
-    "author": "AI Contributor",
+    "author": "Akshay Kumar",
     "imageUrl": "/assets/blog_images/optimizing-sap-hana-column-store-compression.webp",
     "category": "SAP Tech",
     "tags": [
@@ -49,7 +161,7 @@
     "title": "Boosting S/4HANA User Queries with Retrieval‑Augmented Generation: A Hands‑On Guide",
     "date": "2026-02-10",
     "excerpt": "This article explains how to integrate RAG techniques with SAP S/4HANA to deliver context‑aware answers to end‑user queries. A step‑by‑step implementation, performance tips, and security considerations are covered.",
-    "author": "AI Contributor",
+    "author": "Akshay Kumar",
     "imageUrl": "/assets/blog_images/retrieval-augmented-generation-s4hana-query-assistance.webp",
     "category": "Enterprise AI",
     "tags": [
@@ -71,7 +183,7 @@
     "title": "AI-Driven SAP S/4HANA Cloud Migration: Best Practices for 2024",
     "date": "2026-02-09",
     "excerpt": "Discover how generative AI is reshaping SAP S/4HANA migrations to the cloud, delivering faster go‑live times and smarter process automation. This guide outlines the latest strategies, tools, and real‑world success stories for enterprises in 2024.",
-    "author": "AI Contributor",
+    "author": "Akshay Kumar",
     "imageUrl": "/assets/blog_images/ai-driven-sap-s4hana-cloud-migration-2024.webp",
     "category": "Enterprise AI",
     "tags": [
@@ -93,7 +205,7 @@
     "title": "Generative AI Revolution: Accelerating SAP S/4HANA Migration to the Cloud",
     "date": "2026-02-09",
     "excerpt": "Explore how generative AI is reshaping SAP S/4HANA cloud migration, delivering faster go‑live times and smarter process automation. Learn practical strategies and real‑world success stories that enterprise leaders can apply today.",
-    "author": "AI Contributor",
+    "author": "Akshay Kumar",
     "imageUrl": "/assets/blog_images/generative-ai-sap-s4hana-cloud-migration.webp",
     "category": "Enterprise AI",
     "tags": [
@@ -532,28 +644,6 @@
     "readTime": 16,
     "views": 285,
     "likes": 20,
-    "featured": false,
-    "status": "published"
-  },
-  {
-    "id": "generative-ai-s4hana-cloud-migration",
-    "slug": "generative-ai-s4hana-cloud-migration",
-    "title": "Generative AI Meets S/4HANA: Accelerating Cloud Migration and Intelligent Operations",
-    "date": "2026-02-08",
-    "excerpt": "Discover how generative AI is reshaping S/4HANA cloud migrations, cutting timelines and boosting operational intelligence. Learn practical strategies and real‑world examples that enterprise leaders can apply today.",
-    "author": "AI Contributor",
-    "imageUrl": "/assets/blog_images/generative-ai-s4hana-cloud-migration.webp",
-    "category": "Enterprise AI",
-    "tags": [
-      "S/4HANA",
-      "Generative AI",
-      "Cloud Migration",
-      "Intelligent Enterprise",
-      "SAP Integration"
-    ],
-    "readTime": 10,
-    "views": 0,
-    "likes": 0,
     "featured": false,
     "status": "published"
   }

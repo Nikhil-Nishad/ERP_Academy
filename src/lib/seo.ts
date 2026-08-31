@@ -13,9 +13,19 @@ export interface SEOProps {
 }
 
 export function generateSEO({
-  title = 'Master SAP MM, HANA, FI Training India | ERP Academy #1',
-  description = 'Transform your career with India\'s #1 SAP training. Expert SAP MM, HANA & FI courses. 6+ years experience, 500+ placed. Free consultation!',
-  keywords = ['SAP training India', 'SAP MM course', 'SAP HANA training', 'SAP FI certification', 'ERP Academy', 'Akshay Kumar SAP trainer', 'SAP job placement', 'SAP certification'],
+  title = 'Master SAP MM, HANA, FI Training India | ERP Academy',
+  description = 'Transform your career with India\'s top-rated SAP training institute. Expert-led SAP MM, HANA & FI courses with 95% placement assistance. Book a free demo class today!',
+  keywords = [
+    'SAP training India',
+    'SAP MM course',
+    'SAP HANA training',
+    'SAP FI certification',
+    'ERP Academy',
+    'Akshay Kumar SAP trainer',
+    'SAP job placement India',
+    'SAP certification Delhi',
+    'learn SAP online'
+  ],
   canonicalUrl = 'https://erp-academy.vercel.app/',
   ogImage = 'https://erp-academy.vercel.app/assets/new_heroPic.webp',
   ogType = 'website',
@@ -23,6 +33,9 @@ export function generateSEO({
   noIndex = false,
   structuredData
 }: SEOProps): Metadata {
+  const isWebp = ogImage.endsWith('.webp')
+  const imageType = isWebp ? 'image/webp' : 'image/png'
+
   return {
     title,
     description,
@@ -35,7 +48,6 @@ export function generateSEO({
       canonical: canonicalUrl,
       languages: {
         'en': canonicalUrl,
-        'hi': canonicalUrl,
         'x-default': canonicalUrl
       }
     },
@@ -52,7 +64,7 @@ export function generateSEO({
           width: 1200,
           height: 630,
           alt: title,
-          type: 'image/png'
+          type: imageType
         }
       ]
     },
@@ -65,9 +77,7 @@ export function generateSEO({
       images: [ogImage]
     },
     verification: {
-      google: process.env.NEXT_PUBLIC_GSC_VERIFICATION || 'pending-verification',
-      yandex: 'your-yandex-verification-code',
-      yahoo: 'your-yahoo-verification-code'
+      google: process.env.NEXT_PUBLIC_GSC_VERIFICATION || 'pending-verification'
     },
     category: 'education',
     classification: 'SAP Training Institute',
@@ -81,11 +91,11 @@ export function generateSEO({
       'application-name': 'ERP Academy',
       'msapplication-tooltip': 'Master SAP with Expert Training',
       'og:site_name': 'ERP Academy by Akshay',
-      'og:email': 'contact@erp-academy.com',
-      'og:phone_number': '+91-XXXXXXXXXX',
+      'og:email': 'nikhilnishad1801@gmail.com',
+      'og:phone_number': '+91-9312340496',
       'og:latitude': '28.6139',
       'og:longitude': '77.2090',
-      'og:street-address': 'India',
+      'og:street-address': 'Delhi',
       'og:locality': 'New Delhi',
       'og:region': 'Delhi',
       'og:postal-code': '110001',
@@ -101,7 +111,7 @@ export const organizationSchema = {
   "alternateName": "ERP Academy",
   "url": "https://erp-academy.vercel.app/",
   "logo": "https://erp-academy.vercel.app/assets/logo_fit.png",
-  "description": "India's #1 SAP training institute providing expert-led courses in SAP MM, HANA, and FI with guaranteed job placement assistance.",
+  "description": "India's premier SAP training institute providing expert-led courses in SAP MM, HANA, and FI with guaranteed job placement assistance.",
   "foundingDate": "2018",
   "founder": {
     "@type": "Person",
@@ -116,42 +126,22 @@ export const organizationSchema = {
   },
   "address": {
     "@type": "PostalAddress",
-    "addressCountry": "IN",
-    "addressLocality": "India"
+    "streetAddress": "New Delhi",
+    "addressLocality": "Delhi",
+    "addressRegion": "Delhi",
+    "postalCode": "110001",
+    "addressCountry": "IN"
   },
   "contactPoint": {
     "@type": "ContactPoint",
     "contactType": "customer service",
     "availableLanguage": ["English", "Hindi"],
-    "telephone": "+91-XXXXXXXXXX",
-    "email": "contact@erp-academy.com"
+    "telephone": "+91-9312340496",
+    "email": "nikhilnishad1801@gmail.com"
   },
   "sameAs": [
-    "https://www.linkedin.com/company/erp-academy",
-    "https://twitter.com/ERPAcademyIndia",
-    "https://www.youtube.com/c/ERPAcademy"
+    "https://nikhil-nishad.vercel.app"
   ],
-  "offers": {
-    "@type": "Course",
-    "name": "SAP Training Courses",
-    "description": "Comprehensive SAP training including MM, HANA, and FI modules",
-    "provider": {
-      "@type": "Organization",
-      "name": "ERP Academy by Akshay"
-    },
-    "courseMode": ["online", "blended"],
-    "educationalLevel": "Beginner to Advanced",
-    "timeRequired": "P3M",
-    "teaches": ["SAP MM", "SAP HANA", "SAP FI"],
-    "coursePrerequisites": "Basic computer knowledge",
-    "financialAid": "Scholarship available",
-    "offers": {
-      "@type": "Offer",
-      "category": "Education",
-      "price": "Contact for pricing",
-      "priceCurrency": "INR"
-    }
-  },
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "4.9",
@@ -166,7 +156,7 @@ export const personSchema = {
   "@type": "Person",
   "name": "Akshay Kumar",
   "jobTitle": "SAP Expert & Senior Trainer",
-  "description": "SAP expert with 6+ years of experience, specializing in SAP MM, HANA, and FI. Founder of ERP Academy, India's leading SAP training institute.",
+  "description": "SAP expert with 6+ years of industry experience, specializing in SAP MM, HANA, and FI. Founder of ERP Academy.",
   "image": "https://erp-academy.vercel.app/assets/new_ProfilePic.webp",
   "url": "https://erp-academy.vercel.app/",
   "worksFor": {
@@ -179,55 +169,111 @@ export const personSchema = {
     "@type": "EducationalOccupationalCredential",
     "name": "SAP Certified Professional",
     "credentialCategory": "Professional Certification"
-  },
-  "memberOf": {
-    "@type": "Organization",
-    "name": "SAP Community"
   }
 }
 
-export const courseSchema = {
-  "@context": "https://schema.org",
-  "@type": "Course",
-  "name": "SAP MM Training Course",
-  "description": "Complete SAP Materials Management (MM) training course with hands-on practical experience and job placement assistance.",
-  "provider": {
-    "@type": "Organization",
-    "name": "ERP Academy by Akshay",
-    "url": "https://erp-academy.vercel.app/"
-  },
-  "instructor": {
-    "@type": "Person",
-    "name": "Akshay Kumar",
-    "jobTitle": "SAP Expert & Senior Trainer"
-  },
-  "courseMode": ["online", "blended"],
-  "educationalLevel": "Beginner to Advanced",
-  "timeRequired": "P3M",
-  "teaches": ["Materials Management", "Procurement Process", "Inventory Management", "Vendor Management"],
-  "coursePrerequisites": "Basic computer knowledge and understanding of business processes",
-  "financialAid": "Scholarship and EMI options available",
-  "hasCourseInstance": {
-    "@type": "CourseInstance",
-    "courseMode": "online",
+export function getCourseSchema({
+  name,
+  description,
+  teaches,
+  url = 'https://erp-academy.vercel.app/'
+}: {
+  name: string
+  description: string
+  teaches: string[]
+  url?: string
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": name,
+    "description": description,
+    "provider": {
+      "@type": "Organization",
+      "name": "ERP Academy by Akshay",
+      "url": "https://erp-academy.vercel.app/"
+    },
     "instructor": {
       "@type": "Person",
-      "name": "Akshay Kumar"
+      "name": "Akshay Kumar",
+      "jobTitle": "SAP Expert & Senior Trainer"
+    },
+    "courseMode": ["online", "blended"],
+    "educationalLevel": "Beginner to Advanced",
+    "timeRequired": "P3M",
+    "teaches": teaches,
+    "coursePrerequisites": "Basic computer knowledge and understanding of business processes",
+    "financialAid": "Scholarship and flexible EMI options available",
+    "hasCourseInstance": {
+      "@type": "CourseInstance",
+      "courseMode": "online",
+      "instructor": {
+        "@type": "Person",
+        "name": "Akshay Kumar"
+      }
+    },
+    "offers": {
+      "@type": "Offer",
+      "category": "Education",
+      "price": "Contact for pricing",
+      "priceCurrency": "INR",
+      "availability": "InStock",
+      "validFrom": "2025-01-01",
+      "url": url
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "500",
+      "bestRating": "5",
+      "worstRating": "1"
     }
-  },
-  "offers": {
-    "@type": "Offer",
-    "category": "Education",
-    "price": "Contact for pricing",
-    "priceCurrency": "INR",
-    "availability": "InStock",
-    "validFrom": "2024-01-01"
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.9",
-    "reviewCount": "500",
-    "bestRating": "5",
-    "worstRating": "1"
   }
 }
+
+export const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What SAP modules do you teach?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We specialize in SAP MM (Material Management), SAP FI (Financial Accounting), and SAP HANA. Our courses cover fundamental to advanced concepts with hands-on practical experience in each module."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long is the complete SAP training program?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our comprehensive SAP training program typically runs for 10-12 weeks, with 3-4 hours of training per week. We also offer intensive weekend batches and flexible scheduling to accommodate working professionals."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you provide SAP certification preparation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, our training includes comprehensive certification preparation. We provide study materials, mock exams, and guidance for official SAP certification exams to help you achieve your certification goals."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you provide job placement assistance?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, we offer comprehensive job placement assistance including resume building, interview preparation, and connecting you with our network of hiring partners. Our placement success rate is over 95%."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I get an SAP job without prior IT experience?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely! Our training is designed for both IT and non-IT professionals. We start with fundamentals and gradually build up to advanced concepts. Many of our successful students come from non-technical backgrounds."
+      }
+    }
+  ]
+}

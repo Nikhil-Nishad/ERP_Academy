@@ -58,8 +58,29 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     headline: post.title,
     description: post.excerpt,
     datePublished: post.date,
-    author: { '@type': 'Person', name: post.author },
-    image: post.imageUrl.startsWith('http') ? post.imageUrl : `${site}${post.imageUrl}`,
+    dateModified: post.date,
+    wordCount: post.content ? post.content.split(/\s+/).length : 500,
+    articleSection: post.category,
+    keywords: Array.isArray(post.tags) ? post.tags.join(', ') : '',
+    author: {
+      '@type': 'Person',
+      name: post.author || 'Akshay Kumar',
+      url: 'https://erp-academy.vercel.app'
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'ERP Academy by Akshay',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://erp-academy.vercel.app/assets/logo_fit.png'
+      }
+    },
+    image: {
+      '@type': 'ImageObject',
+      url: post.imageUrl.startsWith('http') ? post.imageUrl : `${site}${post.imageUrl}`,
+      width: 1200,
+      height: 630
+    },
     mainEntityOfPage: { '@type': 'WebPage', '@id': url },
   }
 

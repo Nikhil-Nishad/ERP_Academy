@@ -205,22 +205,11 @@ const EnhancedHeroSection = () => {
             </motion.div>
           </motion.div>
 
-          {/* Right Content */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-            className="relative"
-            style={{ y }}
-          >
+          {/* Right Content - Optimized for instant LCP render */}
+          <div className="relative">
             {/* Main Image */}
             <div className="relative">
-              <motion.div
-                className="relative rounded-2xl overflow-hidden shadow-2xl"
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.3 }}
-              >
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <Image
                   src="/assets/new_heroPic.webp"
                   alt="Akshay Kumar - SAP Expert Trainer"
@@ -231,7 +220,7 @@ const EnhancedHeroSection = () => {
                   priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-green-900/50 to-transparent" />
-              </motion.div>
+              </div>
 
               {/* Floating Cards */}
               <motion.div
@@ -268,7 +257,7 @@ const EnhancedHeroSection = () => {
                 </Card>
               </motion.div>
             </div>
-          </motion.div>
+          </div>
         </div>
 
         {/* Companies Marquee */}

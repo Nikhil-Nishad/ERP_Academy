@@ -50,21 +50,21 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2 text-green-200">
+              <li><Link href="/" className="hover:text-yellow-400 transition-colors">Home</Link></li>
               <li><Link href="/#about" className="hover:text-yellow-400 transition-colors">About Us</Link></li>
-              <li><Link href="/#courses" className="hover:text-yellow-400 transition-colors">SAP Courses</Link></li>
-              <li><Link href="/blog" className="hover:text-yellow-400 transition-colors">Blog</Link></li>
+              <li><Link href="/blog" className="hover:text-yellow-400 transition-colors">Blog & Insights</Link></li>
               <li><Link href="/#contact" className="hover:text-yellow-400 transition-colors">Contact</Link></li>
             </ul>
           </div>
 
           {/* Courses */}
           <div>
-            <h4 className="font-semibold mb-4">Our Courses</h4>
+            <h4 className="font-semibold mb-4">Our SAP Courses</h4>
             <ul className="space-y-2 text-green-200">
-              <li><Link href="/#courses" className="hover:text-yellow-400 transition-colors">SAP MM Training</Link></li>
-              <li><Link href="/#courses" className="hover:text-yellow-400 transition-colors">SAP HANA Course</Link></li>
-              <li><Link href="/#courses" className="hover:text-yellow-400 transition-colors">SAP FI Training</Link></li>
-              <li><Link href="/#courses" className="hover:text-yellow-400 transition-colors">SAP Certification</Link></li>
+              <li><Link href="/courses/sap-mm" className="hover:text-yellow-400 transition-colors">SAP MM Training</Link></li>
+              <li><Link href="/courses/sap-hana" className="hover:text-yellow-400 transition-colors">SAP HANA Course</Link></li>
+              <li><Link href="/courses/sap-fi" className="hover:text-yellow-400 transition-colors">SAP FI Training</Link></li>
+              <li><Link href="/courses/sap-mm" className="hover:text-yellow-400 transition-colors">Placement Assistance</Link></li>
             </ul>
           </div>
           
@@ -74,15 +74,15 @@ const Footer = () => {
             <div className="text-green-200 space-y-3">
               <div className="flex items-start space-x-2">
                 <Mail className="w-5 h-5 mt-0.5 flex-shrink-0" />
-                <a href="mailto:info@erpacademy.com" className="hover:text-yellow-400 transition-colors">info@erpacademy.com</a>
+                <a href="mailto:nikhilnishad1801@gmail.com" className="hover:text-yellow-400 transition-colors">nikhilnishad1801@gmail.com</a>
               </div>
               <div className="flex items-start space-x-2">
                 <Phone className="w-5 h-5 mt-0.5 flex-shrink-0" />
-                <span>+91 XXXXX XXXXX</span>
+                <a href="tel:+919312340496" className="hover:text-yellow-400 transition-colors">+91-9312340496</a>
               </div>
               <div className="flex items-start space-x-2">
                 <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0" />
-                <span>India</span>
+                <span>New Delhi, India</span>
               </div>
             </div>
           </div>
@@ -91,8 +91,15 @@ const Footer = () => {
         <div className="border-t border-green-700 mt-8 pt-8 text-center text-green-200">
           <p>&copy; {currentYear} ERP Academy by Akshay. All rights reserved.</p>
           <p className="text-sm mt-2">
-            <Link href="/privacy" className="hover:text-yellow-400 transition-colors mx-2">Privacy Policy</Link>
-            <Link href="/terms" className="hover:text-yellow-400 transition-colors mx-2">Terms of Service</Link>
+            Designed & Developed by{" "}
+            <a
+              href="https://nikhil-nishad.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-yellow-400 hover:underline font-medium"
+            >
+              Nikhil Nishad
+            </a>
           </p>
         </div>
       </div>

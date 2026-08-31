@@ -1,19 +1,16 @@
-'use client'
-
 /**
- * Main Home Page Component for Next.js
- * Migrated from React App.jsx with enhanced SEO and performance
- * Uses dynamic imports to optimize bundle size
+ * Main Home Page Component for Next.js (Server Component for Optimal SEO & Fast Crawling)
+ * Renders full semantic HTML server-side for maximum search engine indexability and Core Web Vitals.
  */
 
 import React from "react";
 import dynamic from "next/dynamic";
-import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import EnhancedHeroSection from "@/components/EnhancedHeroSection";
 import EnhancedAboutSection from "@/components/EnhancedAboutSection";
+import { faqSchema } from "@/lib/seo";
 
-// Dynamic imports for below-fold components - improves initial load time
+// Dynamic imports for below-the-fold components
 const BenefitsSection = dynamic(() => import("@/components/sapBenefit"), {
   loading: () => <div className="min-h-[400px] animate-pulse bg-gray-100" />
 });
@@ -44,16 +41,19 @@ const FOMOBanner = dynamic(() => import("@/components/PsychologicalTriggers").th
 
 export default function HomePage() {
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-      className="min-h-screen font-sans antialiased"
-    >
+    <div className="min-h-screen font-sans antialiased bg-white">
+      {/* FAQ Schema for Rich Search Snippets */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqSchema)
+        }}
+      />
+
       {/* Fixed Header */}
       <Header />
       
-      {/* Main Content */}
+      {/* Main Content rendered for SEO */}
       <main className="relative">
         <EnhancedHeroSection />
         <EnhancedAboutSection />
@@ -75,6 +75,6 @@ export default function HomePage() {
       
       {/* Footer */}
       <Footer />
-    </motion.div>
+    </div>
   );
 }

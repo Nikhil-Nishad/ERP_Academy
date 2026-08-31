@@ -70,9 +70,9 @@ const ContactForm = () => {
     {
       icon: Mail,
       title: "Email Us",
-      details: "shortsbyrishab@gmail.com",
+      details: "nikhilnishad1801@gmail.com",
       subtitle: "Get response within 24 hours",
-      link: "mailto:shortsbyrishab@gmail.com"
+      link: "mailto:nikhilnishad1801@gmail.com"
     },
     {
       icon: Phone,
