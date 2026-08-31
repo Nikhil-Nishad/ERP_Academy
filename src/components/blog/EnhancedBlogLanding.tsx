@@ -293,7 +293,7 @@ export default function EnhancedBlogLanding({ posts }: EnhancedBlogLandingProps)
                           className="object-cover transition-transform duration-500 group-hover:scale-105"
                         />
                         <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                          <Button size="icon" variant="secondary" className="h-8 w-8 rounded-full bg-white/90 backdrop-blur shadow-sm hover:bg-white">
+                          <Button size="icon" variant="secondary" aria-label="Bookmark post" className="h-8 w-8 rounded-full bg-white/90 backdrop-blur shadow-sm hover:bg-white">
                             <Bookmark className="w-4 h-4 text-slate-700" />
                           </Button>
                         </div>

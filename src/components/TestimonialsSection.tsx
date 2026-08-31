@@ -308,6 +308,7 @@ const TestimonialsSection = () => {
             size="icon"
             className="absolute -left-6 top-1/2 transform -translate-y-1/2 bg-white hover:bg-green-600 hover:text-white shadow-xl border-green-200 hover:border-green-600 transition-all duration-300 w-12 h-12 rounded-full"
             onClick={prevTestimonial}
+            aria-label="Previous testimonial"
           >
             <ChevronLeft className="w-6 h-6" />
           </Button>
@@ -316,6 +317,7 @@ const TestimonialsSection = () => {
             size="icon"
             className="absolute -right-6 top-1/2 transform -translate-y-1/2 bg-white hover:bg-green-600 hover:text-white shadow-xl border-green-200 hover:border-green-600 transition-all duration-300 w-12 h-12 rounded-full"
             onClick={nextTestimonial}
+            aria-label="Next testimonial"
           >
             <ChevronRight className="w-6 h-6" />
           </Button>

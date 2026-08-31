@@ -1,0 +1,48 @@
+# ERP Academy by Akshay - Full Knowledge Base
+
+> Comprehensive syllabus, institutional overview, career paths, and technical reference for AI agents, LLMs, and enterprise search crawlers.
+
+## Institutional Profile
+
+- **Institute**: ERP Academy by Akshay
+- **Lead Instructor**: Akshay Kumar (Senior SAP Consultant, 6+ years enterprise implementation and training experience)
+- **Primary Focus**: High-impact, job-oriented SAP training with 24/7 dedicated SAP GUI / S/4HANA sandbox access.
+- **Rating**: 4.9/5.0 from 500+ student reviews
+- **Placement Support**: 95% placement track record across Tier-1 IT consulting companies (TCS, Infosys, Wipro, Accenture, Capgemini, Deloitte, PwC).
+- **Contact Phone**: +91-9312340496
+- **Contact Email**: nikhilnishad1801@gmail.com
+- **Official Domain**: https://erp-academy.vercel.app
+- **Developer Website**: https://nikhil-nishad.vercel.app
+
+## Detailed Syllabus Overview
+
+### 1. SAP MM (Materials Management) & S/4HANA Sourcing
+- Enterprise Structure (Client, Company Code, Plant, Storage Location, Purchasing Org)
+- Master Data (Material Master MM01/02/03, Business Partner BP, Purchasing Info Record ME11, Source List ME01)
+- Purchasing Documents (Purchase Requisition ME51N, RFQ ME41, Purchase Order ME21N, Contracts ME31K)
+- Inventory Management (Goods Receipt MIGO with movement type 101, Goods Issue, Transfer Postings, Stock Overview MMBE/MB52)
+- Physical Inventory & Cycle Counting (MI01, MI04, MI07)
+- Valuation & Account Determination (OBYC configuration and G/L mapping with FI)
+- Logistics Invoice Verification (MIRO, 3-way match, price variances, credit memos)
+- S/4HANA Fiori Applications and Migration strategies
+
+### 2. SAP HANA Architecture & Modeling
+- In-Memory Database Architecture (Row store vs Column store, persistence layer, MVCC)
+- Calculation Views (Dimension, Cube, Star Join, Aggregations, Calculated Columns, Input Parameters)
+- CDS Views (Core Data Services, Virtual Data Models)
+- ABAP for HANA (AMDP - ABAP Managed Database Procedures)
+- Data Provisioning (SAP Landscape Transformation SLT, Smart Data Integration SDI)
+- S/4HANA Migration paths (Greenfield, Brownfield, SUM with DMO)
+
+### 3. SAP FI (Financial Accounting)
+- Financial Enterprise Structure (Company Code, Chart of Accounts, Fiscal Year Variant)
+- General Ledger Accounting (FI-GL, Document Types, Number Ranges, Posting Keys)
+- Accounts Payable (FI-AP, Business Partner, Automatic Payment Program F110, TDS/Withholding Tax)
+- Accounts Receivable (FI-AR, Customer Master, Dunning procedures, Billing Integration SD-FI)
+- Asset Accounting (FI-AA, Asset Classes, Depreciation Keys, Year-End Closing)
+- S/4HANA Universal Journal (ACDOCA table architecture and financial closing)
+
+## Career Insights & Compensation Benchmarks
+- Entry Level Consultant (0-2 Yrs): ₹5.0 LPA - ₹8.0 LPA
+- Mid-Level Consultant (3-6 Yrs): ₹9.0 LPA - ₹15.0 LPA
+- Senior Consultant / Solution Architect (7+ Yrs): ₹16.0 LPA - ₹28.0+ LPA

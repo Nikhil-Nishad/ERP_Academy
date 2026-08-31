@@ -343,6 +343,7 @@ const FOMOBanner = () => {
           <button 
             onClick={() => setIsVisible(false)}
             className="text-gray-700 hover:text-gray-900"
+            aria-label="Dismiss notification"
           >
             ✕
           </button>

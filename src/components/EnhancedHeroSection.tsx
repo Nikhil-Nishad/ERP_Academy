@@ -268,9 +268,9 @@ const EnhancedHeroSection = () => {
           transition={{ delay: 1 }}
           className="mt-20"
         >
-          <h3 className="text-center text-xl text-green-200 mb-8">
+          <h2 className="text-center text-xl text-green-200 mb-8 font-semibold">
             Our Students Work At Top Companies
-          </h3>
+          </h2>
           <Marquee pauseOnHover className="[--duration:30s]">
             {companies.map((company) => (
               <div
@@ -297,9 +297,9 @@ const EnhancedHeroSection = () => {
           transition={{ delay: 0.5 }}
           className="mt-16"
         >
-          <h3 className="text-center text-xl text-green-200 mb-8">
+          <h2 className="text-center text-xl text-green-200 mb-8 font-semibold">
             What Our Students Say
-          </h3>
+          </h2>
           <Marquee pauseOnHover className="[--duration:40s]" reverse>
             {testimonials.map((testimonial, index) => (
               <Card key={index} className="w-80 mx-4 bg-white/10 backdrop-blur-md border-white/20">

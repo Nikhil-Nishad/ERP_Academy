@@ -14,12 +14,8 @@ export default function robots(): MetadataRoute.Robots {
         ],
       },
       {
-        userAgent: 'GPTBot',
-        disallow: '/',
-      },
-      {
-        userAgent: 'ChatGPT-User',
-        disallow: '/',
+        userAgent: ['GPTBot', 'ChatGPT-User', 'ClaudeBot', 'PerplexityBot', 'Google-Extended'],
+        allow: '/',
       },
     ],
     sitemap: 'https://erp-academy.vercel.app/sitemap.xml',

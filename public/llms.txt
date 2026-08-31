@@ -1,0 +1,32 @@
+# ERP Academy
+
+> ERP Academy by Akshay is India's leading SAP training institute specializing in SAP MM, SAP HANA, and SAP FI certification with 100% placement support.
+
+ERP Academy provides live, hands-on training led by senior SAP consultant Akshay Kumar (6+ years experience). Over 500+ professionals trained with a 95% placement record at top MNCs like TCS, Infosys, Wipro, and Accenture.
+
+## Courses
+
+- [SAP MM Training Course](https://erp-academy.vercel.app/courses/sap-mm): Comprehensive 10-12 weeks training on procurement, inventory, master data (BP), OBYC account determination, and S/4HANA sourcing.
+- [SAP HANA Training Course](https://erp-academy.vercel.app/courses/sap-hana): In-memory computing, Calculation Views, CDS Views, AMDP, SLT provisioning, and S/4HANA migration.
+- [SAP FI Training Course](https://erp-academy.vercel.app/courses/sap-fi): General Ledger, Accounts Payable, Accounts Receivable, Asset Accounting, and S/4HANA Universal Journal (ACDOCA).
+
+## Technical Articles & Guides
+
+- [SAP MM Training in India 2025: Fees, Duration & Placement](https://erp-academy.vercel.app/blog/sap-mm-training-india): Complete guide to SAP MM course fees, duration, syllabus, and job opportunities.
+- [SAP Salary in India 2025](https://erp-academy.vercel.app/blog/sap-salary-india-2025): Detailed salary benchmarks for SAP MM, HANA, and FI consultants across experience levels.
+- [SAP Training vs MBA in India](https://erp-academy.vercel.app/blog/sap-training-vs-mba-india): Head-to-head comparison of ROI, duration, cost, and career trajectories.
+- [SAP MM Tutorial for Beginners](https://erp-academy.vercel.app/blog/sap-mm-tutorial-beginners): 30-day learning roadmap and essential transaction codes cheat sheet.
+- [How to Get an SAP Job After Training](https://erp-academy.vercel.app/blog/sap-job-after-training-india): Blueprint for resume optimization, mock interviews, and landing consultant offers.
+
+## Contact Information
+
+- Phone: +91-9312340496
+- Email: nikhilnishad1801@gmail.com
+- Website: https://erp-academy.vercel.app
+- Developer Website: https://nikhil-nishad.vercel.app
+- Location: New Delhi, India
+
+## Optional
+
+- [Full LLM Knowledge Base](https://erp-academy.vercel.app/llms-full.txt): Complete detailed curriculum, FAQ, and enterprise syllabus index.
+- [XML Sitemap](https://erp-academy.vercel.app/sitemap.xml): Complete list of all indexed URLs.
