@@ -12,6 +12,8 @@ ERP Academy provides live, hands-on training led by senior SAP consultant Akshay
 
 ## Technical Articles & Guides
 
+- [SAP FICO Career Roadmap 2025–2026](https://erp-academy.vercel.app/blog/sap-fico-course-roadmap-career-guide): Mentor guide to syllabus, T-Codes, salary, and career switch for commerce graduates.
+- [SAP Clean Core Strategy Explained](https://erp-academy.vercel.app/blog/sap-clean-core-strategy-s4hana-guide): Architectural principles, ABAP Cloud 3-Tier model, and SAP BTP side-by-side extensions.
 - [SAP MM Training in India 2025: Fees, Duration & Placement](https://erp-academy.vercel.app/blog/sap-mm-training-india): Complete guide to SAP MM course fees, duration, syllabus, and job opportunities.
 - [SAP Salary in India 2025](https://erp-academy.vercel.app/blog/sap-salary-india-2025): Detailed salary benchmarks for SAP MM, HANA, and FI consultants across experience levels.
 - [SAP Training vs MBA in India](https://erp-academy.vercel.app/blog/sap-training-vs-mba-india): Head-to-head comparison of ROI, duration, cost, and career trajectories.

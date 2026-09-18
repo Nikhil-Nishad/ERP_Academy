@@ -38,12 +38,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ]
 
-  const blogRoutes: MetadataRoute.Sitemap = getAllPosts().map((p) => ({
-    url: `${site}/blog/${p.slug}`,
-    lastModified: currentDate,
-    changeFrequency: 'weekly',
-    priority: p.featured ? 0.85 : 0.8,
-  }))
+  const blogRoutes: MetadataRoute.Sitemap = getAllPosts().map((p) => {
+    const postDate = p.date || p.publishDate
+    return {
+      url: `${site}/blog/${p.slug}`,
+      lastModified: postDate ? new Date(postDate) : currentDate,
+      changeFrequency: 'weekly',
+      priority: p.featured ? 0.85 : 0.8,
+    }
+  })
 
   return [...staticRoutes, ...blogRoutes]
 }
