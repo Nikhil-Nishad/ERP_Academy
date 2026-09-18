@@ -2,33 +2,135 @@
 
 > ERP Academy by Akshay is India's leading SAP training institute specializing in SAP MM, SAP HANA, and SAP FI certification with 100% placement support.
 
-ERP Academy provides live, hands-on training led by senior SAP consultant Akshay Kumar (6+ years experience). Over 500+ professionals trained with a 95% placement record at top MNCs like TCS, Infosys, Wipro, and Accenture.
+ERP Academy provides live, hands-on training led by senior SAP consultant Akshay Kumar (6+ years enterprise consulting and training experience). Over 500+ professionals trained with a 95% placement record at top MNCs like TCS, Infosys, Wipro, Accenture, Capgemini, Deloitte, and PwC.
 
-## Courses
+## Core Courses
 
-- [SAP MM Training Course](https://erp-academy.vercel.app/courses/sap-mm): Comprehensive 10-12 weeks training on procurement, inventory, master data (BP), OBYC account determination, and S/4HANA sourcing.
-- [SAP HANA Training Course](https://erp-academy.vercel.app/courses/sap-hana): In-memory computing, Calculation Views, CDS Views, AMDP, SLT provisioning, and S/4HANA migration.
+- [SAP MM Training Course](https://erp-academy.vercel.app/courses/sap-mm): Comprehensive 10-12 weeks training on procurement lifecycle, inventory management, master data (BP), OBYC automatic account determination, and S/4HANA sourcing.
+- [SAP HANA Training Course](https://erp-academy.vercel.app/courses/sap-hana): In-memory computing, Calculation Views, CDS Views, AMDP, SLT data provisioning, and S/4HANA migration.
 - [SAP FI Training Course](https://erp-academy.vercel.app/courses/sap-fi): General Ledger, Accounts Payable, Accounts Receivable, Asset Accounting, and S/4HANA Universal Journal (ACDOCA).
 
-## Technical Articles & Guides
+## Technical Articles & Complete Knowledge Base (31 Comprehensive Guides)
 
-- [SAP FICO Career Roadmap 2025–2026](https://erp-academy.vercel.app/blog/sap-fico-course-roadmap-career-guide): Mentor guide to syllabus, T-Codes, salary, and career switch for commerce graduates.
-- [SAP Clean Core Strategy Explained](https://erp-academy.vercel.app/blog/sap-clean-core-strategy-s4hana-guide): Architectural principles, ABAP Cloud 3-Tier model, and SAP BTP side-by-side extensions.
-- [SAP MM Training in India 2025: Fees, Duration & Placement](https://erp-academy.vercel.app/blog/sap-mm-training-india): Complete guide to SAP MM course fees, duration, syllabus, and job opportunities.
-- [SAP Salary in India 2025](https://erp-academy.vercel.app/blog/sap-salary-india-2025): Detailed salary benchmarks for SAP MM, HANA, and FI consultants across experience levels.
-- [SAP Training vs MBA in India](https://erp-academy.vercel.app/blog/sap-training-vs-mba-india): Head-to-head comparison of ROI, duration, cost, and career trajectories.
-- [SAP MM Tutorial for Beginners](https://erp-academy.vercel.app/blog/sap-mm-tutorial-beginners): 30-day learning roadmap and essential transaction codes cheat sheet.
-- [How to Get an SAP Job After Training](https://erp-academy.vercel.app/blog/sap-job-after-training-india): Blueprint for resume optimization, mock interviews, and landing consultant offers.
+### SAP Career
 
-## Contact Information
+- [SAP FICO Career Roadmap 2025–2026: A Mentor's Step-by-Step Guide for Commerce & Finance Professionals in India](https://erp-academy.vercel.app/blog/sap-fico-course-roadmap-career-guide): Confused between traditional accounting and SAP FICO? Read an honest, mentor-backed 90-day roadmap covering syllabus, real S/4HANA T-Codes, realistic salaries in India, and how to crack consultant interviews without getting trapped by fake promises.
+- [SAP MM Training in India 2025: Complete Guide to Fees, Duration & Placement](https://erp-academy.vercel.app/blog/sap-mm-training-india): Looking for the best SAP MM training in India? Discover course fees, duration, syllabus breakdown, real-time S/4HANA projects, and how to secure high-paying SAP consultant jobs.
+- [SAP Salary in India 2025: How Much Can You Earn After SAP Certification?](https://erp-academy.vercel.app/blog/sap-salary-india-2025): Explore detailed module-wise and city-wise SAP consultant salary insights across India in 2025. Learn how SAP certification accelerates your compensation growth.
 
+### SAP Architecture
+
+- [Why SAP Clean Core Is Making or Breaking S/4HANA Migrations (And What Developers Need to Know)](https://erp-academy.vercel.app/blog/sap-clean-core-strategy-s4hana-guide): Tired of hearing 'Keep the Core Clean' buzzwords? Here is an architect's practical guide to what SAP Clean Core actually means, why legacy Z-programs choke upgrades, ABAP Cloud vs Classic ABAP, and how to build cloud-ready extensions on BTP.
+
+### Career Comparison
+
+- [SAP Training vs MBA: Which is Better for Career Growth in India?](https://erp-academy.vercel.app/blog/sap-training-vs-mba-india): Debating between investing in an MBA vs an SAP Certification course? Compare time commitment, ROI, job prospects, and career trajectories in India.
+
+### SAP Technical
+
+- [SAP MM Tutorial for Beginners: What You'll Learn in First 30 Days](https://erp-academy.vercel.app/blog/sap-mm-tutorial-beginners): A structured, beginner-friendly roadmap to mastering SAP Materials Management in 30 days. Learn key transaction codes, master data, and procurement cycles.
+- [Optimizing SAP System Performance: A Technical Guide](https://erp-academy.vercel.app/blog/sap-system-performance-optimization): Learn how to optimize your SAP system for peak performance and efficiency. Discover the key strategies and techniques to improve your system's speed and reliability.
+
+### Career Strategy
+
+- [How to Get a Job After SAP Training in India: Step-by-Step Guide (2025)](https://erp-academy.vercel.app/blog/sap-job-after-training-india): Learn proven strategies to land your first SAP consultant job in India. Discover resume templates, interview preparation tips, and placement secrets.
+
+### SAP Tech
+
+- [Optimizing SAP HANA Column Store Compression for Real-Time Analytics](https://erp-academy.vercel.app/blog/optimizing-sap-hana-column-store-compression): A detailed guide on tuning SAP HANA's column store compression to boost performance for real-time analytical workloads. Learn practical steps, configuration tips, and monitoring techniques.
+
+### Enterprise AI
+
+- [Boosting S/4HANA User Queries with Retrieval‑Augmented Generation: A Hands‑On Guide](https://erp-academy.vercel.app/blog/retrieval-augmented-generation-s4hana-query-assistance): This article explains how to integrate RAG techniques with SAP S/4HANA to deliver context‑aware answers to end‑user queries. A step‑by‑step implementation, performance tips, and security considerations are covered.
+- [AI-Driven SAP S/4HANA Cloud Migration: Best Practices for 2024](https://erp-academy.vercel.app/blog/ai-driven-sap-s4hana-cloud-migration-2024): Discover how generative AI is reshaping SAP S/4HANA migrations to the cloud, delivering faster go‑live times and smarter process automation. This guide outlines the latest strategies, tools, and real‑world success stories for enterprises in 2024.
+- [Generative AI Revolution: Accelerating SAP S/4HANA Migration to the Cloud](https://erp-academy.vercel.app/blog/generative-ai-sap-s4hana-cloud-migration): Explore how generative AI is reshaping SAP S/4HANA cloud migration, delivering faster go‑live times and smarter process automation. Learn practical strategies and real‑world success stories that enterprise leaders can apply today.
+
+### SAP Trends
+
+- [The Future of SAP S/4HANA: What You Need to Know in 2025](https://erp-academy.vercel.app/blog/future-of-sap-s4hana-2025): Comprehensive guide to SAP S/4HANA 2025 featuring intelligent automation, clean core architecture, cloud-first strategies, AI integration, and industry-specific innovations that are transforming enterprise resource planning.
+
+### Business Intelligence
+
+- [SAP Analytics Cloud 2025: Advanced Data-Driven Decision Making](https://erp-academy.vercel.app/blog/sap-analytics-cloud-2025): Unlock the power of SAP Analytics Cloud 2025 with comprehensive coverage of advanced analytics, machine learning, collaborative planning, augmented insights, and intelligent data visualization that transforms business intelligence.
+
+### ERP Modernization
+
+- [SAP ERP 2025: Complete Modernization Strategy](https://erp-academy.vercel.app/blog/sap-erp-2025): Transform your enterprise with SAP ERP 2025 modernization strategies including S/4HANA migration, process optimization, digital transformation, cloud adoption, and intelligent automation that revolutionizes core business operations.
+
+### Platform Technology
+
+- [SAP Business Technology Platform 2025: Complete Innovation Guide & Architecture](https://erp-academy.vercel.app/blog/sap-btp-2025): Master SAP Business Technology Platform 2025 with comprehensive coverage of low-code development, AI services, integration capabilities, data management, and cloud-native architecture that accelerates enterprise innovation.
+
+### Compliance
+
+- [SAP Data Privacy & Governance 2025: Protecting Enterprise Data](https://erp-academy.vercel.app/blog/sap-data-privacy-2025): Complete data privacy and governance guide featuring GDPR compliance, data discovery, consent management, privacy-preserving analytics, and comprehensive regulatory compliance automation.
+
+### Security
+
+- [SAP Data Security 2025: Safeguarding Enterprise Information](https://erp-academy.vercel.app/blog/sap-data-security-2025): Comprehensive guide to SAP Data Security 2025 featuring advanced threat detection, zero-trust architecture, compliance automation, and intelligent security frameworks that protect enterprise data across hybrid cloud environments.
+
+### Cloud Security
+
+- [SAP Cloud Security 2025: Protecting Your Cloud Landscape](https://erp-academy.vercel.app/blog/sap-cloud-security-2025): Master SAP Cloud Security 2025 with comprehensive coverage of zero-trust architecture, identity management, threat detection, compliance automation, and advanced security frameworks that protect enterprise cloud environments.
+
+### AI Ethics
+
+- [SAP AI Ethics 2025: Responsible AI for Enterprise](https://erp-academy.vercel.app/blog/sap-ai-ethics-2025): Comprehensive framework for responsible AI implementation covering transparency, fairness, accountability, privacy protection, and ethical considerations for enterprise AI deployment.
+
+### IoT Technology
+
+- [SAP IoT 2025: Connecting Devices for Intelligent Operations](https://erp-academy.vercel.app/blog/sap-iot-2025): Explore how SAP IoT 2025 is revolutionizing enterprise operations through intelligent device connectivity, real-time data analytics, predictive maintenance, and seamless integration with business processes for operational excellence.
+
+### Automation
+
+- [SAP Robotics 2025: Automating the Enterprise Floor](https://erp-academy.vercel.app/blog/sap-robotics-2025): Explore how SAP Robotics 2025 is transforming industrial automation through intelligent robot orchestration, collaborative human-robot operations, and seamless enterprise system integration that drives efficiency and safety.
+
+### Sustainability
+
+- [SAP Sustainability 2025: Driving Green Enterprise Transformation](https://erp-academy.vercel.app/blog/sap-sustainability-2025): Comprehensive guide to SAP Sustainability 2025 featuring carbon management, ESG performance tracking, circular economy enablement, and sustainable supply chain management for environmental and business impact.
+
+### Supply Chain
+
+- [SAP Business Network 2025: Enhancing Supplier Collaboration](https://erp-academy.vercel.app/blog/sap-business-network-2025): Comprehensive supplier collaboration platform featuring intelligent supplier discovery, real-time order management, advanced risk assessment, ESG integration, and supply chain resilience optimization.
+
+### Innovation
+
+- [SAP Extended Reality 2025: Immersive Experiences for Enterprise](https://erp-academy.vercel.app/blog/sap-extended-reality-2025): Discover how SAP Extended Reality (XR) 2025 is revolutionizing enterprise training, collaboration, and operations through Virtual Reality, Augmented Reality, and Mixed Reality technologies that enhance productivity and reduce costs.
+
+### Customer Experience
+
+- [SAP Customer Experience 2025: Personalizing Every Interaction](https://erp-academy.vercel.app/blog/sap-customer-experience-2025): Discover how SAP Customer Experience 2025 revolutionizes customer relationships through AI-powered personalization, omnichannel orchestration, and unified customer data platforms that drive satisfaction and loyalty.
+
+### SAP Strategy
+
+- [SAP Digital Transformation in 2025: Trends and Strategies](https://erp-academy.vercel.app/blog/sap-digital-transformation-2025): Explore how SAP is leading digital transformation in 2025, from AI‑driven processes to low‑code platforms.
+
+### SAP Innovation
+
+- [AI-Powered SAP S/4HANA: Unlocking Intelligent Enterprise](https://erp-academy.vercel.app/blog/sap-s4hana-ai-2025): Discover how AI is integrated into SAP S/4HANA to drive smarter processes.
+
+### SAP Cloud
+
+- [SAP Cloud Platform 2025: Building Scalable Enterprise Solutions](https://erp-academy.vercel.app/blog/sap-cloud-platform-2025): Explore how SAP Cloud Platform enables rapid, secure, and scalable cloud-native applications for enterprises.
+
+### HR & Talent
+
+- [SAP SuccessFactors 2025: Elevating Human Capital Management](https://erp-academy.vercel.app/blog/sap-successfactors-2025): Discover how SAP SuccessFactors empowers HR with AI, employee experience, and talent analytics in 2025.
+
+### Platform
+
+- [Accelerating Enterprise Innovation with SAP BTP: Developer Guide 2025](https://erp-academy.vercel.app/blog/sap-btp-accelerating-2025): Discover how SAP BTP empowers developers with low-code tools, AI services, and seamless integration in 2025.
+
+## Contact Information & Official Links
+
+- Website: https://erp-academy.vercel.app
+- Blog: https://erp-academy.vercel.app/blog
 - Phone: +91-9312340496
 - Email: nikhilnishad1801@gmail.com
-- Website: https://erp-academy.vercel.app
 - Developer Website: https://nikhil-nishad.vercel.app
 - Location: New Delhi, India
 
-## Optional
+## XML Sitemap & Discovery
 
-- [Full LLM Knowledge Base](https://erp-academy.vercel.app/llms-full.txt): Complete detailed curriculum, FAQ, and enterprise syllabus index.
-- [XML Sitemap](https://erp-academy.vercel.app/sitemap.xml): Complete list of all indexed URLs.
+- [XML Sitemap](https://erp-academy.vercel.app/sitemap.xml): Complete list of all indexed URLs and courses.
+- [Full LLM Knowledge Base](https://erp-academy.vercel.app/llms-full.txt): Deep technical syllabus, placement stats, and curriculum reference.
