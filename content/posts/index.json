@@ -1,5 +1,51 @@
 [
   {
+    "id": "sap-fico-course-roadmap-career-guide",
+    "slug": "sap-fico-course-roadmap-career-guide",
+    "title": "SAP FICO Career Roadmap 2025–2026: A Mentor's Step-by-Step Guide for Commerce & Finance Professionals in India",
+    "date": "2026-09-18",
+    "excerpt": "Confused between traditional accounting and SAP FICO? Read an honest, mentor-backed 90-day roadmap covering syllabus, real S/4HANA T-Codes, realistic salaries in India, and how to crack consultant interviews without getting trapped by fake promises.",
+    "author": "Akshay Kumar",
+    "imageUrl": "/assets/blog_images/sap-fico-course-roadmap-career-guide.jpg",
+    "category": "SAP Career",
+    "tags": [
+      "SAP FICO Roadmap",
+      "SAP FICO Syllabus",
+      "SAP FICO Salary India",
+      "SAP Career Guide",
+      "SAP S4HANA Finance",
+      "Commerce to SAP"
+    ],
+    "readTime": 9,
+    "views": 1240,
+    "likes": 118,
+    "featured": true,
+    "status": "published"
+  },
+  {
+    "id": "sap-clean-core-strategy-s4hana-guide",
+    "slug": "sap-clean-core-strategy-s4hana-guide",
+    "title": "Why SAP Clean Core Is Making or Breaking S/4HANA Migrations (And What Developers Need to Know)",
+    "date": "2026-09-18",
+    "excerpt": "Tired of hearing 'Keep the Core Clean' buzzwords? Here is an architect's practical guide to what SAP Clean Core actually means, why legacy Z-programs choke upgrades, ABAP Cloud vs Classic ABAP, and how to build cloud-ready extensions on BTP.",
+    "author": "Akshay Kumar",
+    "imageUrl": "/assets/blog_images/sap-clean-core-strategy-s4hana-guide.jpg",
+    "category": "SAP Architecture",
+    "tags": [
+      "SAP Clean Core",
+      "ABAP Cloud",
+      "SAP BTP",
+      "SAP S4HANA Migration",
+      "Enterprise Architecture",
+      "Clean Core Strategy"
+    ],
+    "readTime": 10,
+    "views": 1410,
+    "likes": 132,
+    "featured": true,
+    "status": "published"
+  },
+  {
     "id": "sap-mm-training-india",
     "slug": "sap-mm-training-india",
     "title": "SAP MM Training in India 2025: Complete Guide to Fees, Duration & Placement",
