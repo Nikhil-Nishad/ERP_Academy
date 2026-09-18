@@ -10,6 +10,8 @@ import EnhancedHeroSection from "@/components/EnhancedHeroSection";
 import EnhancedAboutSection from "@/components/EnhancedAboutSection";
 import { faqSchema } from "@/lib/seo";
 
+import LatestBlogSection from "@/components/blog/LatestBlogSection";
+
 // Dynamic imports for below-the-fold components
 const BenefitsSection = dynamic(() => import("@/components/sapBenefit"), {
   loading: () => <div className="min-h-[400px] animate-pulse bg-gray-100" />
@@ -62,6 +64,7 @@ export default function HomePage() {
         <ComprehensiveCourses />
         <TestimonialsSection />
         <UpcomingCourses />
+        <LatestBlogSection />
         <FAQSection />
         <ContactForm />
       </main>

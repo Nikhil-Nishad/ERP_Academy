@@ -10,6 +10,7 @@ import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import rehypeHighlight from 'rehype-highlight'
 import BreadcrumbSchema from '@/components/BreadcrumbSchema'
+import RelatedPosts from '@/components/blog/RelatedPosts'
 import 'highlight.js/styles/github-dark.css'
 
 export async function generateStaticParams() {
@@ -181,6 +182,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           </div>
         </div>
       </section>
+
+      <RelatedPosts currentSlug={post.slug} category={post.category} tags={post.tags} />
     </div>
   )
 }

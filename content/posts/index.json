@@ -293,7 +293,7 @@
   {
     "id": "sap-btp-2025",
     "slug": "sap-btp-2025",
-    "title": "SAP Business Technology Platform 2025: Complete Innovation Guide",
+    "title": "SAP Business Technology Platform 2025: Complete Innovation Guide & Architecture",
     "date": "2025-12-04",
     "excerpt": "Master SAP Business Technology Platform 2025 with comprehensive coverage of low-code development, AI services, integration capabilities, data management, and cloud-native architecture that accelerates enterprise innovation.",
     "author": "Akshay Kumar",
@@ -319,7 +319,7 @@
     "title": "SAP Data Privacy & Governance 2025: Protecting Enterprise Data",
     "date": "2025-12-15",
     "excerpt": "Complete data privacy and governance guide featuring GDPR compliance, data discovery, consent management, privacy-preserving analytics, and comprehensive regulatory compliance automation.",
-    "author": "Lina Patel",
+    "author": "Akshay Kumar",
     "imageUrl": "/assets/blog_images/img16.webp",
     "category": "Compliance",
     "tags": [
@@ -388,7 +388,7 @@
     "title": "SAP AI Ethics 2025: Responsible AI for Enterprise",
     "date": "2025-12-18",
     "excerpt": "Comprehensive framework for responsible AI implementation covering transparency, fairness, accountability, privacy protection, and ethical considerations for enterprise AI deployment.",
-    "author": "Maya Rao",
+    "author": "Akshay Kumar",
     "imageUrl": "/assets/blog_images/img13.webp",
     "category": "AI Ethics",
     "tags": [
@@ -480,7 +480,7 @@
     "title": "SAP Business Network 2025: Enhancing Supplier Collaboration",
     "date": "2025-12-22",
     "excerpt": "Comprehensive supplier collaboration platform featuring intelligent supplier discovery, real-time order management, advanced risk assessment, ESG integration, and supply chain resilience optimization.",
-    "author": "Rohit Sharma",
+    "author": "Akshay Kumar",
     "imageUrl": "/assets/blog_images/img9.webp",
     "category": "Supply Chain",
     "tags": [
@@ -549,7 +549,7 @@
     "title": "SAP Digital Transformation in 2025: Trends and Strategies",
     "date": "2025-11-15",
     "excerpt": "Explore how SAP is leading digital transformation in 2025, from AI‑driven processes to low‑code platforms.",
-    "author": "Anita Sharma",
+    "author": "Akshay Kumar",
     "imageUrl": "/assets/blog_images/img2.webp",
     "category": "SAP Strategy",
     "tags": [
@@ -570,7 +570,7 @@
     "title": "AI-Powered SAP S/4HANA: Unlocking Intelligent Enterprise",
     "date": "2025-11-10",
     "excerpt": "Discover how AI is integrated into SAP S/4HANA to drive smarter processes.",
-    "author": "Ravi Patel",
+    "author": "Akshay Kumar",
     "imageUrl": "/assets/blog_images/img3.webp",
     "category": "SAP Innovation",
     "tags": [
@@ -590,7 +590,7 @@
     "title": "SAP Cloud Platform 2025: Building Scalable Enterprise Solutions",
     "date": "2025-11-08",
     "excerpt": "Explore how SAP Cloud Platform enables rapid, secure, and scalable cloud-native applications for enterprises.",
-    "author": "Meera Joshi",
+    "author": "Akshay Kumar",
     "imageUrl": "/assets/blog_images/img4.webp",
     "category": "SAP Cloud",
     "tags": [
@@ -611,7 +611,7 @@
     "title": "SAP SuccessFactors 2025: Elevating Human Capital Management",
     "date": "2025-11-05",
     "excerpt": "Discover how SAP SuccessFactors empowers HR with AI, employee experience, and talent analytics in 2025.",
-    "author": "Priya Desai",
+    "author": "Akshay Kumar",
     "imageUrl": "/assets/blog_images/img5.webp",
     "category": "HR & Talent",
     "tags": [
@@ -629,11 +629,11 @@
   {
     "id": "sap-btp-accelerating-2025",
     "slug": "sap-btp-accelerating-2025",
-    "title": "SAP Business Technology Platform 2025: Accelerating Innovation",
+    "title": "Accelerating Enterprise Innovation with SAP BTP: Developer Guide 2025",
     "date": "2025-12-11",
     "excerpt": "Discover how SAP BTP empowers developers with low-code tools, AI services, and seamless integration in 2025.",
-    "author": "Neha Verma",
-    "imageUrl": "/assets/blog_images/img17.webp",
+    "author": "Akshay Kumar",
+    "imageUrl": "/assets/blog_images/img16.webp",
     "category": "Platform",
     "tags": [
       "BTP",

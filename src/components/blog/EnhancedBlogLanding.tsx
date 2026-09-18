@@ -68,8 +68,8 @@ export default function EnhancedBlogLanding({ posts }: EnhancedBlogLandingProps)
     return filtered
   }, [posts, selectedCategory, searchTerm])
 
-  const featuredPost = posts.find(p => p.featured) || posts[0]
-  const trendingPosts = posts.sort((a, b) => b.views - a.views).slice(0, 5)
+  const featuredPost = useMemo(() => posts.find(p => p.featured) || posts[0], [posts])
+  const trendingPosts = useMemo(() => [...posts].sort((a, b) => b.views - a.views).slice(0, 5), [posts])
 
   const containerVariants = {
     hidden: { opacity: 0 },

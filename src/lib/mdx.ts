@@ -41,13 +41,13 @@ export function getPostSlugs() {
   return index.map(post => post.slug);
 }
 
-export function getPostBySlug(slug: string): Post {
+export function getPostBySlug(slug: string): Post | null {
   const realSlug = slug.replace(/\.mdx$/, '');
   const index = getPostIndex();
   const postMetadata = index.find((p) => p.slug === realSlug);
 
   if (!postMetadata) {
-    throw new Error(`Post not found in index: ${realSlug}`);
+    return null;
   }
 
   const fullPath = path.join(postsDirectory, `${realSlug}.mdx`);
@@ -70,12 +70,11 @@ export function getPostBySlug(slug: string): Post {
 
 export function getAllPosts(): Post[] {
   const index = getPostIndex();
-  // Filter out drafts in production if needed, for now we return all or just published
-  // Let's return only published posts for the public list
+  // Return only published posts for the public list
   const publishedPosts = index.filter(post => post.status === 'published');
 
-  return publishedPosts.map((metadata) => {
-    return getPostBySlug(metadata.slug);
-  })
-  .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
+  return publishedPosts
+    .map((metadata) => getPostBySlug(metadata.slug))
+    .filter((p): p is Post => p !== null)
+    .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
 }

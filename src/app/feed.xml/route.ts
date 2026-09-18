@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { getAllPosts } from '@/data/blog'
+import { getAllPosts } from '@/lib/mdx'
 
 export const revalidate = 60 // revalidate every minute
 
@@ -14,7 +14,7 @@ export async function GET() {
         <link>${site}/blog/${p.slug}</link>
         <guid isPermaLink="true">${site}/blog/${p.slug}</guid>
         <description><![CDATA[${p.excerpt}]]></description>
-        <pubDate>${new Date(p.publishDate).toUTCString()}</pubDate>
+        <pubDate>${new Date(p.date || p.publishDate || Date.now()).toUTCString()}</pubDate>
       </item>
     `)
     .join('')

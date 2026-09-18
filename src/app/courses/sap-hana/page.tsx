@@ -264,6 +264,38 @@ export default function SapHanaCoursePage() {
         </div>
       </section>
 
+      {/* Related Technical Guides & Tutorials */}
+      <section className="py-12 bg-white border-t border-gray-100">
+        <div className="container-max px-4 sm:px-6">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-2xl font-bold text-gray-900 mb-2">Related SAP HANA & S/4HANA Guides</h2>
+            <p className="text-gray-600 text-sm mb-6">Deep dive into in-memory optimization and enterprise migration strategies with our expert tutorials.</p>
+            <div className="grid sm:grid-cols-2 gap-4">
+              <Link href="/blog/optimizing-sap-hana-column-store-compression" className="p-4 rounded-xl border border-gray-200 hover:border-green-400 hover:shadow-md transition-all group bg-slate-50">
+                <span className="text-xs font-semibold text-green-700 uppercase tracking-wider">Technical Guide</span>
+                <h3 className="font-bold text-gray-900 group-hover:text-green-700 text-sm sm:text-base mt-1">Optimizing SAP HANA Column Store Compression for Real-Time Analytics →</h3>
+                <p className="text-xs text-gray-500 mt-1 line-clamp-2">Learn practical steps for tuning compression algorithms and memory management in SAP HANA.</p>
+              </Link>
+              <Link href="/blog/future-of-sap-s4hana-2025" className="p-4 rounded-xl border border-gray-200 hover:border-green-400 hover:shadow-md transition-all group bg-slate-50">
+                <span className="text-xs font-semibold text-green-700 uppercase tracking-wider">Architecture</span>
+                <h3 className="font-bold text-gray-900 group-hover:text-green-700 text-sm sm:text-base mt-1">The Future of SAP S/4HANA: What You Need to Know in 2025 →</h3>
+                <p className="text-xs text-gray-500 mt-1 line-clamp-2">Explore clean core architecture, RISE with SAP, and AI integration shaping the modern ERP suite.</p>
+              </Link>
+              <Link href="/blog/generative-ai-sap-s4hana-cloud-migration" className="p-4 rounded-xl border border-gray-200 hover:border-green-400 hover:shadow-md transition-all group bg-slate-50">
+                <span className="text-xs font-semibold text-green-700 uppercase tracking-wider">Cloud Migration</span>
+                <h3 className="font-bold text-gray-900 group-hover:text-green-700 text-sm sm:text-base mt-1">Generative AI Revolution: Accelerating SAP S/4HANA Migration →</h3>
+                <p className="text-xs text-gray-500 mt-1 line-clamp-2">Discover how AI assists with code remediation and data model conversion for cloud migrations.</p>
+              </Link>
+              <Link href="/blog/retrieval-augmented-generation-s4hana-query-assistance" className="p-4 rounded-xl border border-gray-200 hover:border-green-400 hover:shadow-md transition-all group bg-slate-50">
+                <span className="text-xs font-semibold text-green-700 uppercase tracking-wider">Enterprise AI</span>
+                <h3 className="font-bold text-gray-900 group-hover:text-green-700 text-sm sm:text-base mt-1">Boosting S/4HANA User Queries with Retrieval-Augmented Generation →</h3>
+                <p className="text-xs text-gray-500 mt-1 line-clamp-2">A hands-on implementation guide to connecting enterprise knowledge graphs with S/4HANA.</p>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <Footer />
     </div>
   )

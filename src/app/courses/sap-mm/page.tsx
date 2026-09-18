@@ -309,6 +309,38 @@ export default function SapMmCoursePage() {
         </div>
       </section>
 
+      {/* Related SAP MM & Supply Chain Tutorials */}
+      <section className="py-12 bg-white border-t border-gray-100">
+        <div className="container-max px-4 sm:px-6">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-2xl font-bold text-gray-900 mb-2">Related SAP MM & Supply Chain Tutorials</h2>
+            <p className="text-gray-600 text-sm mb-6">Explore our in-depth procurement tutorials, salary breakdowns, and supplier collaboration guides.</p>
+            <div className="grid sm:grid-cols-2 gap-4">
+              <Link href="/blog/sap-mm-tutorial-beginners" className="p-4 rounded-xl border border-gray-200 hover:border-green-400 hover:shadow-md transition-all group bg-slate-50">
+                <span className="text-xs font-semibold text-green-700 uppercase tracking-wider">Beginner Guide</span>
+                <h3 className="font-bold text-gray-900 group-hover:text-green-700 text-sm sm:text-base mt-1">SAP MM Tutorial for Beginners: First 30 Days Roadmap →</h3>
+                <p className="text-xs text-gray-500 mt-1 line-clamp-2">Master transaction codes, purchase requisitions, and end-to-end procurement cycles.</p>
+              </Link>
+              <Link href="/blog/sap-business-network-2025" className="p-4 rounded-xl border border-gray-200 hover:border-green-400 hover:shadow-md transition-all group bg-slate-50">
+                <span className="text-xs font-semibold text-green-700 uppercase tracking-wider">Supply Chain</span>
+                <h3 className="font-bold text-gray-900 group-hover:text-green-700 text-sm sm:text-base mt-1">SAP Business Network 2025: Enhancing Supplier Collaboration →</h3>
+                <p className="text-xs text-gray-500 mt-1 line-clamp-2">Understand modern supplier discovery, digital purchase orders, and supply chain resilience.</p>
+              </Link>
+              <Link href="/blog/sap-salary-india-2025" className="p-4 rounded-xl border border-gray-200 hover:border-green-400 hover:shadow-md transition-all group bg-slate-50">
+                <span className="text-xs font-semibold text-green-700 uppercase tracking-wider">Career & Salary</span>
+                <h3 className="font-bold text-gray-900 group-hover:text-green-700 text-sm sm:text-base mt-1">SAP Salary in India 2025: Consultant Pay Breakdown →</h3>
+                <p className="text-xs text-gray-500 mt-1 line-clamp-2">Comprehensive data on SAP MM consultant compensation, salary growth, and certification impact.</p>
+              </Link>
+              <Link href="/blog/sap-mm-training-india" className="p-4 rounded-xl border border-gray-200 hover:border-green-400 hover:shadow-md transition-all group bg-slate-50">
+                <span className="text-xs font-semibold text-green-700 uppercase tracking-wider">Training Guide</span>
+                <h3 className="font-bold text-gray-900 group-hover:text-green-700 text-sm sm:text-base mt-1">SAP MM Training in India: Fees, Duration & Placement →</h3>
+                <p className="text-xs text-gray-500 mt-1 line-clamp-2">Everything you need to know about preparing for high-paying enterprise consultant roles.</p>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <Footer />
     </div>
   )

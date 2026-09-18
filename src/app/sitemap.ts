@@ -40,9 +40,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const blogRoutes: MetadataRoute.Sitemap = getAllPosts().map((p) => ({
     url: `${site}/blog/${p.slug}`,
-    lastModified: new Date(p.date || currentDate),
+    lastModified: currentDate,
     changeFrequency: 'weekly',
-    priority: 0.8,
+    priority: p.featured ? 0.85 : 0.8,
   }))
 
   return [...staticRoutes, ...blogRoutes]

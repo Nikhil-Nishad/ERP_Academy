@@ -263,6 +263,38 @@ export default function SapFiCoursePage() {
         </div>
       </section>
 
+      {/* Related Financial Analytics & Cloud Security Tutorials */}
+      <section className="py-12 bg-white border-t border-gray-100">
+        <div className="container-max px-4 sm:px-6">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-2xl font-bold text-gray-900 mb-2">Related Financial Analytics & Modernization Guides</h2>
+            <p className="text-gray-600 text-sm mb-6">Explore predictive planning, financial analytics, and cloud compliance strategies.</p>
+            <div className="grid sm:grid-cols-2 gap-4">
+              <Link href="/blog/sap-analytics-cloud-2025" className="p-4 rounded-xl border border-gray-200 hover:border-green-400 hover:shadow-md transition-all group bg-slate-50">
+                <span className="text-xs font-semibold text-green-700 uppercase tracking-wider">Business Intelligence</span>
+                <h3 className="font-bold text-gray-900 group-hover:text-green-700 text-sm sm:text-base mt-1">SAP Analytics Cloud 2025: Advanced Decision Making →</h3>
+                <p className="text-xs text-gray-500 mt-1 line-clamp-2">Learn how predictive analytics and collaborative financial planning transform enterprise reporting.</p>
+              </Link>
+              <Link href="/blog/sap-cloud-security-2025" className="p-4 rounded-xl border border-gray-200 hover:border-green-400 hover:shadow-md transition-all group bg-slate-50">
+                <span className="text-xs font-semibold text-green-700 uppercase tracking-wider">Security & Compliance</span>
+                <h3 className="font-bold text-gray-900 group-hover:text-green-700 text-sm sm:text-base mt-1">SAP Cloud Security 2025: Protecting Financial Data →</h3>
+                <p className="text-xs text-gray-500 mt-1 line-clamp-2">Zero-trust architecture, identity management, and compliance automation for enterprise finance.</p>
+              </Link>
+              <Link href="/blog/sap-erp-2025" className="p-4 rounded-xl border border-gray-200 hover:border-green-400 hover:shadow-md transition-all group bg-slate-50">
+                <span className="text-xs font-semibold text-green-700 uppercase tracking-wider">Modernization</span>
+                <h3 className="font-bold text-gray-900 group-hover:text-green-700 text-sm sm:text-base mt-1">SAP ERP 2025: Complete Modernization Strategy →</h3>
+                <p className="text-xs text-gray-500 mt-1 line-clamp-2">Process optimization, S/4HANA finance transition, and digital transformation roadmaps.</p>
+              </Link>
+              <Link href="/blog/sap-salary-india-2025" className="p-4 rounded-xl border border-gray-200 hover:border-green-400 hover:shadow-md transition-all group bg-slate-50">
+                <span className="text-xs font-semibold text-green-700 uppercase tracking-wider">Career Growth</span>
+                <h3 className="font-bold text-gray-900 group-hover:text-green-700 text-sm sm:text-base mt-1">SAP FI Consultant Salary in India 2025 →</h3>
+                <p className="text-xs text-gray-500 mt-1 line-clamp-2">Salary ranges, certification value, and high-demand roles for financial accounting consultants.</p>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <Footer />
     </div>
   )

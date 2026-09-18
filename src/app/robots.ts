@@ -9,9 +9,12 @@ export default function robots(): MetadataRoute.Robots {
         disallow: [
           '/api/',
           '/admin/',
-          '/_next/',
           '/tmp_rovodev_*',
         ],
+      },
+      {
+        userAgent: ['Googlebot', 'Bingbot'],
+        allow: '/',
       },
       {
         userAgent: ['GPTBot', 'ChatGPT-User', 'ClaudeBot', 'PerplexityBot', 'Google-Extended'],
