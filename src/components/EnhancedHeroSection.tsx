@@ -96,25 +96,14 @@ const EnhancedHeroSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center min-h-screen">
 
           {/* Left Content */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="space-y-8"
-          >
+          <div className="space-y-8">
             {/* Badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-            >
+            <div>
               <Badge className="bg-yellow-400/20 text-yellow-400 border-yellow-400/30 px-4 py-2 text-sm font-medium">
                 <Sparkles className="w-4 h-4 mr-2" />
                 #1 SAP Training Institute in India
               </Badge>
-            </motion.div>
+            </div>
 
             {/* Main Heading */}
             <div className="space-y-4">
@@ -203,7 +192,7 @@ const EnhancedHeroSection = () => {
                 </div>
               ))}
             </motion.div>
-          </motion.div>
+          </div>
 
           {/* Right Content - Optimized for instant LCP render */}
           <div className="relative">
