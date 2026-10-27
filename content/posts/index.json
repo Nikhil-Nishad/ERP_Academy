@@ -6,7 +6,7 @@
     "date": "2026-10-27",
     "excerpt": "Still confused about what actually changes between SAP ECC and S/4HANA? Here is a definitive mentor-backed breakdown of the 12 core differences—from the Universal Journal (ACDOCA) and Business Partner (BP) model to Sourcing & Procurement simplifications and Fiori UX.",
     "author": "Akshay Kumar",
-    "imageUrl": "/assets/blog_images/sap-s4hana-vs-ecc-differences.jpg",
+    "imageUrl": "/assets/blog_images/sap-s4hana-vs-ecc-differences.webp",
     "category": "SAP Architecture",
     "tags": [
       "SAP S4HANA vs ECC",
@@ -30,7 +30,7 @@
     "date": "2026-10-27",
     "excerpt": "Master automatic account determination in SAP MM-FI integration. Complete walkthrough of Valuation Class, Account Modifiers, Transaction Keys (BSX, WRX, PRD, GBB), OBYC configuration, and how to fix common MIGO and MIRO posting errors.",
     "author": "Akshay Kumar",
-    "imageUrl": "/assets/blog_images/sap-mm-fi-integration-obyc-guide.jpg",
+    "imageUrl": "/assets/blog_images/sap-mm-fi-integration-obyc-guide.webp",
     "category": "SAP Technical",
     "tags": [
       "SAP MM FI Integration",
@@ -54,7 +54,7 @@
     "date": "2026-10-27",
     "excerpt": "Planning to get officially SAP certified? Here is a transparent, mentor-backed guide to SAP certification costs in India, CER006 Cloud Certification Hub subscription fees, module exam codes (MM, FICO, HANA), exam syllabus, and whether global certification guarantees a job.",
     "author": "Akshay Kumar",
-    "imageUrl": "/assets/blog_images/sap-certification-cost-in-india.jpg",
+    "imageUrl": "/assets/blog_images/sap-certification-cost-in-india.webp",
     "category": "SAP Career",
     "tags": [
       "SAP Certification Cost India",
@@ -78,7 +78,7 @@
     "date": "2026-10-27",
     "excerpt": "Can a mechanical engineer, commerce graduate, sales executive, or non-technical professional switch to an SAP consulting career? Here is an actionable 90-day blueprint covering domain mapping, module selection (MM, FICO, SD), resume transformation, and interview tactics.",
     "author": "Akshay Kumar",
-    "imageUrl": "/assets/blog_images/non-it-to-sap-consultant-transition.jpg",
+    "imageUrl": "/assets/blog_images/non-it-to-sap-consultant-transition.webp",
     "category": "SAP Career",
     "tags": [
       "Non-IT to SAP",
@@ -102,7 +102,7 @@
     "date": "2026-10-27",
     "excerpt": "Preparing for an SAP MM or S/4HANA Sourcing consultant interview? Master these 35 real-time scenario questions asked by top MNCs—covering Business Partner CVI, OBYC account determination, PO release strategies, Subcontracting, and STO.",
     "author": "Akshay Kumar",
-    "imageUrl": "/assets/blog_images/sap-mm-s4hana-interview-questions.jpg",
+    "imageUrl": "/assets/blog_images/sap-mm-s4hana-interview-questions.webp",
     "category": "SAP Technical",
     "tags": [
       "SAP MM Interview Questions",
@@ -126,7 +126,7 @@
     "date": "2026-10-27",
     "excerpt": "Master SAP Business Partner (BP) and Customer-Vendor Integration (CVI) in S/4HANA. Complete walkthrough of BP roles (FLVN00, FLVN01, FLCU00, FLCU01), grouping and number range synchronization, MDS_LOAD_COCKPIT, and how to fix common CVI sync errors.",
     "author": "Akshay Kumar",
-    "imageUrl": "/assets/blog_images/sap-business-partner-cvi-s4hana.jpg",
+    "imageUrl": "/assets/blog_images/sap-business-partner-cvi-s4hana.webp",
     "category": "SAP Architecture",
     "tags": [
       "SAP Business Partner",
@@ -150,7 +150,7 @@
     "date": "2026-10-27",
     "excerpt": "Looking to specialize in SAP S/4HANA Sourcing and Procurement (Next-Gen SAP MM)? Complete mentor-backed career roadmap covering the modern syllabus, Central Procurement, SAP Ariba integration, Fiori sourcing apps, and realistic salaries across India.",
     "author": "Akshay Kumar",
-    "imageUrl": "/assets/blog_images/sap-s4hana-sourcing-procurement-roadmap.jpg",
+    "imageUrl": "/assets/blog_images/sap-s4hana-sourcing-procurement-roadmap.webp",
     "category": "SAP Career",
     "tags": [
       "SAP S4HANA Sourcing and Procurement",
@@ -174,7 +174,7 @@
     "date": "2026-10-27",
     "excerpt": "Preparing for an SAP FICO or S/4HANA Finance interview? Here are 50 scenario-based questions and answers frequently asked by Deloitte, PwC, EY, Accenture, and TCS—covering Universal Journal ACDOCA, Document Splitting, Asset Accounting, and Period-End Closing.",
     "author": "Akshay Kumar",
-    "imageUrl": "/assets/blog_images/sap-fico-interview-questions-real-world.jpg",
+    "imageUrl": "/assets/blog_images/sap-fico-interview-questions-real-world.webp",
     "category": "SAP Career",
     "tags": [
       "SAP FICO Interview Questions",
