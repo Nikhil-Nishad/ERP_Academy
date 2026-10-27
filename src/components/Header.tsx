@@ -42,21 +42,25 @@ const Header = () => {
   // Navigation items configuration
   const navItems = [
     { href: "about", label: "About", type: "scroll" },
-    { href: "benefits", label: "Benefits", type: "scroll" },
+    { href: "courses", label: "All Courses", type: "scroll" },
+    { href: "/courses/sap-mm", label: "SAP MM", type: "link" },
+    { href: "/courses/sap-fi", label: "SAP FI", type: "link" },
     { href: "roadmap", label: "Roadmap", type: "scroll" },
-    { href: "courses", label: "Courses", type: "scroll" },
-    { href: "upcoming", label: "Upcoming", type: "scroll" },
     { href: "/blog", label: "Blog", type: "link" },
   ];
 
-  // Handle navigation with smooth scroll
+  // Handle navigation with smooth scroll or route redirection
   const handleNavClick = (e: React.MouseEvent, href: string, type: string) => {
     if (type === "link") {
-      // Let Next.js Link handle it
       closeMobileMenu();
       return;
     }
     e.preventDefault();
+    if (typeof window !== "undefined" && window.location.pathname !== "/") {
+      window.location.href = `/#${href}`;
+      closeMobileMenu();
+      return;
+    }
     scrollToElement(href);
     closeMobileMenu();
   };

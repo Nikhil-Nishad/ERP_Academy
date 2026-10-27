@@ -1,0 +1,224 @@
+---
+title: "Top 35 SAP MM & S/4HANA Sourcing Interview Questions & Answers (Scenario-Based for 2025/2026)"
+date: "2026-10-27"
+excerpt: "Preparing for an SAP MM or S/4HANA Sourcing consultant interview? Master these 35 real-time scenario questions asked by top MNCs—covering Business Partner CVI, OBYC account determination, PO release strategies, Subcontracting, and STO."
+author: "Akshay Kumar"
+imageUrl: "/assets/blog_images/sap-mm-s4hana-interview-questions.jpg"
+category: "SAP Technical"
+tags:
+  [
+    "SAP MM Interview Questions",
+    "S4HANA Sourcing Questions",
+    "Scenario-Based SAP Questions",
+    "OBYC Account Determination",
+    "PO Release Strategy",
+    "Subcontracting STO",
+    "SAP Interview India"
+  ]
+readTime: 15
+views: 4520
+likes: 388
+featured: true
+status: "published"
+---
+
+# Top 35 SAP MM & S/4HANA Sourcing Interview Questions & Answers (Scenario-Based)
+
+Whether you are interviewing for an SAP MM Associate Consultant opening at Infosys, a Senior Consultant role at Deloitte, or an internal support analyst position at a multinational corporation, one thing is certain:
+
+> **Modern technical interviewers do NOT ask simple theoretical definitions like "What is a purchase order?" They test you with real-time enterprise scenarios, configuration pitfalls, and S/4HANA changes.**
+
+To help you clear your technical rounds with confidence, mentor **Akshay Kumar** and the senior consulting team at ERP Academy have compiled the **top 35 scenario-based interview questions** with detailed, technically precise model answers.
+
+---
+
+## Category 1: Enterprise Structure & Master Data (S/4HANA)
+
+### Q1: What happens to transaction codes XK01, MK01, and FK01 in SAP S/4HANA?
+**Answer:** In SAP S/4HANA, classic vendor master transactions (`XK01`, `MK01`, `FK01`) and customer master transactions (`XD01`, `VD01`, `FD01`) are obsolete and permanently redirected to centralized transaction **`BP` (Business Partner)**. 
+Through Customer-Vendor Integration (CVI), every vendor or customer is created as a Business Partner. To create an MM vendor:
+1. Create a BP with general data (Category: Organization).
+2. Assign role **`FLVN00`** for Financial Accounting vendor view (Company Code data).
+3. Assign role **`FLVN01`** for Purchasing vendor view (Purchasing Organization data).
+
+---
+
+### Q2: Can a single Plant be assigned to multiple Company Codes in SAP MM?
+**Answer:** **No.** In SAP enterprise structure, the relationship between Plant and Company Code is strictly **Many-to-One ($N:1$)**. Multiple plants can belong to one Company Code, but a single plant can only be assigned to exactly one Company Code. However, a Purchasing Organization can be assigned to multiple plants across different Company Codes (Cross-Company Code Purchasing Organization).
+
+---
+
+### Q3: What is the difference between a Purchasing Organization and a Purchasing Group?
+**Answer:** 
+- **Purchasing Organization:** An organizational unit responsible for procuring materials and services, negotiating pricing conditions with vendors, and legally signing purchase contracts. It can be plant-specific, cross-plant, or cross-company code.
+- **Purchasing Group:** An internal operational buyer or team of buyers responsible for day-to-day purchasing activities (creating PRs, POs). It is **not** linked to the enterprise organizational hierarchy in `SPRO` and operates independently across all purchasing organizations.
+
+---
+
+### Q4: Explain the significance of the "Account Category Reference" in Material Master.
+**Answer:** The Account Category Reference (ACR) acts as a bridge between Material Types and Valuation Classes. You link Material Types (e.g., `ROH`, `FERT`) to an ACR, and then link Valuation Classes (e.g., `3000`, `7920`) to that ACR. This ensures that when a user creates a raw material (`ROH`) in `MM01`, the system only permits them to select valid Raw Material Valuation Classes, preventing severe accounting errors.
+
+---
+
+### Q5: How is Material Master deleted in SAP? Can you permanently drop it from the database?
+**Answer:** In SAP standard, you cannot directly drop a material record from database tables like `MARA` or `MARC`. You must set a **Deletion Flag** using transaction `MM06` at the client, plant, or storage location level. Once flagged, the material can no longer be used in new purchase orders or sales orders. Permanent removal requires executing an **Archiving Run** (`SARA` / Object `MM_MATNR`).
+
+---
+
+## Category 2: Procurement Lifecycle & Document Control
+
+### Q6: Walk me through the complete Procure-to-Pay (P2P) cycle and the tables involved.
+**Answer:** 
+1. **Determination of Requirements:** Purchase Requisition (`ME51N`) $\rightarrow$ Table `EBAN`.
+2. **Source Determination:** RFQ (`ME41`), Quotation (`ME47`), Comparison (`ME49`) $\rightarrow$ Tables `EKKO` / `EKPO`.
+3. **Vendor Selection & Purchase Order:** PO Creation (`ME21N`) $\rightarrow$ Header `EKKO`, Line item `EKPO`.
+4. **Goods Receipt:** Physical receipt (`MIGO`) $\rightarrow$ S/4HANA writes to `MATDOC` (ECC wrote to `MKPF` / `MSEG`).
+5. **Invoice Verification:** Accounts Payable match (`MIRO`) $\rightarrow$ Tables `RBKP` (Header) and `RSEG` (Line item).
+6. **Payment Run:** Financial settlement (`F110`).
+
+---
+
+### Q7: What is the difference between a Contract and a Scheduling Agreement?
+**Answer:** 
+- **Contract (`ME31K`):** An outline agreement with a vendor stating total quantity (Quantity Contract - `MK`) or total value (Value Contract - `WK`) over a fixed period without specific delivery dates. Deliveries occur only when a **Contract Release Order** is created.
+- **Scheduling Agreement (`ME31L`):** An outline agreement where delivery dates and quantities are scheduled explicitly in **Delivery Schedule Lines** (`ME38`). No separate purchase orders are generated; goods receipts are posted directly against the scheduling agreement.
+
+---
+
+### Q8: What is a Source List and what happens if the "Source List Requirement" is checked in Plant customizing?
+**Answer:** A Source List (`ME01`) defines approved, blocked, or preferred supply sources for a material in a plant over specified validity dates. If the **"Source List Requirement"** checkbox is activated for a plant in customizing (`OMET` / `SPRO`), users **cannot** save a Purchase Order without the vendor being explicitly maintained as an approved source in the Source List.
+
+---
+
+### Q9: Scenario: A buyer creates a PO with 100 units. The vendor ships 105 units. How does SAP handle over-deliveries?
+**Answer:** SAP checks the **Overdelivery Tolerance Limit** maintained in the PO line item under the "Delivery" tab (derived from the Purchasing Info Record). 
+- If over-delivery tolerance is set to $10\%$, `MIGO` will allow receiving up to 110 units.
+- If over-delivery is set to $0\%$ and "Unlimited Overdelivery" is unchecked, `MIGO` throws error message: `M7 022: PU Overdelivery tolerance exceeded by 5 units`.
+
+---
+
+## Category 3: MM-FI Integration & OBYC Account Determination
+
+### Q10: What are the mandatory parameters required for Automatic Account Determination in OBYC?
+**Answer:** 
+1. Chart of Accounts (`KTOPL`)
+2. Valuation Grouping Code (`BWMOD` / Valuation Modification)
+3. Transaction / Event Key (`KTOSL` - e.g., `BSX`, `WRX`, `PRD`)
+4. Account Modifier / General Modification (`KOMOK` - used in `GBB`, `PRD`)
+5. Valuation Class (`BKLAS` - from Material Master Accounting 1 view)
+
+---
+
+### Q11: Explain the exact accounting entries for MIGO when receiving standard priced materials at a variance.
+**Answer:** 
+- Material Standard Price in Master: ₹100 per unit.
+- Purchase Order Price: ₹120 per unit.
+- Quantity Received in `MIGO`: 10 units.
+
+**Accounting Postings:**
+- **Debit:** Stock Account (`BSX`) = $10 \times ₹100 = \mathbf{₹1,000}$ (Always valued at standard price).
+- **Debit:** Price Difference Account (`PRD`) = $10 \times ₹20 = \mathbf{₹200}$ (Expense).
+- **Credit:** GR/IR Clearing Account (`WRX`) = $10 \times ₹120 = \mathbf{₹1,200}$ (Liability based on PO value).
+
+---
+
+### Q12: What is the role of Transaction Key GBB and its Account Modifiers?
+**Answer:** Key `GBB` is the offsetting entry for inventory movements during internal issues, stock adjustments, and scrapping where no purchase order exists. Key account modifiers include:
+- **`VBR`:** Consumption for Cost Center / Internal Order (Movement Types `201`, `261`).
+- **`VNG`:** Scrapping / Shrinkage expense (Movement Type `551`).
+- **`BSA`:** Initial stock upload (Movement Type `561`).
+- **`INV`:** Inventory difference adjustments from physical count (`MI07`).
+
+---
+
+## Category 4: PO Release Strategy (Approval Workflow)
+
+### Q13: What are the key elements required to configure a PO Release Strategy without workflow?
+**Answer:** 
+1. **Characteristics (`CT04`):** Define fields from communication structure `CEKKO` (e.g., `CEKKO-GNETW` for Total PO Net Value, `CEKKO-BSART` for Document Type, `CEKKO-WERKS` for Plant).
+2. **Class (`CL02`):** Create a Release Class under Class Type **`032` (Release Strategy)** and assign the characteristics.
+3. **Release Group:** A 2-character code grouping strategies linked to Class `032`.
+4. **Release Codes:** Individual approver roles (e.g., `L1` for Manager, `L2` for HOD, `L3` for VP).
+5. **Release Indicators:** Set status (e.g., `B` for Blocked, `X` for Released for PO transmission).
+6. **Release Prerequisites & Strategies:** Define the approval sequence and monetary thresholds.
+
+---
+
+### Q14: Scenario: An approved PO is modified by changing the delivery date. Will the release strategy re-trigger?
+**Answer:** It depends on the **Changeability Indicator** set in the Release Indicator customizing:
+- If Changeability is set to `1` or `2`: Cannot be changed after release.
+- If Changeability is set to `4` or `6`: Changing values re-triggers the release strategy only if the total net value increases beyond the tolerance percentage configured.
+- Changing only the delivery date or text typically does not reset release unless `CEKKO` was extended with date fields.
+
+---
+
+## Category 5: Special Procurement (Subcontracting & STO)
+
+### Q15: Explain the complete process flow and accounting entries for Subcontracting.
+**Answer:** 
+1. **BOM & Info Record:** Create a Subcontracting Info Record (`Item Category L`) and a Bill of Materials (`CS01`) for the finished product.
+2. **Subcontracting PO (`ME21N`):** Enter Item Category `L`. The system automatically explodes components from the BOM.
+3. **Transfer Components to Vendor (`ME2O` or `MIGO - 541`):** Movement `541` transfers raw material to "Stock Provided to Vendor" (No accounting entry generated, as goods remain company asset).
+4. **Goods Receipt of Finished Product (`MIGO - 101`):**
+   - **Dr:** Finished Good Inventory (`BSX`)
+   - **Cr:** Change in Finished Stock (`BSV`)
+   - **Dr:** Subcontracting Service Expense (`FRL`)
+   - **Cr:** GR/IR Clearing (`WRX`)
+   - **Dr:** Raw Material Consumption (`GBB - VBO`)
+   - **Cr:** Raw Material Inventory (`BSX`)
+
+---
+
+### Q16: What is a Stock Transport Order (STO) and what are its types?
+**Answer:** An STO is used to transfer inventory between plants.
+1. **Intra-Company STO (Same Company Code):**
+   - Without Delivery: Direct `MIGO` with Movement `301` or 2-step `303` / `305`.
+   - With Delivery via Shipping (`SD`): PO Type `UB`, Movement `641` at issue, `101` at receiving plant. No invoice created.
+2. **Inter-Company STO (Different Company Codes):**
+   - Standard PO Type `NB`, Customer and Vendor created for plants.
+   - Movement `643` at issuing plant, internal billing (`IV`) via `VF01`, and `101` + `MIRO` at receiving plant.
+
+---
+
+## Quick-Fire Interview Questions (Q17–Q35)
+
+- **Q17: What is Split Valuation?** When identical materials are valued differently based on origin (Domestic vs Imported) or status (New vs Refurbished). Configured in `OMWC`.
+- **Q18: What is the difference between Gross Price and Net Price in a PO?** Gross price excludes discounts, surcharges, and taxes. Net price includes discounts and additions.
+- **Q19: What is the function of the Evaluated Receipt Settlement (ERS)?** Allows automatic invoice generation upon goods receipt without the vendor submitting a physical paper invoice (T-Code `MRRL`).
+- **Q20: What is a Consignment Purchase?** The vendor stores goods on your warehouse floor, but legal ownership remains with the vendor until goods are consumed (Movement `411 K`). Payment is settled via `MRKO`.
+- **Q21: What is the table for Purchase Order History?** Table **`EKBE`**.
+- **Q22: Which movement type is used for returning goods to vendor against a PO?** Movement Type **`122`** (Return delivery) or **`161`** (Return PO line item).
+- **Q23: How do you prevent users from booking negative inventory?** Deactivate the "Negative Stock Allowed" checkbox in Plant and Storage Location customizing in `OMJ1`.
+- **Q24: What is the difference between Parked and Held documents in MIRO?** A **Held** document saves incomplete data with syntax errors without balance checks. A **Parked** document passes field status validations and can be reviewed in approval workflows without posting to G/L.
+- **Q25: What is the Material Ledger requirement in S/4HANA?** Material Ledger activation is 100% mandatory in S/4HANA to support parallel currencies and real-time inventory valuations.
+- **Q26: What is T-Code MB51 vs MB52?** `MB51` is the Material Document History report (all movement transactions). `MB52` is the Warehouse Stock List (current stock quantities and values per storage location).
+- **Q27: What is a Purchasing Value Key?** Configured in `OME1` and maintained in Material Master Purchasing view to default reminder days, over/under delivery tolerances, and shipping instructions.
+- **Q28: How does S/4HANA handle output determination for Purchase Orders?** By default, S/4HANA uses **BRFplus (Business Rule Framework Plus)** instead of the legacy `NAST` condition tables.
+- **Q29: What is the difference between Plant-Specific and Central Purchasing Organization?** A Central Purchasing Org negotiates enterprise-wide framework contracts for all company codes. A Plant-Specific Purchasing Org handles procurement exclusively for one plant.
+- **Q30: What is movement type 501?** Receipt without purchase order directly into unrestricted stock (used for trial or sample stock).
+- **Q31: What is a Physical Inventory Document?** Created in `MI01`, counted via `MI04`, and differences posted to financial G/L accounts via `MI07`.
+- **Q32: What is the function of the Quota Arrangement?** T-Code `MEQ1`: Distributes total procurement requirements among multiple vendors based on defined percentage quotas.
+- **Q33: Can you convert a Purchase Requisition directly into a Goods Receipt?** No. A PR is an internal demand document. It must first be converted into a Purchase Order (`ME21N`) or Scheduling Agreement before receiving goods.
+- **Q34: What is the Universal Journal table in S/4HANA?** Table **`ACDOCA`**, which unifies all financial and management accounting line items into a single record.
+- **Q35: How do you prepare a Functional Specification (FS) for an ABAP developer?** Identify business requirement $\rightarrow$ define trigger transaction $\rightarrow$ list exact source tables and fields $\rightarrow$ write logic flowchart $\rightarrow$ document test scenarios and error handling.
+
+---
+
+## Conclusion & Interview Strategy
+
+Cracking technical interviews requires moving beyond textbook bullet points. When answering, structure your replies using the **STAR Method** (Situation, Task, Action, Result) and reference real SAP transaction codes (`SPRO`, `OBYC`, `ME21N`, `BP`, `MIGO`, `MIRO`).
+
+Explore our in-depth [SAP MM Training Course](/courses/sap-mm) and [SAP FI Training](/courses/sap-fi) to practice these configuration scenarios on live enterprise S/4HANA servers with personal mentor feedback.
+
+---
+
+## Frequently Asked Questions (FAQ)
+
+### Which SAP MM topics carry the most weight in technical interviews?
+The most frequently tested topics are MM-FI Integration (`OBYC`), S/4HANA Business Partner (`BP`) migration, PO Release Strategy configuration, Subcontracting process flows, and Stock Transport Orders (STO).
+
+### How can a fresher explain SAP implementation project experience?
+Explain the SAP Activate methodology phases (Discover, Prepare, Explore, Realize, Deploy, Run), describe how you gathered business requirements in workshops, prepared Business Blueprints, configured enterprise structures, and drafted Functional Specifications for ABAP reports.
+
+### What is the average interview clearing rate for trained SAP MM candidates in India?
+Candidates who combine hands-on live server practice with scenario-based interview preparation typically receive job offers within 3 to 5 interview attempts across Indian IT service firms and Global Capability Centers (GCCs).

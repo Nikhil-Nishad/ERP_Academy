@@ -1,6 +1,7 @@
 // Google Analytics and performance tracking utilities
 
-export const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GA_ID || ''
+export const GA_TRACKING_ID =
+  process.env.NEXT_PUBLIC_GA_ID || process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || ''
 
 // Google Analytics tracking
 export const gtag = (...args: any[]) => {

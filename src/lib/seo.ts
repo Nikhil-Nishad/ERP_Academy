@@ -77,7 +77,7 @@ export function generateSEO({
       images: [ogImage]
     },
     verification: {
-      google: process.env.NEXT_PUBLIC_GSC_VERIFICATION || 'pending-verification'
+      google: process.env.NEXT_PUBLIC_GSC_VERIFICATION || 'googlee740ade79456d335'
     },
     category: 'education',
     classification: 'SAP Training Institute',

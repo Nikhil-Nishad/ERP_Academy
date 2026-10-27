@@ -26,10 +26,18 @@ export const metadata: Metadata = generateSEO({
   }
 })
 
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
+
 export default async function BlogPage() {
   const posts = getAllPosts()
-  // The EnhancedBlogLanding component expects posts with specific fields.
-  // Our MDX Post interface matches these fields, but we need to ensure type compatibility if strict checking is on.
-  // For now, we pass it directly as the structure is identical.
-  return <EnhancedBlogLanding posts={posts} />
+  return (
+    <div className="min-h-screen bg-slate-50 flex flex-col justify-between">
+      <Header />
+      <main className="pt-16 flex-grow">
+        <EnhancedBlogLanding posts={posts} />
+      </main>
+      <Footer />
+    </div>
+  )
 }

@@ -1,0 +1,203 @@
+---
+title: "Top 50 SAP FICO Real-World Interview Questions & Answers for 1–3 Years Experience (2025/2026 Edition)"
+date: "2026-10-27"
+excerpt: "Preparing for an SAP FICO or S/4HANA Finance interview? Here are 50 scenario-based questions and answers frequently asked by Deloitte, PwC, EY, Accenture, and TCS—covering Universal Journal ACDOCA, Document Splitting, Asset Accounting, and Period-End Closing."
+author: "Akshay Kumar"
+imageUrl: "/assets/blog_images/sap-fico-interview-questions-real-world.jpg"
+category: "SAP Career"
+tags:
+  [
+    "SAP FICO Interview Questions",
+    "S4HANA Finance Interview",
+    "Universal Journal ACDOCA",
+    "Document Splitting New GL",
+    "Asset Accounting S4HANA",
+    "Period End Closing SAP",
+    "SAP Career Guide"
+  ]
+readTime: 16
+views: 4180
+likes: 375
+featured: true
+status: "published"
+---
+
+# Top 50 SAP FICO Real-World Interview Questions & Answers (Scenario-Based)
+
+In corporate finance and ERP implementations, **SAP FICO (Financial Accounting & Management Accounting)** is regarded as the financial backbone of global business. Because financial numbers directly impact statutory reporting, corporate taxation, and regulatory audits, technical interviewers for SAP FICO roles test candidates with extreme rigor.
+
+> **"If a candidate can only quote definitions of a balance sheet, they will not clear round one. Interviewers want to know: Do you understand Document Splitting? How does the Universal Journal (ACDOCA) work? How do you resolve month-end closing errors?"**
+
+Mentor **Akshay Kumar** and the senior finance consulting practice at ERP Academy have compiled the **top 50 scenario-based SAP FICO interview questions** and comprehensive answers for professionals with 1 to 3 years of experience.
+
+---
+
+## Category 1: S/4HANA Finance & Universal Journal (`ACDOCA`)
+
+### Q1: What is the Universal Journal table in SAP S/4HANA Finance, and which legacy tables did it replace?
+**Answer:** The Universal Journal is housed in table **`ACDOCA`**. It provides a single source of truth by combining Financial Accounting (FI), Controlling (CO), Asset Accounting (AA), Material Ledger (ML), and Profitability Analysis (CO-PA) into a single line-item table.
+It effectively replaces and harmonizes data from legacy tables:
+- `BKPF` / `BSEG` (General Ledger Header & Items)
+- `BSIS`, `BSAS`, `BSIK`, `BSAK`, `BSID`, `BSAD` (Index tables)
+- `COEP`, `COSP`, `COSS` (Controlling Line Items)
+- `ANEP`, `ANEA`, `ANLP` (Asset Accounting Line Items)
+- `MLIT`, `MLPP` (Material Ledger Line Items)
+
+---
+
+### Q2: What happens to table BSEG in SAP S/4HANA? Is it still populated?
+**Answer:** Yes, table `BSEG` still exists and is populated for standard accounting postings. However, while `ACDOCA` contains all detailed line items (including Controlling and profitability segments), `BSEG` can be configured for **document summarization** to prevent exceeding the legacy 999-line item limit per accounting document. Reporting and analytics in S/4HANA query `ACDOCA` directly via Core Data Services (CDS) views.
+
+---
+
+### Q3: How has Cost Element Accounting changed in SAP S/4HANA?
+**Answer:** In legacy ECC, Primary and Secondary Cost Elements were created separately in Controlling using transaction codes `FS00` (for GL accounts) and `KA01` / `KA06` (for Cost Elements).
+**In S/4HANA:**
+Transaction `KA01` is obsolete. Cost Elements are now an integral attribute of the General Ledger Account master in transaction **`FS00`**. When creating a G/L account, you select the **Account Type**:
+- **`X` - Balance Sheet Account**
+- **`N` - Non-operating Expense or Income**
+- **`P` - Primary Costs or Revenue** (Requires Cost Element Category)
+- **`S` - Secondary Costs** (Used exclusively for internal Controlling allocations)
+
+---
+
+## Category 2: General Ledger & Document Splitting
+
+### Q4: What is Document Splitting in New General Ledger, and why is it mandatory?
+**Answer:** Document Splitting is a mechanism that dynamically divides accounting line items during posting across defined balancing dimensions (typically **Profit Center** or **Segment**). 
+**Why it is needed:** When an enterprise posts a vendor invoice with multiple expense lines assigned to different Profit Centers, the vendor line item and tax line items naturally have no profit center. Document Splitting automatically calculates pro-rata percentages and splits the balance sheet lines so that total Debits equal Credits for every individual Profit Center, enabling true segment reporting under IFRS and US GAAP.
+
+---
+
+### Q5: What are the three types of Document Splitting in SAP?
+**Answer:** 
+1. **Passive Splitting:** Used during document clearing (e.g., vendor payment clearing an invoice). The payment document inherits the exact split proportions established in the original invoice.
+2. **Active (Rule-Based) Splitting:** The system evaluates predefined splitting rules based on the Business Transaction and Transaction Variant to split clearing lines (e.g., splitting withholding tax across profit centers).
+3. **Zero-Balance Clearing Splitting:** When total debits and credits do not balance at the Profit Center level, the system automatically inserts zero-balance clearing line items to achieve a balance of zero per dimension.
+
+---
+
+### Q6: What is the difference between Company and Company Code in SAP?
+**Answer:** 
+- **Company Code (`OX02`):** The smallest organizational unit for which a complete, self-contained set of financial statements (Balance Sheet and Profit & Loss statement) can be drawn up for legal and statutory reporting.
+- **Company (`OX15`):** A consolidation entity. Multiple Company Codes operating under the same or different charts of accounts can be assigned to a single Company for group consolidation reporting.
+
+---
+
+### Q7: What are the components of a Fiscal Year Variant (FYV)?
+**Answer:** An FYV (`OB29`) defines the financial year structure:
+- **Number of Posting Periods:** Standard is 12 monthly periods.
+- **Special Periods:** Typically 4 special periods (periods 13–16) reserved for year-end audit adjustments, tax provisions, and closing entries.
+- **Calendar vs Non-Calendar Year:** Calendar runs Jan–Dec. Non-calendar runs across different calendar dates (e.g., India's April 1 to March 31, configured with Year Shift `-1`).
+
+---
+
+## Category 3: Accounts Payable (FI-AP) & Accounts Receivable (FI-AR)
+
+### Q8: Explain the Automatic Payment Program (APP) and T-Code F110.
+**Answer:** APP automates mass payment processing to vendors and customers. The process flow consists of four phases:
+1. **Parameters (`F110`):** Specify Company Codes, Payment Methods (NEFT, RTGS, Cheque), Next Posting Date, and Vendor Range.
+2. **Proposal Run:** The system scans open vendor invoices, evaluates due dates, applies cash discounts, and generates a reviewable proposal.
+3. **Proposal Editing:** Consultants and accountants review, block, or adjust payment items.
+4. **Payment Run & Printout:** The system posts financial payment entries, clears open items, and generates bank transfer files (DMEE / XML).
+
+---
+
+### Q9: What is a Special G/L Indicator, and what are its types?
+**Answer:** A Special G/L Indicator (`OBYR` / `FBKP`) allows posting transactions to an alternate reconciliation account instead of the standard vendor/customer reconciliation account defined in the master record.
+**Types:**
+- **Down Payments (Category `A`):** Posts advance payments to a distinct Balance Sheet Down Payment asset/liability account.
+- **Bills of Exchange (Category `W`):** Posts promissory notes.
+- **Noted Items (Category `F`):** Single-sided statistical entries (like Down Payment Requests - `F-47`) that generate zero accounting balance sheet impact but appear in open item reports.
+
+---
+
+### Q10: How does Dunning work in SAP FI-AR?
+**Answer:** Dunning (`F150`) is the automated process of issuing payment reminders to customers with overdue balances. Configured via Dunning Keys and Dunning Procedures:
+- Defines Dunning Intervals (e.g., reminder every 14 days).
+- Defines Dunning Levels (Level 1: Friendly Reminder $\rightarrow$ Level 4: Legal Action Notice).
+- Calculates dunning charges and late-payment interest.
+
+---
+
+## Category 4: Asset Accounting (FI-AA)
+
+### Q11: How does New Asset Accounting in S/4HANA differ from Classic Asset Accounting?
+**Answer:** 
+1. **Real-time Postings across All Depreciation Areas:** In ECC, only Depreciation Area `01` posted in real-time; secondary areas posted via periodic batch jobs (`ASKB`). In S/4HANA, all valuation areas post to `ACDOCA` in real time.
+2. **No Data Redundancy:** Tables `ANEP`, `ANEA`, and `ANLP` are replaced by `ACDOCA`.
+3. **Depreciation Run (`AFAB`):** Dramatically faster execution without statistical reconciliation locks.
+4. **Technical Clearing Account:** Integrated asset acquisitions post via a Technical Clearing Account (`T-Code: AB01 / F-90`), splitting operational and valuation-specific postings.
+
+---
+
+### Q12: What is the function of the Asset Class (`OAOA`)?
+**Answer:** The Asset Class is the primary classification structure for fixed assets (e.g., Buildings, Vehicles, Plant & Machinery, IT Equipment, Assets Under Construction - AuC). It controls:
+- Screen Layout Rules (which master data fields are mandatory or optional).
+- Number Range Assignment.
+- Account Determination (linking asset transactions to G/L Balance Sheet accounts and Depreciation Expense accounts).
+- Default Depreciation Keys and useful lives.
+
+---
+
+## Quick-Fire Technical Questions (Q13–Q50)
+
+- **Q13: What is the Field Status Variant?** Configured in `OBC4` and assigned to Company Code in `OBC5`. Controls which fields (Cost Center, Text, Business Area) are Suppressed, Required, or Optional during document posting.
+- **Q14: What is a Posting Key?** A 2-digit code (e.g., `40` for G/L Debit, `50` for G/L Credit, `01` for Customer Debit, `31` for Vendor Credit) that controls debit/credit status and line item field layouts.
+- **Q15: What is the difference between Parking and Holding a document?** A **Held** document (`FB50`) is an incomplete draft with syntax errors and zero validation checks. A **Parked** document (`F-65`) passes field status rules, creates no balance updates, but is visible in audit reports and approval workflows.
+- **Q16: What is Foreign Currency Valuation (`FAGL_FCV`)?** Revalues open foreign currency vendor/customer items and bank balances at month-end exchange rates, posting unrealized FX gains or losses to P&L.
+- **Q17: What is the purpose of the Tolerance Group in FI?** Configured in `OBA4` (Users) and `OBA3` (Vendors/Customers). Sets maximum document posting amounts, payment differences, and cash discount limits.
+- **Q18: What is a Recurring Entry?** A transaction (`FBD1`) executed periodically via `F.14` for fixed expenses (e.g., monthly office rent, equipment leases).
+- **Q19: What is the Cash Journal?** T-Code `FBCJ`: Manages petty cash transactions with separate incoming, outgoing, and check payment tabs.
+- **Q20: What is an Accrual / Deferral document?** Posted in `FBS1` at month-end to recognize expenses or revenues incurred but not yet billed, automatically reversed on the first day of the next month via `F.81`.
+- **Q21: What is the purpose of the Reconciliation Ledger in ECC, and why is it absent in S/4HANA?** In ECC, it reconciled cost flows crossing company codes between CO and FI. In S/4HANA, it is obsolete because all CO allocations write directly into `ACDOCA`.
+- **Q22: What is an Internal Order?** A Controlling object used to track temporary costs and budgets for specific internal activities (e.g., trade fairs, R&D projects) settled to Cost Centers or Fixed Assets via `KO88`.
+- **Q23: What is the difference between Profit Center and Cost Center?** A **Cost Center** only tracks expenses (e.g., HR Department). A **Profit Center** tracks both revenues and expenses to determine the net profitability of a product line or business unit.
+- **Q24: What is Cost Center Assessment vs Distribution?** **Distribution** (`KSV5`) transfers primary costs while preserving the original G/L account. **Assessment** (`KSU5`) groups primary and secondary costs together and allocates them using a Secondary Cost Element.
+- **Q25: What is the primary table for G/L Account Master Data?** `SKA1` for Chart of Accounts data, `SKB1` for Company Code specific data.
+- **Q26: What is a Ledger in S/4HANA?** A repository of financial data. S/4HANA supports a Leading Ledger (usually `0L` for group statutory standards) and Non-Leading Ledgers for local GAAP requirements.
+- **Q27: What is an Extension Ledger?** A non-standard ledger built on top of an underlying ledger that stores delta values (e.g., for management simulations or carbon accounting) without duplicating underlying data.
+- **Q28: What is an AuC (Asset Under Construction)?** Capital expenditure for an asset currently being built. Depreciated only after final settlement (`AIAB` / `AIBU`) into a finalized fixed asset.
+- **Q29: What is the Maximum Number of Line Items in a legacy FI Document?** 999 line items, constrained by the 3-digit `BUZEI` field in table `BSEG`.
+- **Q30: What is T-Code FB03?** Displays posted Financial Accounting documents.
+- **Q31: What is T-Code FBL3N vs FAGLL03?** `FBL3N` is the classic G/L line item display. `FAGLL03` displays New G/L line items including ledger-specific views.
+- **Q32: What is a Credit Control Area?** An organizational unit (`OB45`) that specifies and monitors customer credit limits across one or more company codes.
+- **Q33: What is the difference between Standard Costing and Actual Costing?** Standard costing values inventory at predetermined rates. Actual costing (via Material Ledger) calculates the actual production cost at month-end based on procurement variances.
+- **Q34: How do you handle Intercompany Postings in FI?** Configure cross-company code document types in `OBYA`. SAP automatically generates intercompany debit/credit clearing lines to balance both entities.
+- **Q35: What is the function of the Chart of Accounts?** A structured list of G/L accounts used by one or more Company Codes. SAP supports Operational, Group, and Country-Specific Charts of Accounts.
+- **Q36: What is Payment Terms configuration?** Configured in `OBB8`. Defines baseline dates, cash discount periods, and final net due dates.
+- **Q37: What is a Clearing Document?** A document that pairs open debits and credits and sets their status to cleared (e.g., matching invoice with payment).
+- **Q38: What is Withholding Tax (TDS)?** Tax Deducted at Source on vendor payments for professional services or contracts, configured via Withholding Tax Types and Codes (`SPRO`).
+- **Q39: What is Value Added Tax / GST configuration in SAP?** Tax condition types, tax calculation procedures (`TAXINN`), and tax codes (`FTXP`) linked to input and output tax G/L accounts.
+- **Q40: What is a Substitution rule in FI?** Configured in `OBBH`. Automatically replaces or populates document field values based on defined prerequisites during posting.
+- **Q41: What is a Validation rule in FI?** Configured in `OB28`. Checks user input against defined business logic before saving, throwing an Error or Warning if violated.
+- **Q42: What is Bank Reconciliation Statement (BRS) automation?** Electronic Bank Statement (EBS) processing (`FF_5`) parsing MT940 or CAMT.053 files to match and clear bank accounts automatically.
+- **Q43: What is the Year-End Balance Carryforward?** Executed in `FAGLGVTR`: Carries forward balance sheet balances into period 0 of the new year and closes P&L balances into Retained Earnings.
+- **Q44: What is a Statistical Key Figure (SKF)?** Measurable physical values (e.g., headcount, square footage) used in Controlling assessment cycles to allocate shared costs.
+- **Q45: What is Primary Cost Element vs Secondary Cost Element?** Primary cost elements mirror external expenses (salaries, electricity). Secondary cost elements exist exclusively in Controlling for internal cost distributions.
+- **Q46: What is a Cost Element Category?** Attributes like `01` (Primary costs), `11` (Revenues), `21` (Internal settlement), or `42` (Assessment) defining how costs behave.
+- **Q47: What is Activity-Based Costing (CO-ABC)?** Allocates indirect costs to business processes and cost objects based on activity consumption drivers.
+- **Q48: What is Profitability Analysis (CO-PA)?** Evaluates profit contributions across market segments (customers, regions, distribution channels). S/4HANA standardizes on Margin Analysis in `ACDOCA`.
+- **Q49: How do you reverse a posted FI document?** Execute transaction `FB08` for individual reversal or `F.80` for mass reversals using approved reversal reason codes.
+- **Q50: How do you prepare for an SAP FICO Consultant technical interview?** Connect accounting business fundamentals directly to SPRO configuration paths, reference S/4HANA tables (`ACDOCA`), and articulate complete month-end closing procedures.
+
+---
+
+## Conclusion & Next Steps
+
+Mastering real-world scenario questions transforms you from an insecure job seeker into an authoritative consultant who inspires confidence in technical panels. 
+
+To practice these configuration flows on live S/4HANA servers, explore our dedicated [SAP FI Training Course](/courses/sap-fi) and read our foundational [SAP FICO Career Roadmap](/blog/sap-fico-course-roadmap-career-guide).
+
+---
+
+## Frequently Asked Questions (FAQ)
+
+### What are the most common technical questions asked in an SAP FICO interview?
+The most common topics include Document Splitting in New GL, Universal Journal (`ACDOCA`) architecture, Automatic Payment Program (`F110`), New Asset Accounting depreciation, and MM-FI automatic account determination.
+
+### How is SAP FICO relevant in S/4HANA compared to ECC?
+In S/4HANA, SAP FICO is fundamentally transformed: FI and CO reconciliation is eliminated through `ACDOCA`, Cost Elements are unified into G/L master accounts, Asset Accounting posts in real time across all valuation areas, and Fiori dashboards replace legacy menus.
+
+### How much can an SAP FICO consultant with 1 to 3 years experience earn in India?
+Consultants with 1 to 3 years of hands-on experience and solid S/4HANA fluency typically earn between ₹6.5 Lakhs and ₹11.5 Lakhs per annum across leading IT services firms, consultancies (Big 4), and corporate capability centers.
