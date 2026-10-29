@@ -143,7 +143,7 @@ export default function LatestBlogSection() {
                 SAP Cloud Security
               </Link>
               <Link href="/blog" className="text-xs px-3 py-1 rounded-full bg-green-50 text-green-700 border border-green-200 font-semibold hover:bg-green-100 transition-colors">
-                Browse All 28+ Articles →
+                Browse All {allPosts.filter(p => p.status === 'published' || !p.status).length}+ Articles →
               </Link>
             </div>
           </div>

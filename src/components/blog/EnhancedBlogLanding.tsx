@@ -42,6 +42,12 @@ export default function EnhancedBlogLanding({ posts }: EnhancedBlogLandingProps)
   const [selectedCategory, setSelectedCategory] = useState('All')
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid')
 
+  const publishedPosts = useMemo(
+    () => posts.filter((p) => p.status === 'published' || !p.status),
+    [posts]
+  )
+  const publishedCount = publishedPosts.length
+
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -99,7 +105,7 @@ export default function EnhancedBlogLanding({ posts }: EnhancedBlogLandingProps)
             <motion.div variants={itemVariants} className="flex justify-center">
               <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200 px-4 py-1.5 text-sm font-medium rounded-full shadow-sm backdrop-blur-sm">
                 <Sparkles className="w-3.5 h-3.5 mr-2 fill-green-500 text-green-500" />
-                The ERP Academy Blog
+                {publishedCount} In-Depth Technical Articles & Guides
               </Badge>
             </motion.div>
 
@@ -209,7 +215,10 @@ export default function EnhancedBlogLanding({ posts }: EnhancedBlogLandingProps)
       {/* Filter & Main Grid */}
       <section className="py-8 sm:py-10 md:py-12 px-4 sm:px-6 max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 sm:gap-6 mb-6 sm:mb-8 md:mb-10">
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="text-xs font-semibold text-slate-500 bg-slate-100 px-3 py-1.5 rounded-full border border-slate-200">
+              {filteredPosts.length} of {publishedCount} Articles
+            </span>
             {categories.map((category) => (
               <button
                 key={category}
