@@ -10,9 +10,15 @@ ERP Academy provides live, hands-on training led by senior SAP consultant Akshay
 - [SAP HANA Training Course](https://erp-academy.vercel.app/courses/sap-hana): In-memory computing, Calculation Views, CDS Views, AMDP, SLT data provisioning, and S/4HANA migration.
 - [SAP FI Training Course](https://erp-academy.vercel.app/courses/sap-fi): General Ledger, Accounts Payable, Accounts Receivable, Asset Accounting, and S/4HANA Universal Journal (ACDOCA).
 
-## Technical Articles & Complete Knowledge Base (44 Comprehensive Guides)
+## Technical Articles & Complete Knowledge Base (49 Comprehensive Guides)
 
 ### High-Impact S/4HANA & Career Guides (2025–2026)
+
+- [SAP MM Explained: The Complete Procurement & Inventory Business Process (P2P Cycle)](https://erp-academy.vercel.app/blog/sap-mm-explained-procurement-inventory-business-process): Master SAP MM from business processes to system configuration. Complete guide to Procure-to-Pay (P2P), master data, movement types, and automatic account determination (OBYC).
+- [SAP MM vs SAP FI vs SAP HANA: Which Career Path is Right for You in 2026?](https://erp-academy.vercel.app/blog/sap-mm-vs-sap-fi-vs-sap-hana-career-path-guide): Compare SAP MM, SAP FI, and SAP HANA side by side. Discover career prospects, daily responsibilities, salary comparisons, and find the best module for your background.
+- [How to Become an SAP Consultant in 2026: The Step-by-Step Practical Roadmap](https://erp-academy.vercel.app/blog/how-to-become-sap-consultant-2026-roadmap): A realistic, zero-fluff 90-day roadmap to breaking into SAP consulting without prior enterprise experience. Learn the right modules, portfolio projects, and interview strategies.
+- [What is SAP S/4HANA? Modern ERP Architecture & Essential Skills for 2026](https://erp-academy.vercel.app/blog/sap-s4hana-modern-erp-architecture-skills-guide): Understand how SAP S/4HANA revolutionized enterprise architecture. Explore in-memory computing, universal journal ACDOCA, Fiori UX, and the critical skills consultants need today.
+- [SAP MM Interview Preparation: 40 Practical, Scenario-Based Questions & Answers](https://erp-academy.vercel.app/blog/sap-mm-interview-preparation-practical-questions-answers): Prepare for your SAP MM consultant interview with 40 real-world, scenario-based questions covering P2P, split valuation, physical inventory, PR release strategy, and OBYC integration.
 
 - [SAP MM Release Strategy Configuration: Complete Step-by-Step Guide with Classification (PO & PR)](https://erp-academy.vercel.app/blog/sap-mm-release-strategy-configuration-guide): Master SAP MM Release Strategy configuration with classification, Characteristics (CT04), Class (CL02), SPRO Release Groups, Release Codes, Prerequisites, PO vs PR approval matrices, and real project troubleshooting.
 - [SAP S/4HANA Greenfield vs Brownfield: Decision Matrix, Architecture & Migration Roadmap](https://erp-academy.vercel.app/blog/sap-s4hana-greenfield-vs-brownfield-migration-guide): Compare SAP S/4HANA Greenfield, Brownfield (System Conversion), and Selective Data Transition. Full architectural decision matrix covering Clean Core strategy, custom code remediation, downtime constraints, and cost implications.

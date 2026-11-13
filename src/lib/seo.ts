@@ -111,17 +111,17 @@ export const organizationSchema = {
   "alternateName": "ERP Academy",
   "url": "https://erp-academy.vercel.app/",
   "logo": "https://erp-academy.vercel.app/assets/logo_fit.png",
-  "description": "India's premier SAP training institute providing expert-led courses in SAP MM, HANA, and FI with guaranteed job placement assistance.",
+  "description": "Leading independent SAP training institute providing expert-led live interactive online and limited offline courses in SAP MM, HANA, and FI with dedicated placement assistance.",
   "foundingDate": "2018",
   "founder": {
     "@type": "Person",
     "name": "Akshay Kumar",
-    "jobTitle": "SAP Expert & Trainer",
+    "jobTitle": "SAP Expert & Senior Trainer",
     "worksFor": {
       "@type": "Organization",
       "name": "ERP Academy"
     },
-    "knowsAbout": ["SAP MM", "SAP HANA", "SAP FI", "Enterprise Resource Planning"],
+    "knowsAbout": ["SAP MM", "SAP HANA", "SAP FI", "Enterprise Resource Planning", "SAP S/4HANA"],
     "alumniOf": "SAP Certified Professional"
   },
   "address": {
@@ -134,13 +134,13 @@ export const organizationSchema = {
   },
   "contactPoint": {
     "@type": "ContactPoint",
-    "contactType": "customer service",
+    "contactType": "admissions and course counselling",
     "availableLanguage": ["English", "Hindi"],
     "telephone": "+91-9312340496",
     "email": "nikhilnishad1801@gmail.com"
   },
   "sameAs": [
-    "https://nikhil-nishad.vercel.app"
+    "https://wa.me/919312340496"
   ],
   "aggregateRating": {
     "@type": "AggregateRating",
