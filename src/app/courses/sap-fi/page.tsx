@@ -22,7 +22,7 @@ import {
 
 export const metadata: Metadata = generateSEO({
   title: 'SAP FI Training in India | Financial Accounting & S/4HANA Finance Course',
-  description: 'Learn SAP FI (Financial Accounting) & S/4HANA Finance with ERP Academy. Master General Ledger, Accounts Payable, Accounts Receivable, and Asset Accounting with 100% placement support.',
+  description: 'Learn SAP FI (Financial Accounting) & S/4HANA Finance with ERP Academy. Master General Ledger, Accounts Payable, Accounts Receivable, and Asset Accounting with dedicated placement assistance.',
   keywords: [
     'SAP FI training India',
     'SAP FICO course Delhi',
@@ -49,7 +49,8 @@ export default function SapFiCoursePage() {
       'Bank Ledger & Electronic Bank Statement (EBS)',
       'S/4HANA Universal Journal (ACDOCA) & Financial Closing'
     ],
-    url: pageUrl
+    url: pageUrl,
+    price: '22000'
   })
 
   const curriculum = [
@@ -222,38 +223,60 @@ export default function SapFiCoursePage() {
             <div className="lg:col-span-1 sticky top-24">
               <Card className="border-2 border-green-600 shadow-xl overflow-hidden">
                 <div className="bg-green-800 text-white p-6 text-center">
-                  <Badge className="bg-yellow-400 text-green-950 font-bold mb-2">New Batch Starting</Badge>
+                  <Badge className="bg-yellow-400 text-green-950 font-bold mb-2">Upcoming Cohorts: Dec 2026 / Jan 2027</Badge>
                   <h3 className="text-2xl font-bold mb-1">Enroll in SAP FI</h3>
-                  <p className="text-green-200 text-sm">Comprehensive practical training with 95% placement</p>
+                  <p className="text-green-200 text-sm">Interactive Live Online | Max 15 Learners Per Batch</p>
                 </div>
                 <CardContent className="p-6 space-y-6">
                   <div className="space-y-3 border-b pb-4">
+                    <div className="flex justify-between items-center text-sm">
+                      <span className="text-gray-600">Course Fee</span>
+                      <div className="text-right">
+                        <span className="font-extrabold text-green-800 text-lg">₹22,000</span>
+                        <span className="text-xs text-gray-400 line-through ml-2">₹30,000</span>
+                      </div>
+                    </div>
                     <div className="flex justify-between text-sm">
                       <span className="text-gray-600">Mentor</span>
-                      <span className="font-semibold text-gray-900">Akshay Kumar</span>
+                      <span className="font-semibold text-gray-900">Akshay Kumar (6+ Yrs Exp)</span>
                     </div>
                     <div className="flex justify-between text-sm">
-                      <span className="text-gray-600">Placement</span>
-                      <span className="font-semibold text-green-700">100% Assistance</span>
+                      <span className="text-gray-600">Batch Format</span>
+                      <span className="font-semibold text-gray-900">Live Online Interactive</span>
                     </div>
                     <div className="flex justify-between text-sm">
-                      <span className="text-gray-600">Rating</span>
-                      <span className="font-semibold text-yellow-600 flex items-center">
-                        <Star className="w-4 h-4 fill-current mr-1 text-yellow-500" /> 4.9/5.0
-                      </span>
+                      <span className="text-gray-600">Career Support</span>
+                      <span className="font-semibold text-green-700">Dedicated Placement Assistance</span>
+                    </div>
+                    <div className="flex justify-between text-sm">
+                      <span className="text-gray-600">Hands-on Access</span>
+                      <span className="font-semibold text-gray-900">S/4HANA Finance Server Access</span>
                     </div>
                   </div>
 
-                  <Link href="/#contact" className="block w-full">
-                    <Button className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-6 text-base">
-                      Enroll / Book Free Demo
-                    </Button>
-                  </Link>
+                  <div className="space-y-3">
+                    <a
+                      href="https://wa.me/919312340496?text=Hi%20Akshay,%20I%20am%20interested%20in%20the%20SAP%20FI%20Training%20Course.%20Please%20share%20the%20syllabus%20and%20next%20batch%20schedule."
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block w-full"
+                    >
+                      <Button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-6 text-base shadow-md">
+                        💬 Chat on WhatsApp (+91 9312340496)
+                      </Button>
+                    </a>
 
-                  <div className="text-center">
-                    <p className="text-xs text-gray-500">Have questions? Speak with our team:</p>
+                    <Link href="/#contact" className="block w-full">
+                      <Button variant="outline" className="w-full border-green-600 text-green-700 hover:bg-green-50 font-bold py-5 text-sm">
+                        Enroll / Book Free Demo
+                      </Button>
+                    </Link>
+                  </div>
+
+                  <div className="text-center pt-2">
+                    <p className="text-xs text-gray-500">Direct admission hotline:</p>
                     <a href="tel:+919312340496" className="text-sm font-bold text-green-700 hover:underline">
-                      +91-9312340496
+                      Call: +91-9312340496
                     </a>
                   </div>
                 </CardContent>
@@ -263,32 +286,32 @@ export default function SapFiCoursePage() {
         </div>
       </section>
 
-      {/* Related Financial Analytics & Cloud Security Tutorials */}
+      {/* Related Financial Accounting & Modernization Guides */}
       <section className="py-12 bg-white border-t border-gray-100">
         <div className="container-max px-4 sm:px-6">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl font-bold text-gray-900 mb-2">Related Financial Analytics & Modernization Guides</h2>
-            <p className="text-gray-600 text-sm mb-6">Explore predictive planning, financial analytics, and cloud compliance strategies.</p>
+            <h2 className="text-2xl font-bold text-gray-900 mb-2">Essential SAP FICO Learning & Career Guides</h2>
+            <p className="text-gray-600 text-sm mb-6">Explore our month-end checklists, career roadmaps, interview questions, and MM-FI integration tutorials.</p>
             <div className="grid sm:grid-cols-2 gap-4">
-              <Link href="/blog/sap-analytics-cloud-2025" className="p-4 rounded-xl border border-gray-200 hover:border-green-400 hover:shadow-md transition-all group bg-slate-50">
-                <span className="text-xs font-semibold text-green-700 uppercase tracking-wider">Business Intelligence</span>
-                <h3 className="font-bold text-gray-900 group-hover:text-green-700 text-sm sm:text-base mt-1">SAP Analytics Cloud 2025: Advanced Decision Making →</h3>
-                <p className="text-xs text-gray-500 mt-1 line-clamp-2">Learn how predictive analytics and collaborative financial planning transform enterprise reporting.</p>
+              <Link href="/blog/sap-fico-period-end-closing-activities-checklist" className="p-4 rounded-xl border border-gray-200 hover:border-green-400 hover:shadow-md transition-all group bg-slate-50">
+                <span className="text-xs font-semibold text-green-700 uppercase tracking-wider">Checklist</span>
+                <h3 className="font-bold text-gray-900 group-hover:text-green-700 text-sm sm:text-base mt-1">SAP FICO Period-End Closing Activities: Step-by-Step Checklist with T-Codes →</h3>
+                <p className="text-xs text-gray-500 mt-1 line-clamp-2">Master AP, AR, Asset Accounting (AFAB), Cost Center assessments (KSU5), and Financial Statements (F.01).</p>
               </Link>
-              <Link href="/blog/sap-cloud-security-2025" className="p-4 rounded-xl border border-gray-200 hover:border-green-400 hover:shadow-md transition-all group bg-slate-50">
-                <span className="text-xs font-semibold text-green-700 uppercase tracking-wider">Security & Compliance</span>
-                <h3 className="font-bold text-gray-900 group-hover:text-green-700 text-sm sm:text-base mt-1">SAP Cloud Security 2025: Protecting Financial Data →</h3>
-                <p className="text-xs text-gray-500 mt-1 line-clamp-2">Zero-trust architecture, identity management, and compliance automation for enterprise finance.</p>
+              <Link href="/blog/sap-fico-course-roadmap-career-guide" className="p-4 rounded-xl border border-gray-200 hover:border-green-400 hover:shadow-md transition-all group bg-slate-50">
+                <span className="text-xs font-semibold text-green-700 uppercase tracking-wider">Career Roadmap</span>
+                <h3 className="font-bold text-gray-900 group-hover:text-green-700 text-sm sm:text-base mt-1">SAP FICO Career Roadmap: Step-by-Step Guide for Commerce Graduates →</h3>
+                <p className="text-xs text-gray-500 mt-1 line-clamp-2">A mentor-backed 90-day roadmap covering real S/4HANA T-codes, salaries in India, and cracking interviews.</p>
               </Link>
-              <Link href="/blog/sap-erp-2025" className="p-4 rounded-xl border border-gray-200 hover:border-green-400 hover:shadow-md transition-all group bg-slate-50">
-                <span className="text-xs font-semibold text-green-700 uppercase tracking-wider">Modernization</span>
-                <h3 className="font-bold text-gray-900 group-hover:text-green-700 text-sm sm:text-base mt-1">SAP ERP 2025: Complete Modernization Strategy →</h3>
-                <p className="text-xs text-gray-500 mt-1 line-clamp-2">Process optimization, S/4HANA finance transition, and digital transformation roadmaps.</p>
+              <Link href="/blog/sap-fico-interview-questions-real-world" className="p-4 rounded-xl border border-gray-200 hover:border-green-400 hover:shadow-md transition-all group bg-slate-50">
+                <span className="text-xs font-semibold text-green-700 uppercase tracking-wider">Interview Prep</span>
+                <h3 className="font-bold text-gray-900 group-hover:text-green-700 text-sm sm:text-base mt-1">Top 50 SAP FICO Real-World Interview Questions & Answers →</h3>
+                <p className="text-xs text-gray-500 mt-1 line-clamp-2">50 scenario-based questions covering Universal Journal ACDOCA, Document Splitting, and Asset Accounting.</p>
               </Link>
-              <Link href="/blog/sap-salary-india-2025" className="p-4 rounded-xl border border-gray-200 hover:border-green-400 hover:shadow-md transition-all group bg-slate-50">
-                <span className="text-xs font-semibold text-green-700 uppercase tracking-wider">Career Growth</span>
-                <h3 className="font-bold text-gray-900 group-hover:text-green-700 text-sm sm:text-base mt-1">SAP FI Consultant Salary in India 2025 →</h3>
-                <p className="text-xs text-gray-500 mt-1 line-clamp-2">Salary ranges, certification value, and high-demand roles for financial accounting consultants.</p>
+              <Link href="/blog/sap-mm-fi-integration-obyc-guide" className="p-4 rounded-xl border border-gray-200 hover:border-green-400 hover:shadow-md transition-all group bg-slate-50">
+                <span className="text-xs font-semibold text-green-700 uppercase tracking-wider">Integration</span>
+                <h3 className="font-bold text-gray-900 group-hover:text-green-700 text-sm sm:text-base mt-1">SAP MM-FI Integration & OBYC Configuration Guide →</h3>
+                <p className="text-xs text-gray-500 mt-1 line-clamp-2">Valuation Class, Account Modifiers, Transaction Keys (BSX, WRX, PRD, GBB), and fixing MIGO/MIRO errors.</p>
               </Link>
             </div>
           </div>

@@ -24,8 +24,8 @@ import {
 } from 'lucide-react'
 
 export const metadata: Metadata = generateSEO({
-  title: 'SAP MM Training in India | Complete Course with 100% Placement Support',
-  description: 'Master SAP Materials Management (MM) with India\'s #1 SAP training institute. 10-12 weeks hands-on practical training, real-time projects, and guaranteed job placement support.',
+  title: 'SAP MM Training in India | Complete Course with Placement Assistance',
+  description: 'Master SAP Materials Management (MM) with ERP Academy. 10-12 weeks hands-on practical training, real-time S/4HANA projects, and dedicated job placement assistance.',
   keywords: [
     'SAP MM training India',
     'SAP MM course Delhi',
@@ -53,7 +53,8 @@ export default function SapMmCoursePage() {
       'Invoice Verification (MIRO)',
       'SAP S/4HANA Sourcing and Procurement'
     ],
-    url: pageUrl
+    url: pageUrl,
+    price: '25000'
   })
 
   const curriculum = [
@@ -264,40 +265,58 @@ export default function SapMmCoursePage() {
             <div className="lg:col-span-1 sticky top-24">
               <Card className="border-2 border-green-600 shadow-xl overflow-hidden">
                 <div className="bg-green-800 text-white p-6 text-center">
-                  <Badge className="bg-yellow-400 text-green-950 font-bold mb-2">Next Batch Starting Soon</Badge>
+                  <Badge className="bg-yellow-400 text-green-950 font-bold mb-2">Upcoming Cohorts: Dec 2026 / Jan 2027</Badge>
                   <h3 className="text-2xl font-bold mb-1">Enroll in SAP MM</h3>
-                  <p className="text-green-200 text-sm">Limited seats per batch for personalized mentoring</p>
+                  <p className="text-green-200 text-sm">Interactive Live Online | Max 15 Learners Per Batch</p>
                 </div>
                 <CardContent className="p-6 space-y-6">
                   <div className="space-y-3 border-b pb-4">
+                    <div className="flex justify-between items-center text-sm">
+                      <span className="text-gray-600">Course Fee</span>
+                      <div className="text-right">
+                        <span className="font-extrabold text-green-800 text-lg">₹25,000</span>
+                        <span className="text-xs text-gray-400 line-through ml-2">₹35,000</span>
+                      </div>
+                    </div>
                     <div className="flex justify-between text-sm">
                       <span className="text-gray-600">Instructor</span>
                       <span className="font-semibold text-gray-900">Akshay Kumar (6+ Yrs Exp)</span>
                     </div>
                     <div className="flex justify-between text-sm">
-                      <span className="text-gray-600">Batch Type</span>
-                      <span className="font-semibold text-gray-900">Weekend & Weekday</span>
+                      <span className="text-gray-600">Batch Format</span>
+                      <span className="font-semibold text-gray-900">Live Online Interactive</span>
                     </div>
                     <div className="flex justify-between text-sm">
-                      <span className="text-gray-600">Placement Support</span>
-                      <span className="font-semibold text-green-700">100% Assistance</span>
+                      <span className="text-gray-600">Career Support</span>
+                      <span className="font-semibold text-green-700">Dedicated Placement Assistance</span>
                     </div>
                     <div className="flex justify-between text-sm">
-                      <span className="text-gray-600">Student Rating</span>
-                      <span className="font-semibold text-yellow-600 flex items-center">
-                        <Star className="w-4 h-4 fill-current mr-1 text-yellow-500" /> 4.9/5.0 (500+ reviews)
-                      </span>
+                      <span className="text-gray-600">Hands-on Access</span>
+                      <span className="font-semibold text-gray-900">Real SAP S/4HANA Server Access</span>
                     </div>
                   </div>
 
-                  <Link href="/#contact" className="block w-full">
-                    <Button className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-6 text-base">
-                      Enroll / Request Call Back
-                    </Button>
-                  </Link>
+                  <div className="space-y-3">
+                    <a
+                      href="https://wa.me/919312340496?text=Hi%20Akshay,%20I%20am%20interested%20in%20the%20SAP%20MM%20Training%20Course.%20Please%20share%20the%20syllabus%20and%20next%20batch%20schedule."
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block w-full"
+                    >
+                      <Button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-6 text-base shadow-md">
+                        💬 Chat on WhatsApp (+91 9312340496)
+                      </Button>
+                    </a>
 
-                  <div className="text-center">
-                    <p className="text-xs text-gray-500">Need instant consultation?</p>
+                    <Link href="/#contact" className="block w-full">
+                      <Button variant="outline" className="w-full border-green-600 text-green-700 hover:bg-green-50 font-bold py-5 text-sm">
+                        Enroll / Request Call Back
+                      </Button>
+                    </Link>
+                  </div>
+
+                  <div className="text-center pt-2">
+                    <p className="text-xs text-gray-500">Direct admission hotline:</p>
                     <a href="tel:+919312340496" className="text-sm font-bold text-green-700 hover:underline">
                       Call: +91-9312340496
                     </a>
@@ -309,32 +328,32 @@ export default function SapMmCoursePage() {
         </div>
       </section>
 
-      {/* Related SAP MM & Supply Chain Tutorials */}
+      {/* Related SAP MM & S/4HANA In-Depth Guides */}
       <section className="py-12 bg-white border-t border-gray-100">
         <div className="container-max px-4 sm:px-6">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl font-bold text-gray-900 mb-2">Related SAP MM & Supply Chain Tutorials</h2>
-            <p className="text-gray-600 text-sm mb-6">Explore our in-depth procurement tutorials, salary breakdowns, and supplier collaboration guides.</p>
+            <h2 className="text-2xl font-bold text-gray-900 mb-2">Essential SAP MM & Career Learning Guides</h2>
+            <p className="text-gray-600 text-sm mb-6">Master enterprise procurement, interview questions, release strategies, and integration with our practical guides.</p>
             <div className="grid sm:grid-cols-2 gap-4">
-              <Link href="/blog/sap-mm-tutorial-beginners" className="p-4 rounded-xl border border-gray-200 hover:border-green-400 hover:shadow-md transition-all group bg-slate-50">
-                <span className="text-xs font-semibold text-green-700 uppercase tracking-wider">Beginner Guide</span>
-                <h3 className="font-bold text-gray-900 group-hover:text-green-700 text-sm sm:text-base mt-1">SAP MM Tutorial for Beginners: First 30 Days Roadmap →</h3>
-                <p className="text-xs text-gray-500 mt-1 line-clamp-2">Master transaction codes, purchase requisitions, and end-to-end procurement cycles.</p>
+              <Link href="/blog/sap-mm-explained-procurement-inventory-business-process" className="p-4 rounded-xl border border-gray-200 hover:border-green-400 hover:shadow-md transition-all group bg-slate-50">
+                <span className="text-xs font-semibold text-green-700 uppercase tracking-wider">Business Process</span>
+                <h3 className="font-bold text-gray-900 group-hover:text-green-700 text-sm sm:text-base mt-1">SAP MM Explained: The Complete Procurement & Inventory P2P Process →</h3>
+                <p className="text-xs text-gray-500 mt-1 line-clamp-2">Complete walkthrough of PR, PO, MIGO, MIRO, valuation classes, and automatic account determination.</p>
               </Link>
-              <Link href="/blog/sap-business-network-2025" className="p-4 rounded-xl border border-gray-200 hover:border-green-400 hover:shadow-md transition-all group bg-slate-50">
-                <span className="text-xs font-semibold text-green-700 uppercase tracking-wider">Supply Chain</span>
-                <h3 className="font-bold text-gray-900 group-hover:text-green-700 text-sm sm:text-base mt-1">SAP Business Network 2025: Enhancing Supplier Collaboration →</h3>
-                <p className="text-xs text-gray-500 mt-1 line-clamp-2">Understand modern supplier discovery, digital purchase orders, and supply chain resilience.</p>
+              <Link href="/blog/sap-mm-interview-preparation-practical-questions-answers" className="p-4 rounded-xl border border-gray-200 hover:border-green-400 hover:shadow-md transition-all group bg-slate-50">
+                <span className="text-xs font-semibold text-green-700 uppercase tracking-wider">Interview Prep</span>
+                <h3 className="font-bold text-gray-900 group-hover:text-green-700 text-sm sm:text-base mt-1">Top 40 SAP MM Practical Scenario Interview Questions & Answers →</h3>
+                <p className="text-xs text-gray-500 mt-1 line-clamp-2">Real-world scenario questions on split valuation, consignment, STO, and PO release strategies.</p>
               </Link>
-              <Link href="/blog/sap-salary-india-2025" className="p-4 rounded-xl border border-gray-200 hover:border-green-400 hover:shadow-md transition-all group bg-slate-50">
-                <span className="text-xs font-semibold text-green-700 uppercase tracking-wider">Career & Salary</span>
-                <h3 className="font-bold text-gray-900 group-hover:text-green-700 text-sm sm:text-base mt-1">SAP Salary in India 2025: Consultant Pay Breakdown →</h3>
-                <p className="text-xs text-gray-500 mt-1 line-clamp-2">Comprehensive data on SAP MM consultant compensation, salary growth, and certification impact.</p>
+              <Link href="/blog/sap-mm-release-strategy-configuration-guide" className="p-4 rounded-xl border border-gray-200 hover:border-green-400 hover:shadow-md transition-all group bg-slate-50">
+                <span className="text-xs font-semibold text-green-700 uppercase tracking-wider">Configuration</span>
+                <h3 className="font-bold text-gray-900 group-hover:text-green-700 text-sm sm:text-base mt-1">SAP MM Release Strategy Configuration: Complete Step-by-Step Guide →</h3>
+                <p className="text-xs text-gray-500 mt-1 line-clamp-2">Master classification, Characteristics (CT04), Class (CL02), SPRO Release Groups, and PO approvals.</p>
               </Link>
-              <Link href="/blog/sap-mm-training-india" className="p-4 rounded-xl border border-gray-200 hover:border-green-400 hover:shadow-md transition-all group bg-slate-50">
-                <span className="text-xs font-semibold text-green-700 uppercase tracking-wider">Training Guide</span>
-                <h3 className="font-bold text-gray-900 group-hover:text-green-700 text-sm sm:text-base mt-1">SAP MM Training in India: Fees, Duration & Placement →</h3>
-                <p className="text-xs text-gray-500 mt-1 line-clamp-2">Everything you need to know about preparing for high-paying enterprise consultant roles.</p>
+              <Link href="/blog/sap-mm-fi-integration-obyc-guide" className="p-4 rounded-xl border border-gray-200 hover:border-green-400 hover:shadow-md transition-all group bg-slate-50">
+                <span className="text-xs font-semibold text-green-700 uppercase tracking-wider">Integration</span>
+                <h3 className="font-bold text-gray-900 group-hover:text-green-700 text-sm sm:text-base mt-1">SAP MM-FI Integration & OBYC Configuration Guide →</h3>
+                <p className="text-xs text-gray-500 mt-1 line-clamp-2">Valuation Class, Account Modifiers, Transaction Keys (BSX, WRX, PRD, GBB), and fixing MIGO/MIRO errors.</p>
               </Link>
             </div>
           </div>

@@ -176,12 +176,14 @@ export function getCourseSchema({
   name,
   description,
   teaches,
-  url = 'https://erp-academy.vercel.app/'
+  url = 'https://erp-academy.vercel.app/',
+  price = '25000'
 }: {
   name: string
   description: string
   teaches: string[]
   url?: string
+  price?: string
 }) {
   return {
     "@context": "https://schema.org",
@@ -203,7 +205,7 @@ export function getCourseSchema({
     "timeRequired": "P3M",
     "teaches": teaches,
     "coursePrerequisites": "Basic computer knowledge and understanding of business processes",
-    "financialAid": "Scholarship and flexible EMI options available",
+    "financialAid": "Flexible EMI options available",
     "hasCourseInstance": {
       "@type": "CourseInstance",
       "courseMode": "online",
@@ -215,16 +217,16 @@ export function getCourseSchema({
     "offers": {
       "@type": "Offer",
       "category": "Education",
-      "price": "Contact for pricing",
+      "price": price,
       "priceCurrency": "INR",
-      "availability": "InStock",
-      "validFrom": "2025-01-01",
+      "availability": "https://schema.org/InStock",
+      "validFrom": "2026-01-01",
       "url": url
     },
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "4.9",
-      "reviewCount": "500",
+      "reviewCount": "250",
       "bestRating": "5",
       "worstRating": "1"
     }

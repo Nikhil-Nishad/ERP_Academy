@@ -97,7 +97,7 @@ ERP Academy provides live, hands-on training led by senior SAP consultant Akshay
 
 ### AI Ethics
 
-- [SAP AI Ethics 2025: Responsible AI for Enterprise](https://erp-academy.vercel.app/blog/sap-ai-ethics-2025): Comprehensive framework for responsible AI implementation covering transparency, fairness, accountability, privacy protection, and ethical considerations for enterprise AI deployment.
+- [SAP Business AI Ethics & Governance Architecture: Joule, SAP AI Core & Enterprise Compliance (2026)](https://erp-academy.vercel.app/blog/sap-ai-ethics-2025): Master the technical architecture of SAP Business AI. Learn how SAP AI Core, Joule copilot, and BTP Generative AI Hub maintain data isolation, zero-bias governance, and compliance in S/4HANA.
 
 ### IoT Technology
 

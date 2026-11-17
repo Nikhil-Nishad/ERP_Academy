@@ -23,7 +23,7 @@ import {
 
 export const metadata: Metadata = generateSEO({
   title: 'SAP HANA Training in India | S/4HANA Certification with Placement Assistance',
-  description: 'Master in-memory database architecture, HANA Modeling, CDS Views, and S/4HANA migration with ERP Academy. Hands-on labs & guaranteed placement assistance.',
+  description: 'Master in-memory database architecture, HANA Modeling, CDS Views, and S/4HANA migration with ERP Academy. Hands-on labs with dedicated placement assistance.',
   keywords: [
     'SAP HANA training India',
     'SAP S4HANA course Delhi',
@@ -50,7 +50,8 @@ export default function SapHanaCoursePage() {
       'Data Provisioning with SLT & SDI',
       'S/4HANA Conversion & Brownfield/Greenfield Migration'
     ],
-    url: pageUrl
+    url: pageUrl,
+    price: '30000'
   })
 
   const curriculum = [
@@ -223,38 +224,60 @@ export default function SapHanaCoursePage() {
             <div className="lg:col-span-1 sticky top-24">
               <Card className="border-2 border-green-600 shadow-xl overflow-hidden">
                 <div className="bg-green-800 text-white p-6 text-center">
-                  <Badge className="bg-yellow-400 text-green-950 font-bold mb-2">Weekend Batch Open</Badge>
+                  <Badge className="bg-yellow-400 text-green-950 font-bold mb-2">Upcoming Cohorts: Dec 2026 / Jan 2027</Badge>
                   <h3 className="text-2xl font-bold mb-1">Enroll in SAP HANA</h3>
-                  <p className="text-green-200 text-sm">Comprehensive hands-on training with placement</p>
+                  <p className="text-green-200 text-sm">Interactive Live Online | Max 15 Learners Per Batch</p>
                 </div>
                 <CardContent className="p-6 space-y-6">
                   <div className="space-y-3 border-b pb-4">
+                    <div className="flex justify-between items-center text-sm">
+                      <span className="text-gray-600">Course Fee</span>
+                      <div className="text-right">
+                        <span className="font-extrabold text-green-800 text-lg">₹30,000</span>
+                        <span className="text-xs text-gray-400 line-through ml-2">₹40,000</span>
+                      </div>
+                    </div>
                     <div className="flex justify-between text-sm">
                       <span className="text-gray-600">Instructor</span>
-                      <span className="font-semibold text-gray-900">Akshay Kumar</span>
+                      <span className="font-semibold text-gray-900">Akshay Kumar (6+ Yrs Exp)</span>
                     </div>
                     <div className="flex justify-between text-sm">
-                      <span className="text-gray-600">Placement Support</span>
-                      <span className="font-semibold text-green-700">100% Assistance</span>
+                      <span className="text-gray-600">Batch Format</span>
+                      <span className="font-semibold text-gray-900">Live Online Interactive</span>
                     </div>
                     <div className="flex justify-between text-sm">
-                      <span className="text-gray-600">Rating</span>
-                      <span className="font-semibold text-yellow-600 flex items-center">
-                        <Star className="w-4 h-4 fill-current mr-1 text-yellow-500" /> 4.9/5.0
-                      </span>
+                      <span className="text-gray-600">Career Support</span>
+                      <span className="font-semibold text-green-700">Dedicated Placement Assistance</span>
+                    </div>
+                    <div className="flex justify-between text-sm">
+                      <span className="text-gray-600">Hands-on Access</span>
+                      <span className="font-semibold text-gray-900">Live SAP HANA 2.0 SPS06 Server</span>
                     </div>
                   </div>
 
-                  <Link href="/#contact" className="block w-full">
-                    <Button className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-6 text-base">
-                      Enroll / Book Free Demo
-                    </Button>
-                  </Link>
+                  <div className="space-y-3">
+                    <a
+                      href="https://wa.me/919312340496?text=Hi%20Akshay,%20I%20am%20interested%20in%20the%20SAP%20HANA%20Training%20Course.%20Please%20share%20the%20syllabus%20and%20next%20batch%20schedule."
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block w-full"
+                    >
+                      <Button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-6 text-base shadow-md">
+                        💬 Chat on WhatsApp (+91 9312340496)
+                      </Button>
+                    </a>
 
-                  <div className="text-center">
-                    <p className="text-xs text-gray-500">Call our career counselors:</p>
+                    <Link href="/#contact" className="block w-full">
+                      <Button variant="outline" className="w-full border-green-600 text-green-700 hover:bg-green-50 font-bold py-5 text-sm">
+                        Enroll / Book Free Demo
+                      </Button>
+                    </Link>
+                  </div>
+
+                  <div className="text-center pt-2">
+                    <p className="text-xs text-gray-500">Direct admission hotline:</p>
                     <a href="tel:+919312340496" className="text-sm font-bold text-green-700 hover:underline">
-                      +91-9312340496
+                      Call: +91-9312340496
                     </a>
                   </div>
                 </CardContent>
@@ -264,32 +287,32 @@ export default function SapHanaCoursePage() {
         </div>
       </section>
 
-      {/* Related Technical Guides & Tutorials */}
+      {/* Related SAP HANA & S/4HANA Modern Architecture Guides */}
       <section className="py-12 bg-white border-t border-gray-100">
         <div className="container-max px-4 sm:px-6">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl font-bold text-gray-900 mb-2">Related SAP HANA & S/4HANA Guides</h2>
-            <p className="text-gray-600 text-sm mb-6">Deep dive into in-memory optimization and enterprise migration strategies with our expert tutorials.</p>
+            <h2 className="text-2xl font-bold text-gray-900 mb-2">Essential SAP HANA & S/4HANA Architecture Guides</h2>
+            <p className="text-gray-600 text-sm mb-6">Explore in-memory modeling, CDS views, Greenfield vs Brownfield migrations, and Clean Core strategies.</p>
             <div className="grid sm:grid-cols-2 gap-4">
-              <Link href="/blog/optimizing-sap-hana-column-store-compression" className="p-4 rounded-xl border border-gray-200 hover:border-green-400 hover:shadow-md transition-all group bg-slate-50">
-                <span className="text-xs font-semibold text-green-700 uppercase tracking-wider">Technical Guide</span>
-                <h3 className="font-bold text-gray-900 group-hover:text-green-700 text-sm sm:text-base mt-1">Optimizing SAP HANA Column Store Compression for Real-Time Analytics →</h3>
-                <p className="text-xs text-gray-500 mt-1 line-clamp-2">Learn practical steps for tuning compression algorithms and memory management in SAP HANA.</p>
+              <Link href="/blog/sap-s4hana-modern-erp-architecture-skills-guide" className="p-4 rounded-xl border border-gray-200 hover:border-green-400 hover:shadow-md transition-all group bg-slate-50">
+                <span className="text-xs font-semibold text-green-700 uppercase tracking-wider">Modern Architecture</span>
+                <h3 className="font-bold text-gray-900 group-hover:text-green-700 text-sm sm:text-base mt-1">What is SAP S/4HANA? Modern ERP Architecture & Essential Skills →</h3>
+                <p className="text-xs text-gray-500 mt-1 line-clamp-2">In-memory computing, Universal Journal ACDOCA, Fiori UX, and skills every modern consultant needs.</p>
               </Link>
-              <Link href="/blog/future-of-sap-s4hana-2025" className="p-4 rounded-xl border border-gray-200 hover:border-green-400 hover:shadow-md transition-all group bg-slate-50">
-                <span className="text-xs font-semibold text-green-700 uppercase tracking-wider">Architecture</span>
-                <h3 className="font-bold text-gray-900 group-hover:text-green-700 text-sm sm:text-base mt-1">The Future of SAP S/4HANA: What You Need to Know in 2025 →</h3>
-                <p className="text-xs text-gray-500 mt-1 line-clamp-2">Explore clean core architecture, RISE with SAP, and AI integration shaping the modern ERP suite.</p>
+              <Link href="/blog/sap-cds-views-s4hana-architecture-guide" className="p-4 rounded-xl border border-gray-200 hover:border-green-400 hover:shadow-md transition-all group bg-slate-50">
+                <span className="text-xs font-semibold text-green-700 uppercase tracking-wider">Modeling & CDS</span>
+                <h3 className="font-bold text-gray-900 group-hover:text-green-700 text-sm sm:text-base mt-1">SAP CDS Views in S/4HANA: Architecture, VDM Layers & DDL Guide →</h3>
+                <p className="text-xs text-gray-500 mt-1 line-clamp-2">Basic vs Composite vs Consumption views, DDL source code syntax, key annotations, and HANA optimization.</p>
               </Link>
-              <Link href="/blog/generative-ai-sap-s4hana-cloud-migration" className="p-4 rounded-xl border border-gray-200 hover:border-green-400 hover:shadow-md transition-all group bg-slate-50">
-                <span className="text-xs font-semibold text-green-700 uppercase tracking-wider">Cloud Migration</span>
-                <h3 className="font-bold text-gray-900 group-hover:text-green-700 text-sm sm:text-base mt-1">Generative AI Revolution: Accelerating SAP S/4HANA Migration →</h3>
-                <p className="text-xs text-gray-500 mt-1 line-clamp-2">Discover how AI assists with code remediation and data model conversion for cloud migrations.</p>
+              <Link href="/blog/sap-s4hana-greenfield-vs-brownfield-migration-guide" className="p-4 rounded-xl border border-gray-200 hover:border-green-400 hover:shadow-md transition-all group bg-slate-50">
+                <span className="text-xs font-semibold text-green-700 uppercase tracking-wider">Migration Strategy</span>
+                <h3 className="font-bold text-gray-900 group-hover:text-green-700 text-sm sm:text-base mt-1">SAP S/4HANA Greenfield vs Brownfield: Architecture & Decision Matrix →</h3>
+                <p className="text-xs text-gray-500 mt-1 line-clamp-2">Compare Greenfield, Brownfield (System Conversion), and Selective Data Transition with Clean Core principles.</p>
               </Link>
-              <Link href="/blog/retrieval-augmented-generation-s4hana-query-assistance" className="p-4 rounded-xl border border-gray-200 hover:border-green-400 hover:shadow-md transition-all group bg-slate-50">
-                <span className="text-xs font-semibold text-green-700 uppercase tracking-wider">Enterprise AI</span>
-                <h3 className="font-bold text-gray-900 group-hover:text-green-700 text-sm sm:text-base mt-1">Boosting S/4HANA User Queries with Retrieval-Augmented Generation →</h3>
-                <p className="text-xs text-gray-500 mt-1 line-clamp-2">A hands-on implementation guide to connecting enterprise knowledge graphs with S/4HANA.</p>
+              <Link href="/blog/sap-clean-core-strategy-s4hana-guide" className="p-4 rounded-xl border border-gray-200 hover:border-green-400 hover:shadow-md transition-all group bg-slate-50">
+                <span className="text-xs font-semibold text-green-700 uppercase tracking-wider">Clean Core</span>
+                <h3 className="font-bold text-gray-900 group-hover:text-green-700 text-sm sm:text-base mt-1">Why SAP Clean Core Is Making or Breaking S/4HANA Migrations →</h3>
+                <p className="text-xs text-gray-500 mt-1 line-clamp-2">Practical architect guide to Clean Core, eliminating custom Z-programs, ABAP Cloud, and BTP extensions.</p>
               </Link>
             </div>
           </div>
